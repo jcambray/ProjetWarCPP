@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/fond" lang="French">
+        <file alias="background">images/fondAcceuil.jpg</file>
+        <file alias="Lexique">images/fond.jpg</file>
+        <file alias="Bouton">images/fond_parchemin.png</file>
+    </qresource>
+</RCC>

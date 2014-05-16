@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lexique>
+	<area id="0" value = "area1" />
+
+	<nation id="0" value = "L'Égypte antique est une ancienne civilisation d'Afrique du Nord-Est concentrée le long du cours inférieur du Nil, dans ce qui constitue aujourd'hui l'Égypte." />
+	<nation id="1" value = "L'expression Grèce antique renvoie à la civilisation des peuples de langue et de culture grecques durant l'Antiquité." />
+			
+	<power id="0" value = "p1" />
+
+	<rules id="0" value = "r1" />
+
+</lexique>
