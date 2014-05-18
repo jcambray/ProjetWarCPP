@@ -8,7 +8,7 @@
 gameMap::gameMap()
 {
     viewer = new TmxViewer;
-    viewer->viewMap(QString(QLatin1String("mapBis.tmx")));
+    viewer->viewMap(QString(QLatin1String("desert.tmx")));
 }
 
 
