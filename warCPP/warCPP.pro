@@ -7,7 +7,7 @@
 QT       += core gui
 QT += xml
 
-include(libtiled\libtiled.pro)
+include(C:\Users\jerome\Documents\Qt Projects\warC++\libtiled.pro)
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
