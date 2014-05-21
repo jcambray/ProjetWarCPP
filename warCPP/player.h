@@ -6,10 +6,19 @@ class player
 {
 public:
     player();
-    player(const player &);
+    player(int numOrdre,QString _name, QString nation,QString power);
+    player(const player &); 
+    bool operator <(const player &);
+    int getToken();
+    int getScore();
+    void setToken(int t);
+    void setScore(int s);
 
 
+private:
 
+    int numeroOrdre,token,score;
+    QString name,nation,power;
 
 };
 

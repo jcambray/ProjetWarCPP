@@ -5,7 +5,6 @@
 #include "mainwindow.h"
 
 
-
 class game : public QWidget
 {
 
@@ -25,8 +24,7 @@ public slots:
 private:
 
     MainWindow *mainW;
-    Partie *partie;
-
+    Partie * partie;
 };
 
 

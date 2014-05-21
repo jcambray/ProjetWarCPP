@@ -8,15 +8,15 @@ Partie::Partie()
     map = new gameMap();
 }
 
-Partie::Partie(const qint16 nbJoueurs)
+Partie::Partie(const int nbJoueurs)
 {
     currentPlayer = NULL;
     nbPlayers = nbJoueurs;
-    joueurs = new QVector<player>(nbPlayers);
+    joueurs = new QVector<player>();
     map = new gameMap();
 }
 
-void Partie::setCurrentPlayer(const qint16 nb)
+void Partie::setCurrentPlayer(const int nb)
 {
     if(nb > 0 && nb < nbPlayers)
     {

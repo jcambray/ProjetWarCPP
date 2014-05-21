@@ -1,19 +1,21 @@
 #ifndef PARTIE_H
 #define PARTIE_H
 #include <QString>
-#include <Qvector>
+#include <QVector>
 #include "player.h"
 #include "gamemap.h"
 #include "QSaveFile"
+
+
 
 
 class Partie
 {
 public:
     Partie();
-    Partie(const qint16 nbJoueurs);
+    Partie(const int nbJoueurs);
     Partie(const Partie&);
-    void setCurrentPlayer(const qint16);
+    void setCurrentPlayer(const int);
     ~Partie();
 
     bool save();

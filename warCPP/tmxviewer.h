@@ -31,6 +31,7 @@
 
 #include <QGraphicsView>
 #include <QMouseEvent>
+#include <QDebug>
 
 namespace Tiled {
 class Map;
@@ -46,6 +47,7 @@ public:
     ~TmxViewer();
 
     void viewMap(const QString &fileName);
+
 
 private:
     QGraphicsScene *mScene;

@@ -173,7 +173,6 @@ TmxViewer::TmxViewer(QWidget *parent) :
 
 
 
-
 TmxViewer::~TmxViewer()
 {
     qDeleteAll(mMap->tilesets());

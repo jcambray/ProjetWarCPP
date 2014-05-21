@@ -12,12 +12,18 @@ gameMap::gameMap()
 }
 
 
+gameMap::gameMap(const gameMap &map)
+{
+    if(map.viewer != NULL)
+    {
+        viewer = map.viewer;
+    }
+}
 
 mapItem * gameMap::addItem(const QString & img, int x, int y)
 {
    QPixmap image(img);
    mapItem * item = reinterpret_cast<mapItem *>(viewer->scene()->addPixmap(image));
-   //item->setFlag(QGraphicsItem::ItemIsMovable,true);
    item->setPos(x,y);
    return item;
 }
@@ -33,6 +39,11 @@ void gameMap::addAllItems(){
 TmxViewer * gameMap::getViewer()
 {
     return viewer;
+}
+
+gameMap::~gameMap()
+{
+    delete  viewer;
 }
 
 
