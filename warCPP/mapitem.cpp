@@ -5,12 +5,18 @@ mapItem::mapItem() : QGraphicsPixmapItem()
 {
 }
 
-mapItem::mapItem(const QString &_name){
+mapItem::mapItem(const QString &_name, const QString &_type){
     name = _name;
+    type = _type;
 }
 
 void mapItem::setName(const QString &_name){
     name = _name;
+}
+
+void mapItem::setType(const QString & newType)
+{
+    type = newType;
 }
 
 const QString & mapItem::getName()
@@ -24,4 +30,6 @@ void mapItem::mousePressEvent(QGraphicsSceneMouseEvent *event){
     QMessageBox::information(0,QLatin1String("test"),QLatin1String("Event Working!!"));
 
 }
+
+
 

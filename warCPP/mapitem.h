@@ -9,14 +9,15 @@ class mapItem : public QGraphicsPixmapItem
 {
 public:
     mapItem();
-    mapItem(const QString & _name);
+    mapItem(const QString & _name, const QString & _type);
     void setName(const QString & _name);
+    void setType(const QString & newType);
     const QString & getName();
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 
 private:
 
-    QString name;
+    QString name,type;
 };
 
 #endif // MAPITEM_H
