@@ -36,6 +36,11 @@ void gameMap::addAllItems(){
 
 }
 
+QMap<QString,mapItem> gameMap::getItems()
+{
+    return items;
+}
+
 TmxViewer * gameMap::getViewer()
 {
     return viewer;

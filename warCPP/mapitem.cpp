@@ -10,6 +10,12 @@ mapItem::mapItem(const QString &_name, const QString &_type){
     type = _type;
 }
 
+mapItem::mapItem(const mapItem &m)
+{
+    name = m.name;
+    type = m.type;
+}
+
 void mapItem::setName(const QString &_name){
     name = _name;
 }

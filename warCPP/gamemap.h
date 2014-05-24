@@ -22,10 +22,13 @@ public:
     //ajoute les items sur la map
     void addAllItems();
 
+    QMap<QString,mapItem> getItems();
+
 
 private:
 
     TmxViewer *viewer;
+    QMap<QString,mapItem> items;
 };
 
 #endif // GAMEMAP_H
