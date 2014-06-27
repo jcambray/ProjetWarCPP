@@ -43,5 +43,18 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui \
     Lexique.ui
 
+OTHER_FILES += \
+    images/fondAcceuil.jpg \
+        images/area \
+        images/Rules \
+        images/Power \
+        images/Nation/1 \
+        images/Nation/2 \
+    lexique.xml \
+    images/fond.jpg \
+    images/Nation/1.jpg \
+    images/Nation/2.jpg \
+    images/fond_parchemin.png
+
 RESOURCES += \
     res.qrc

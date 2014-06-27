@@ -5,7 +5,7 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include "tmxviewer.h"
-
+#include "glossary.h"
 
 
 
@@ -31,12 +31,16 @@ signals:
    void createPartie();
 
 public slots:
-
-void btnNouvellePartieClicked();
+    void printArea();
+    void printNation();
+    void printPower();
+    void printRules();
+    void btnNouvellePartieClicked();
 
 private:
 
     Ui::MainWindow *ui;
+    Glossary *g;
     QMenu *fichierMenu,*nvllePartieMenu,*chargerPartieMenu,*quitMenu;
 
 
