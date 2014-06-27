@@ -72,7 +72,17 @@ background-image: url(:/fond/background);
     <addaction name="actionCharger_Partie"/>
     <addaction name="actionQuitter"/>
    </widget>
+   <widget class="QMenu" name="menuLexique">
+    <property name="title">
+     <string>Lexique</string>
+    </property>
+    <addaction name="actionR_gles"/>
+    <addaction name="actionR_gions"/>
+    <addaction name="actionPeuples"/>
+    <addaction name="actionPouvoirs"/>
+   </widget>
    <addaction name="menuFichier"/>
+   <addaction name="menuLexique"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -96,6 +106,26 @@ background-image: url(:/fond/background);
   <action name="actionQuitter">
    <property name="text">
     <string>Quitter</string>
+   </property>
+  </action>
+  <action name="actionR_gles">
+   <property name="text">
+    <string>Règles</string>
+   </property>
+  </action>
+  <action name="actionR_gions">
+   <property name="text">
+    <string>Régions</string>
+   </property>
+  </action>
+  <action name="actionPeuples">
+   <property name="text">
+    <string>Peuples</string>
+   </property>
+  </action>
+  <action name="actionPouvoirs">
+   <property name="text">
+    <string>Pouvoirs</string>
    </property>
   </action>
  </widget>
