@@ -28,22 +28,22 @@ void MainWindow::btnNouvellePartieClicked()
 }
 
 void MainWindow::printArea(){
-    g->setName("area");
+    g->setName(QLatin1String("area"));
     g->print();
 }
 
 void MainWindow::printNation(){
-    g->setName("nation");
+    g->setName(QLatin1String("nation"));
     g->print();
 }
 
 void MainWindow::printPower(){
-    g->setName("power");
+    g->setName(QLatin1String("power"));
     g->print();
 }
 
 void MainWindow::printRules(){
-    g->setName("rules");
+    g->setName(QLatin1String("rules"));
     g->print();
 }
 

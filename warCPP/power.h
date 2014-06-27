@@ -6,7 +6,7 @@ class Power
 {
 public:
     Power();
-<<<<<<< HEAD
+
     Power(const Power &);
     Power(QString,int,int);
     QString getName();
@@ -19,14 +19,6 @@ private:
 
     QString name;
     int bonus,token;
-=======
-
-private:
-    QString name;
-    int bonus;
-    int nbToken;
-
->>>>>>> f280cad727cc927957c86216913252c7260f2ae0
 };
 
 #endif // POWER_H

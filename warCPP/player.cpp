@@ -2,7 +2,7 @@
 
 player::player()
 {
-    name ="player";
+    name = QLatin1String("player");
     nat = new Nation();
     pow = new Power();
     token =0;
@@ -10,7 +10,7 @@ player::player()
     numeroOrdre=0;
 }
 
-player(int numOrdre,QString _name, Nation *nation,Power *power)
+player::player(int numOrdre,QString _name, Nation *nation,Power *power)
 {
     name = _name;
     numeroOrdre = numOrdre;
@@ -24,8 +24,8 @@ player::player(const player & p)
    token = p.token;
    score = p.score;
    name = p.name;
-   nation = p.nation;
-   power = p.power;
+   nat = p.nat;
+   pow = p.pow;
 }
 
 bool player::operator <(const player &p)
@@ -33,28 +33,29 @@ bool player::operator <(const player &p)
     return (numeroOrdre < p.numeroOrdre) ? true : false;
 }
 
-Nation *player::getNation(){
-    return(nat);
+Nation * player::getNation(){
+    return nat;
 }
 
-Power *player::getPower(){
-    return(pow);
+Power * player::getPower(){
+    return pow;
 }
 
 int player::getToken(){
-    return(token);
+    return token;
 }
 
 int player::getScore(){
-    return(score);
+    return score;
 }
 
-void player::setNation(Nation &nation){
+void player::setNation(Nation * nation)
+{
     nat = nation;
 }
 
-void player::setPower(Power &power){
-    pow=power;
+void player::setPower(Power * power){
+    pow = power;
 }
 
 void player::setToken(int t){

@@ -3,7 +3,7 @@
 Nation::Nation()
 {
 }
-<<<<<<< HEAD
+
 
 Nation::Nation(QString nom, int bon, int tok)
 {
@@ -11,5 +11,4 @@ Nation::Nation(QString nom, int bon, int tok)
     bonus = bon;
     token = tok;
 }
-=======
->>>>>>> f280cad727cc927957c86216913252c7260f2ae0
+
