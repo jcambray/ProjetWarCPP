@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     tmxviewer.cpp \
     glossary.cpp \
     lexiquewindow.cpp \
-    power.cpp
+    power.cpp \
+    nation.cpp
 
 HEADERS  += mainwindow.h \
     game.h \
@@ -36,7 +37,8 @@ HEADERS  += mainwindow.h \
     tmxviewer.h \
     glossary.h \
     lexiquewindow.h \
-    power.h
+    power.h \
+    nation.h
 
 FORMS    += mainwindow.ui \
     Lexique.ui
