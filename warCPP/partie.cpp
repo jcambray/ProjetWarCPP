@@ -14,6 +14,7 @@ Partie::Partie(const int nbJoueurs)
     nbPlayers = nbJoueurs;
     joueurs = new QVector<player>();
     map = new gameMap();
+    map->setMapItemsScale(1.4);
 }
 
 void Partie::setCurrentPlayer(const int nb)

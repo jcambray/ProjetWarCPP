@@ -46,6 +46,15 @@ TmxViewer * gameMap::getViewer()
     return viewer;
 }
 
+void gameMap::setMapItemsScale(double coeff)
+{
+    QList<QGraphicsItem *> items = viewer->items();
+    for(int i = 0; i < items.count();i++)
+    {
+        items[i]->setScale(coeff);
+    }
+}
+
 gameMap::~gameMap()
 {
     delete  viewer;

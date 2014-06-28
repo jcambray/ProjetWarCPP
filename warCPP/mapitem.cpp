@@ -34,7 +34,6 @@ void mapItem::mousePressEvent(QGraphicsSceneMouseEvent *event){
     QGraphicsItem::mousePressEvent(event);
     qDebug() <<"click";
     QMessageBox::information(0,QLatin1String("test"),QLatin1String("Event Working!!"));
-
 }
 
 

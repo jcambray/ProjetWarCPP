@@ -22,7 +22,10 @@ public:
     //ajoute les items sur la map
     void addAllItems();
 
+    //retourne la liste des éléments graphiques de la map
     QMap<QString,mapItem> getItems();
+
+    void setMapItemsScale(double coeff);
 
 
 private:
