@@ -6,8 +6,11 @@
 
 using namespace Tiled;
 
-class gameMap
+class gameMap : public QObject
 {
+
+    Q_OBJECT
+
 public:
     gameMap();
     gameMap(const gameMap & map);
@@ -17,21 +20,22 @@ public:
     TmxViewer * getViewer();
 
     //affiche un item sur la map à partir d'une image
-    mapItem * addItem(const QString & img,int x, int y);
+    mapItem *addItem(mapItem *, int x, int y);
 
     //ajoute les items sur la map
     void addAllItems();
 
     //retourne la liste des éléments graphiques de la map
-    QMap<QString,mapItem> getItems();
+    QMap<QString, mapItem *> *getItems();
 
+    //Agrandit chaque carre de la map en fonction du coefficient
     void setMapItemsScale(double coeff);
 
 
 private:
 
     TmxViewer *viewer;
-    QMap<QString,mapItem> items;
+    QMap<QString,mapItem *> *items;
 };
 
 #endif // GAMEMAP_H

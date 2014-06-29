@@ -5,9 +5,11 @@
 #include <QDebug>
 
 
+
 gameMap::gameMap()
 {
     viewer = new TmxViewer;
+    items = new QMap<QString,mapItem *>();
     viewer->viewMap(QString(QLatin1String("map\\mapBis.tmx")));
 }
 
@@ -16,27 +18,32 @@ gameMap::gameMap(const gameMap &map)
 {
     if(map.viewer != NULL)
     {
+        delete viewer;
         viewer = map.viewer;
+    }
+    if(map.items != NULL)
+    {
+        delete items;
+        items = map.items;
     }
 }
 
-mapItem * gameMap::addItem(const QString & img, int x, int y)
+mapItem * gameMap::addItem(mapItem * item, int x, int y)
 {
-   QPixmap image(img);
-   mapItem * item = reinterpret_cast<mapItem *>(viewer->scene()->addPixmap(image));
+   viewer->scene()->addItem(item);
    item->setPos(x,y);
+   items->insert(item->getName(),item);
    return item;
 }
 
 void gameMap::addAllItems(){
 
-   mapItem * monsterItem;
-   monsterItem = addItem(QLatin1String("monster.jpg"),130,250);
-   monsterItem->setScale(0.3);
-
+    mapItem *it = new mapItem(QLatin1String("greenMonster"),QLatin1String("race"),QPixmap(QLatin1String("images\\monster.jpg")));
+    addItem(it,300,180);
+    it->setScale(0.3);
 }
 
-QMap<QString,mapItem> gameMap::getItems()
+QMap<QString,mapItem *> * gameMap::getItems()
 {
     return items;
 }

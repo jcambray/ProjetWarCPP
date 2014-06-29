@@ -158,7 +158,7 @@ TmxViewer::TmxViewer(QWidget *parent) :
     mMap(0),
     mRenderer(0)
 {
-    setWindowTitle(tr("TMX Viewer"));
+    setWindowTitle(tr("WAR C++"));
 
     setScene(mScene);
     setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
@@ -167,10 +167,8 @@ TmxViewer::TmxViewer(QWidget *parent) :
                          | QGraphicsView::DontSavePainterState);
     setBackgroundBrush(Qt::black);
     setFrameStyle(QFrame::NoFrame);
-
     viewport()->setAttribute(Qt::WA_StaticContents);
 }
-
 
 
 TmxViewer::~TmxViewer()

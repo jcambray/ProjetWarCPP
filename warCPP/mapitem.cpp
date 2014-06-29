@@ -5,9 +5,11 @@ mapItem::mapItem() : QGraphicsPixmapItem()
 {
 }
 
-mapItem::mapItem(const QString &_name, const QString &_type){
+mapItem::mapItem(const QString &_name, const QString &_type,const QPixmap &img) : QGraphicsPixmapItem(img)
+{
     name = _name;
     type = _type;
+    setFlags(GraphicsItemFlag::ItemIsMovable | GraphicsItemFlag::ItemIsSelectable | GraphicsItemFlag::ItemIsFocusable);
 }
 
 mapItem::mapItem(const mapItem &m)
@@ -30,11 +32,26 @@ const QString & mapItem::getName()
     return name;
 }
 
+//gestion de l'evenement click de la souris
+
 void mapItem::mousePressEvent(QGraphicsSceneMouseEvent *event){
+    if(event->button() != Qt::MouseButton::LeftButton){
+        return;
+    }
+
     QGraphicsItem::mousePressEvent(event);
     qDebug() <<"click";
-    QMessageBox::information(0,QLatin1String("test"),QLatin1String("Event Working!!"));
 }
 
+
+void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+{
+    if(event->button() != Qt::MouseButton::LeftButton){
+        return;
+    }
+    QGraphicsItem::mouseReleaseEvent(event);
+    qDebug()<<"release";
+    setPos(event->pos());
+}
 
 
