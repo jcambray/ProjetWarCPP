@@ -51,7 +51,7 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     }
     QGraphicsItem::mouseReleaseEvent(event);
     qDebug()<<"release";
-    setPos(event->pos());
+    setPos(scenePos());
 }
 
 
