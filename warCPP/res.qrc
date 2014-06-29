@@ -3,5 +3,8 @@
         <file alias="background">images/fondAcceuil.jpg</file>
         <file alias="Lexique">images/fond.jpg</file>
         <file alias="Bouton">images/fond_parchemin.png</file>
+        <file>images/panneau2.png</file>
+        <file>images/panneau.png</file>
+        <file>images/nouvelle_partie.jpg</file>
     </qresource>
 </RCC>
