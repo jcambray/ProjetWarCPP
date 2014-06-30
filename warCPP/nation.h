@@ -8,6 +8,9 @@ public:
     Nation();
     Nation(QString,int,int);
     Nation(const Nation &);
+    QString getName();
+    int getBonus();
+    int getToken();
 
 private:
 

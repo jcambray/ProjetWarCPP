@@ -2,21 +2,28 @@
 
 Power::Power()
 {
-}
-
-
-Power::Power(QString _name,int _bonus,int _type)
-{
-    name = _name;
-    bonus = _bonus;
-    type = _type;
+    name = "";
+    bonus = "";
+    token = "";
 }
 
 Power::Power(const Power &p)
 {
     name = p.name;
     bonus = p.bonus;
-    type = p.type;
+    type = p.token;
+}
+
+Power::Power(QString _name,int _bonus,int _token)
+{
+    name = _name;
+    bonus = _bonus;
+    token = _token;
+}
+
+QString Power::getName()
+{
+    return name;
 }
 
 int Power::getBonus()
@@ -24,8 +31,9 @@ int Power::getBonus()
     return bonus;
 }
 
-int Power::getType()
+int Power::getToken()
 {
-    return type;
+    return token;
 }
+
 

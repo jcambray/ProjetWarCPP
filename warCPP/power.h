@@ -6,14 +6,11 @@ class Power
 {
 public:
     Power();
-
     Power(const Power &);
     Power(QString,int,int);
     QString getName();
     int getBonus();
-    int getType();
-    int type;
-
+    int getToken();
 
 private:
 
