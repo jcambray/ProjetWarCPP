@@ -20,7 +20,6 @@ SOURCES += main.cpp\
     game.cpp \
     gamemap.cpp \
     mapitem.cpp \
-    partie.cpp \
     player.cpp \
     tmxviewer.cpp \
     glossary.cpp \
@@ -33,7 +32,6 @@ HEADERS  += mainwindow.h \
     game.h \
     gamemap.h \
     mapitem.h \
-    partie.h \
     player.h \
     tmxviewer.h \
     glossary.h \

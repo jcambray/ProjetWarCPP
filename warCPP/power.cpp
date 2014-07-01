@@ -2,16 +2,16 @@
 
 Power::Power()
 {
-    name = "";
-    bonus = "";
-    token = "";
+    name = QLatin1String("");
+    bonus = 0;
+    token = 0;
 }
 
 Power::Power(const Power &p)
 {
     name = p.name;
     bonus = p.bonus;
-    type = p.token;
+    token = p.token;
 }
 
 Power::Power(QString _name,int _bonus,int _token)

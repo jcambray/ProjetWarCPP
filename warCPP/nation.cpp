@@ -2,9 +2,9 @@
 
 Nation::Nation()
 {
-    name = "";
-    bonus = "";
-    token = "";
+    name = QLatin1String("");
+    bonus = 0;
+    token = 0;
 }
 
 

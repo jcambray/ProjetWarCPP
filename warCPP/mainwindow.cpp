@@ -3,7 +3,6 @@
 #include <QtGui>
 #include <QMessageBox>
 #include <QInputDialog>
-#include "partie.h"
 
 
 

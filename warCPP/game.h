@@ -1,9 +1,9 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "partie.h"
-#include "mainwindow.h"
 
+#include "mainwindow.h"
+#include "gamemap.h"
 
 class game : public QWidget
 {
@@ -14,7 +14,9 @@ public:
 
     game();
     void run();
-    void createPartie();
+
+    //Demarre une nouvelle partie
+    void start();
 
 public slots:
 
@@ -24,7 +26,7 @@ public slots:
 private:
 
     MainWindow *mainW;
-    Partie * partie;
+    gameMap * map;
 };
 
 
