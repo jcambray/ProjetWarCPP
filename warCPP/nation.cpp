@@ -15,25 +15,25 @@ Nation::Nation(QString nom, int bon, int tok)
     token = tok;
 }
 
-Power::Power(const Nation &n)
+Nation::Nation(const Nation &n)
 {
     name = n.name;
     bonus = n.bonus;
     token = n.token;
 }
 
-QString Power::getName()
+QString Nation::getName()
 {
     return name;
 }
 
 
-int Power::getBonus()
+int Nation::getBonus()
 {
     return bonus;
 }
 
-int Power::getToken()
+int Nation::getToken()
 {
     return token;
 }
