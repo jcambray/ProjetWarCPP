@@ -43,6 +43,7 @@
 #include <QStyleOptionGraphicsItem>
 #include <QMessagebox>
 #include <QDebug>
+#include <QPainterPath>
 
 using namespace Tiled;
 
@@ -198,9 +199,29 @@ void TmxViewer::populateAreas()
    {
        MapObject obj = *(AreaLayer->objects()[i]);
        areas->insert(i,obj);
-       qDebug()<<areas->at(i).type();
    }
 }
+
+MapObject & TmxViewer::getAreaByName(const QString & name)
+{
+    MapObject obj = getAreas()[0];
+    obj.setName(QLatin1String("unknown"));
+    for(int i = 0; i < getAreas().count();i++)
+    {
+        if(getAreas().at(i).name() == name)
+            return getAreas()[i];
+    }
+    return obj;
+}
+
+/*
+void TmxViewer::setColorToArea(MapObject &area, const QBrush &color)
+{
+    QPainterPath painter;
+    painter.addPolygon(area.polygon());
+    QPainter::fillPath(QPainterPath(),QBrush(Qt::blue));
+}
+*/
 
 void TmxViewer::viewMap(const QString &fileName)
 {

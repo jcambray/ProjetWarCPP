@@ -50,8 +50,18 @@ public:
     ~TmxViewer();
 
     void viewMap(const QString &fileName);
+
+    //Retourne la liste des areas
     QList<MapObject> & getAreas();
+
     void populateAreas();
+
+    //Retourne l'area suivant le nom en paramètres
+    // WARNING Plante si l'area n'est pas trouvée
+    // noms (temporaires) des area existante: ocean,plage
+    MapObject & getAreaByName(const QString &);
+
+    //void setColorToArea(MapObject & area, const QBrush & color);
     Map & getMap();
 
 

@@ -12,6 +12,8 @@ gameMap::gameMap()
     items = new QMap<QString,mapItem *>();
     viewer->viewMap(QString(QLatin1String("map\\mapBis.tmx")));
     viewer->populateAreas();
+    MapObject obj = viewer->getAreaByName(QLatin1String("ocean"));
+    qDebug()<<obj.type();
 }
 
 
