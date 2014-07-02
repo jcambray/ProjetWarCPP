@@ -21,11 +21,10 @@ public:
     //Demarre une nouvelle partie
     void start();
     void selectionPlayer(bool IA);
-    void selectionNationPower(QString nameJ1,QString nameJ2, int first);
-    void randomlySetPower(Player ps[]);
-    void conquere(Player p1, Player p2);
-    void deploy(Player p);
-    void decline(Player p);
+    void randomlySetPower(player ps[]);
+    void conquere(player p1, player p2);
+    void deploy(player p);
+    void decline(player p);
     void endRound();
     void endGame();
 
@@ -37,7 +36,7 @@ public slots:
 
 
 private:
-    Player p1,p2;
+    player p1,p2;
     bool vsIA;
     MainWindow *mainW;
     SelectPlayerWindows * selectPlayer;

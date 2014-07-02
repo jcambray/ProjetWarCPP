@@ -89,27 +89,36 @@ void game::selectionNationPower(QString nameJ1,QString nameJ2, int first)
     selectNationPower->show();
 }
 
-void game::randomlySetPower(Player ps[]){
+void game::randomlySetPower(player ps[]){
 
 
-}
-
-void game::conquere(Player p1, Player p2){
 
 }
 
-void game::deploy(Player p){
+void game::conquere(player p1, player p2){
 
 }
 
-void game::decline(Player p){
+void game::deploy(player p){
+
+}
+
+void game::decline(player p){
 
 }
 
 void game::endRound(){
 
+
 }
 
 void game::endGame(){
 
+
+    if(p1.getScore()>p2.getScore())
+        p1.getNation();//Player 1 win
+    else if (p1.getScore()<p2.getScore())
+        p1.getNation();//Player 2 win
+    else
+        p1.getNation();//egalite
 }
