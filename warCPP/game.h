@@ -6,6 +6,7 @@
 #include "selectplayerwindows.h"
 #include "selectnationpowerwindows.h"
 #include "gamemap.h"
+#include "player.h"
 
 class game : public QWidget
 {
@@ -20,6 +21,13 @@ public:
     //Demarre une nouvelle partie
     void start();
     void selectionPlayer(bool IA);
+    void randomlySetPower(player ps[]);
+    void conquere(player p1, player p2);
+    void deploy(player p);
+    void decline(player p);
+    void endRound();
+    void endGame();
+
 
 public slots:
 
@@ -28,7 +36,7 @@ public slots:
 
 
 private:
-
+    player p1,p2;
     bool vsIA;
     MainWindow *mainW;
     SelectPlayerWindows * selectPlayer;
