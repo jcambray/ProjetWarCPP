@@ -2,6 +2,7 @@
 #define SELECTPLAYERWINDOWS_H
 
 #include <QDialog>
+#include <QMessageBox>
 
 namespace Ui {
 class SelectPlayerWindows;

@@ -4,6 +4,7 @@
 
 #include "mainwindow.h"
 #include "selectplayerwindows.h"
+#include "selectnationpowerwindows.h"
 #include "gamemap.h"
 
 class game : public QWidget
@@ -23,7 +24,7 @@ public:
 public slots:
 
     void MWCreateNouvellePartieBtnClicked();
-    void SPWSelectionPlayer(QString nameJ1,QString nameJ2, int first);
+    void selectionNationPower(QString nameJ1,QString nameJ2, int first);
 
 
 private:
@@ -31,6 +32,7 @@ private:
     bool vsIA;
     MainWindow *mainW;
     SelectPlayerWindows * selectPlayer;
+    SelectNationPowerWindows * selectNationPower;
     gameMap * map;
 };
 

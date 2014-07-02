@@ -18,6 +18,8 @@ game::game()
 void game::run()
 {
     mainW = new MainWindow();
+    mainW->setMaximumSize(mainW->size());
+    mainW->setMinimumSize(mainW->size());
     QObject::connect(mainW,SIGNAL(createPartie()),this,SLOT(MWCreateNouvellePartieBtnClicked()));
     mainW->show();
 }
@@ -75,13 +77,15 @@ void game::selectionPlayer(bool IA)
         selectPlayer->enableLineEdit2();
 
     }
-    QObject::connect(selectPlayer,SIGNAL(ButtonCommencer(QString,QString,int)),this,SLOT(SPWSelectionPlayer(QString,QString,int)));
+    QObject::connect(selectPlayer,SIGNAL(ButtonCommencer(QString,QString,int)),this,SLOT(selectionNationPower(QString,QString,int)));
     selectPlayer->show();
 }
 
-void game::SPWSelectionPlayer(QString nameJ1,QString nameJ2, int first)
+void game::selectionNationPower(QString nameJ1,QString nameJ2, int first)
 {
     //QMessageBox::information(this, tr("Application Name"),nameJ1+tr(" ")+nameJ2+tr(" ")+first );
+    selectNationPower = new SelectNationPowerWindows();
+    selectNationPower->show();
 }
 
 
