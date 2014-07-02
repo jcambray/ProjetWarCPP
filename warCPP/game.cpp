@@ -55,11 +55,10 @@ void game::start()
             break;
         }
 
-    /*map = new gameMap();
-    map->setMapItemsScale(1.2);
+    map = new gameMap();
     map->addAllItems();
     map->getViewer()->setWindowTitle(QLatin1String("WAR C++"));
-    map->getViewer()->show();*/
+    map->getViewer()->show();
 }
 
 

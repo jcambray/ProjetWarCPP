@@ -31,12 +31,15 @@
 
 #include <QGraphicsView>
 #include <QMouseEvent>
+#include "mapobject.h"
 #include <QDebug>
 
 namespace Tiled {
 class Map;
 class MapRenderer;
 }
+
+using namespace Tiled;
 
 class TmxViewer : public QGraphicsView
 {
@@ -47,12 +50,16 @@ public:
     ~TmxViewer();
 
     void viewMap(const QString &fileName);
+    QList<MapObject> & getAreas();
+    void populateAreas();
+    Map & getMap();
 
 
 private:
     QGraphicsScene *mScene;
     Tiled::Map *mMap;
     Tiled::MapRenderer *mRenderer;
+    QList<MapObject> * areas;
 };
 
 #endif // TMXVIEWER_H

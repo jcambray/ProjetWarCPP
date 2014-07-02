@@ -11,6 +11,7 @@ gameMap::gameMap()
     viewer = new TmxViewer;
     items = new QMap<QString,mapItem *>();
     viewer->viewMap(QString(QLatin1String("map\\mapBis.tmx")));
+    viewer->populateAreas();
 }
 
 

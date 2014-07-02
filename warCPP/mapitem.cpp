@@ -35,23 +35,27 @@ const QString & mapItem::getName()
 //gestion de l'evenement click de la souris
 
 void mapItem::mousePressEvent(QGraphicsSceneMouseEvent *event){
-  /* if(event->button() != Qt::MouseButton::LeftButton){
-        return;
-    }*/
+   if(event->button() == Qt::MouseButton::LeftButton){
 
-    QGraphicsItem::mousePressEvent(event);
-    qDebug() <<"click";
+       QGraphicsItem::mousePressEvent(event);
+       qDebug() <<"click";
+
+    }
+
+
 }
 
 
 void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
-   /* if(event->button() != Qt::MouseButton::LeftButton){
-        return;
-    }*/
-    QGraphicsItem::mouseReleaseEvent(event);
-    qDebug()<<"release";
-    setPos(scenePos());
+   if(event->button() != Qt::MouseButton::LeftButton){
+
+       QGraphicsItem::mouseReleaseEvent(event);
+       qDebug()<<"release";
+       setPos(scenePos());
+
+    }
+
 
 }
 

@@ -42,6 +42,7 @@
 #include <QGraphicsScene>
 #include <QStyleOptionGraphicsItem>
 #include <QMessagebox>
+#include <QDebug>
 
 using namespace Tiled;
 
@@ -159,7 +160,6 @@ TmxViewer::TmxViewer(QWidget *parent) :
     mRenderer(0)
 {
     setWindowTitle(tr("WAR C++"));
-
     setScene(mScene);
     setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
     setDragMode(QGraphicsView::ScrollHandDrag);
@@ -168,6 +168,7 @@ TmxViewer::TmxViewer(QWidget *parent) :
     setBackgroundBrush(Qt::black);
     setFrameStyle(QFrame::NoFrame);
     viewport()->setAttribute(Qt::WA_StaticContents);
+    areas = new QList<MapObject>();
 }
 
 
@@ -176,6 +177,29 @@ TmxViewer::~TmxViewer()
     qDeleteAll(mMap->tilesets());
     delete mMap;
     delete mRenderer;
+    delete areas;
+}
+
+QList<MapObject> & TmxViewer::getAreas()
+{
+    return *areas;
+}
+
+Map & TmxViewer::getMap()
+{
+    return *mMap;
+}
+
+void TmxViewer::populateAreas()
+{
+    int index = mMap->indexOfLayer(QLatin1String("Areas"));
+   ObjectGroup *AreaLayer = mMap->layerAt(index)->asObjectGroup();
+   for(int i =0;i < AreaLayer->objectCount();i++)
+   {
+       MapObject obj = *(AreaLayer->objects()[i]);
+       areas->insert(i,obj);
+       qDebug()<<areas->at(i).type();
+   }
 }
 
 void TmxViewer::viewMap(const QString &fileName)
