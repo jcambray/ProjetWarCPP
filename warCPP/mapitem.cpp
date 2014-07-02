@@ -9,7 +9,7 @@ mapItem::mapItem(const QString &_name, const QString &_type,const QPixmap &img) 
 {
     name = _name;
     type = _type;
-    setFlags(GraphicsItemFlag::ItemIsMovable | GraphicsItemFlag::ItemIsSelectable | GraphicsItemFlag::ItemIsFocusable);
+    //setFlags(GraphicsItemFlag::ItemIsMovable | GraphicsItemFlag::ItemIsSelectable | GraphicsItemFlag::ItemIsFocusable);
 }
 
 mapItem::mapItem(const mapItem &m)
@@ -35,9 +35,9 @@ const QString & mapItem::getName()
 //gestion de l'evenement click de la souris
 
 void mapItem::mousePressEvent(QGraphicsSceneMouseEvent *event){
-    if(event->button() != Qt::MouseButton::LeftButton){
+  /* if(event->button() != Qt::MouseButton::LeftButton){
         return;
-    }
+    }*/
 
     QGraphicsItem::mousePressEvent(event);
     qDebug() <<"click";
@@ -46,12 +46,13 @@ void mapItem::mousePressEvent(QGraphicsSceneMouseEvent *event){
 
 void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
-    if(event->button() != Qt::MouseButton::LeftButton){
+   /* if(event->button() != Qt::MouseButton::LeftButton){
         return;
-    }
+    }*/
     QGraphicsItem::mouseReleaseEvent(event);
     qDebug()<<"release";
     setPos(scenePos());
+
 }
 
 

@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     lexiquewindow.cpp \
     power.cpp \
     nation.cpp \
-    selectnationpowerwindows.cpp
+    selectnationpowerwindows.cpp \
+    selectplayerwindows.cpp
 
 HEADERS  += mainwindow.h \
     game.h \
@@ -38,11 +39,13 @@ HEADERS  += mainwindow.h \
     lexiquewindow.h \
     power.h \
     nation.h \
-    selectnationpowerwindows.h
+    selectnationpowerwindows.h \
+    selectplayerwindows.h
 
 FORMS    += mainwindow.ui \
     Lexique.ui \
-    selectnationpowerwindows.ui
+    selectnationpowerwindows.ui \
+    selectplayerwindows.ui
 
 OTHER_FILES += \
     images/fondAcceuil.jpg \

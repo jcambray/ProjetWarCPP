@@ -32,7 +32,7 @@ border-color: qlineargradient(spread:pad, x1:0.47695, y1:0.688, x2:0.492462, y2:
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: italic 16pt &quot;Sylfaen&quot;;
+     <string notr="true">font: 16pt &quot;Lucida Handwriting&quot;;
 background-image: url(:/fond/images/panneau2.png);
 </string>
     </property>
@@ -50,7 +50,7 @@ background-image: url(:/fond/images/panneau2.png);
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 italic 24pt &quot;Brush Script MT&quot;;
+     <string notr="true">font: 75 20pt &quot;Andalus&quot;;
 background-image: url(:/fond/images/nouvelle_partie.jpg);</string>
     </property>
     <property name="text">
