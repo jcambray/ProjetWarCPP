@@ -81,6 +81,7 @@ void game::selectionPlayer(bool IA)
     selectPlayer->show();
 }
 
+
 void game::selectionNationPower(QString nameJ1,QString nameJ2, int first)
 {
     //QMessageBox::information(this, tr("Application Name"),nameJ1+tr(" ")+nameJ2+tr(" ")+first );
@@ -88,7 +89,27 @@ void game::selectionNationPower(QString nameJ1,QString nameJ2, int first)
     selectNationPower->show();
 }
 
+void game::randomlySetPower(Player ps[]){
 
 
+}
 
+void game::conquere(Player p1, Player p2){
 
+}
+
+void game::deploy(Player p){
+
+}
+
+void game::decline(Player p){
+
+}
+
+void game::endRound(){
+
+}
+
+void game::endGame(){
+
+}
