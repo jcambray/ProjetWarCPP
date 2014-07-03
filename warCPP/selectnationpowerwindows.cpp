@@ -22,9 +22,8 @@ void SelectNationPowerWindows::prepareSelectNationPower(QString Joueur)
     {
         randomSelectionNationPower();
     }
-    QStringList listePays;
-    listePays << tr("France") << tr("Espagne") << tr("Italie") << tr("Portugal") << tr("Suisse");
-    modele = new QStringListModel(listePays);
+
+    modele = new QStringListModel(Combination);
     ui->listView->setModel(modele);
 
 }
@@ -46,18 +45,34 @@ void SelectNationPowerWindows::on_pushButton_clicked()
 void SelectNationPowerWindows::randomSelectionNationPower()
 {
     int nbAlea = 0;
+    bool alreadyPush;
+    int y =0;
     Nation << tr("Amazones") << tr("Humains") << tr("Squelettes") << tr("Hommes-rats");
     Power << tr("Pirates") << tr("Et leur Dragon") << tr("Bucherons") << tr("Marchands");
 
-    for(int i = 0; i < Nation.size(); i++)
+    qsrand(QDateTime::currentDateTime().toTime_t());
+    nbAlea = qrand()%Nation.size();
+    Combination.push_back(Nation[nbAlea]+ tr(" ; ")+Power[0]);
+
+    while(Combination.size() != Nation.size())
     {
         qsrand(QDateTime::currentDateTime().toTime_t());
-        nbAlea = qrand()%4;
+        nbAlea = qrand()%Nation.size();
 
-        Combination.push_back(Nation[nbAlea]);
+        alreadyPush = false;
+
+        for(int i =0; i<Combination.size();i++)
+        {
+            if(Combination[i]==Nation[nbAlea])
+            {
+                alreadyPush = true;
+            }
+        }
+
+        if(alreadyPush != true)
+        {
+            y++;
+            Combination.push_back(Nation[nbAlea]+tr(" ; ")+Power[y]);
+        }
     }
-
-    /*QString str = QString::number(nbAlea);
-    QMessageBox::information(this,tr("Attention"),str);*/
-
 }
