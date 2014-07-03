@@ -169,7 +169,7 @@ TmxViewer::TmxViewer(QWidget *parent) :
     setBackgroundBrush(Qt::black);
     setFrameStyle(QFrame::NoFrame);
     viewport()->setAttribute(Qt::WA_StaticContents);
-    areas = new QList<MapObject>();
+    areas = new QList<Area>();
 }
 
 
@@ -181,7 +181,7 @@ TmxViewer::~TmxViewer()
     delete areas;
 }
 
-QList<MapObject> & TmxViewer::getAreas()
+QList<Area> & TmxViewer::getAreas()
 {
     return *areas;
 }
@@ -197,7 +197,8 @@ void TmxViewer::populateAreas()
    ObjectGroup *AreaLayer = mMap->layerAt(index)->asObjectGroup();
    for(int i =0;i < AreaLayer->objectCount();i++)
    {
-       MapObject obj = *(AreaLayer->objects()[i]);
+       MapObject mapObj = *(AreaLayer->objects()[i]);
+       Area obj(mapObj.name(),mapObj.type(),mapObj.position(),mapObj.size());
        areas->insert(i,obj);
    }
 }

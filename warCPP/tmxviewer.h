@@ -32,6 +32,7 @@
 #include <QGraphicsView>
 #include <QMouseEvent>
 #include "mapobject.h"
+#include "area.h"
 #include <QDebug>
 
 namespace Tiled {
@@ -52,7 +53,7 @@ public:
     void viewMap(const QString &fileName);
 
     //Retourne la liste des areas
-    QList<MapObject> & getAreas();
+    QList<Area> &getAreas();
 
     void populateAreas();
 
@@ -69,7 +70,7 @@ private:
     QGraphicsScene *mScene;
     Tiled::Map *mMap;
     Tiled::MapRenderer *mRenderer;
-    QList<MapObject> * areas;
+    QList<Area> * areas;
 };
 
 #endif // TMXVIEWER_H

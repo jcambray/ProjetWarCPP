@@ -27,7 +27,8 @@ SOURCES += main.cpp\
     power.cpp \
     nation.cpp \
     selectnationpowerwindows.cpp \
-    selectplayerwindows.cpp
+    selectplayerwindows.cpp \
+    area.cpp
 
 HEADERS  += mainwindow.h \
     game.h \
@@ -40,7 +41,8 @@ HEADERS  += mainwindow.h \
     power.h \
     nation.h \
     selectnationpowerwindows.h \
-    selectplayerwindows.h
+    selectplayerwindows.h \
+    area.h
 
 FORMS    += mainwindow.ui \
     Lexique.ui \
