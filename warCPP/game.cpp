@@ -115,9 +115,9 @@ void game::endGame(){
 
 
     if(p1.getScore()>p2.getScore())
-        p1.getNation();//Player 1 win
+        qDebug()<<"Player 1 win";
     else if (p1.getScore()<p2.getScore())
-        p1.getNation();//Player 2 win
+        qDebug()<<"Player 2 win";
     else
-        p1.getNation();//egalite
+        qDebug()<<"Egalite";
 }

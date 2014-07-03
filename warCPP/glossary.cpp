@@ -29,7 +29,7 @@ Glossary::~Glossary(){
 void Glossary::print(){
 
     QDomDocument dom(QLatin1String("lex"));
-    QFile xml_doc(QLatin1String("lexique.xml"));
+    QFile xml_doc(QLatin1String("../ProjetWarCPP/warCPP/lexique.xml"));
 
     if(!xml_doc.open(QIODevice::ReadOnly))
     {
