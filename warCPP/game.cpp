@@ -12,8 +12,14 @@ game::game()
     mainW = NULL;
     map = NULL;
     vsIA = NULL;
+    selectPlayer = new SelectPlayerWindows();
+    selectNationPower = new SelectNationPowerWindows();
 }
-
+game::~game()
+{
+    delete selectPlayer;
+    delete selectNationPower;
+}
 
 void game::run()
 {
@@ -55,10 +61,10 @@ void game::start()
             break;
         }
 
-    map = new gameMap();
+   /* map = new gameMap();
     map->addAllItems();
     map->getViewer()->setWindowTitle(QLatin1String("WAR C++"));
-    map->getViewer()->show();
+    map->getViewer()->show();*/
 }
 
 
@@ -69,8 +75,6 @@ void game::MWCreateNouvellePartieBtnClicked()
 
 void game::selectionPlayer(bool IA)
 {
-    selectPlayer = new SelectPlayerWindows();
-
     if(!IA)
     {
         selectPlayer->enableLineEdit2();
@@ -84,7 +88,16 @@ void game::selectionPlayer(bool IA)
 void game::selectionNationPower(QString nameJ1,QString nameJ2, int first)
 {
     //QMessageBox::information(this, tr("Application Name"),nameJ1+tr(" ")+nameJ2+tr(" ")+first );
-    selectNationPower = new SelectNationPowerWindows();
+
+    if(first == 1)
+    {
+        selectNationPower->prepareSelectNationPower(nameJ1);
+    }
+    else if(first == 2)
+    {
+        selectNationPower->prepareSelectNationPower(nameJ2);
+    }
+
     selectNationPower->show();
 }
 

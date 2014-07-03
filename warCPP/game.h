@@ -16,6 +16,7 @@ class game : public QWidget
 public:
 
     game();
+    ~game();
     void run();
 
     //Demarre une nouvelle partie
