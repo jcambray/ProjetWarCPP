@@ -16,13 +16,13 @@ SelectNationPowerWindows::~SelectNationPowerWindows()
 
 void SelectNationPowerWindows::prepareSelectNationPower(QString Joueur)
 {
-    ui->labelJoueur->setText(Joueur);
+    namejoueur = Joueur;
+    ui->labelJoueur->setText(namejoueur);
 
     if(debutGame)
     {
         randomSelectionNationPower();
     }
-
     modele = new QStringListModel(Combination);
     ui->listView->setModel(modele);
 
@@ -30,16 +30,17 @@ void SelectNationPowerWindows::prepareSelectNationPower(QString Joueur)
 
 void SelectNationPowerWindows::on_listView_doubleClicked(const QModelIndex &index)
 {
-    QMessageBox::warning(
-        this,
-        tr("Attention"),
-        tr("Vous avez oublié de choisir le joueur qui commence le premier !") );
 
-}
+    QItemSelectionModel *selection = ui->listView->selectionModel();
+    QModelIndex indexElementSelectionne = selection->currentIndex();
+    QVariant elementSelectionne = modele->data(indexElementSelectionne, Qt::DisplayRole);
+    QString choix = elementSelectionne.toString();
 
-void SelectNationPowerWindows::on_pushButton_clicked()
-{
+    QStringList combi = choix.split(tr(";"));
+    QString sNation = combi[0];
+    QString sPower = combi[1];
 
+    QMessageBox::information(this, tr("Elément sélectionné"), sNation+tr(" ")+sPower);
 }
 
 void SelectNationPowerWindows::randomSelectionNationPower()
@@ -47,12 +48,15 @@ void SelectNationPowerWindows::randomSelectionNationPower()
     int nbAlea = 0;
     bool alreadyPush;
     int y =0;
+    Nation.clear();
+    Power.clear();
     Nation << tr("Amazones") << tr("Humains") << tr("Squelettes") << tr("Hommes-rats");
     Power << tr("Pirates") << tr("Et leur Dragon") << tr("Bucherons") << tr("Marchands");
 
+
     qsrand(QDateTime::currentDateTime().toTime_t());
     nbAlea = qrand()%Nation.size();
-    Combination.push_back(Nation[nbAlea]+ tr(" ; ")+Power[0]);
+    Combination.push_back(Nation[nbAlea]);
 
     while(Combination.size() != Nation.size())
     {
@@ -72,7 +76,39 @@ void SelectNationPowerWindows::randomSelectionNationPower()
         if(alreadyPush != true)
         {
             y++;
-            Combination.push_back(Nation[nbAlea]+tr(" ; ")+Power[y]);
+            Combination.push_back(Nation[nbAlea]);
         }
+    }
+
+    for(int v =0; v<Combination.size();v++)
+    {
+        Combination[v] += tr(" ; ")+Power[v];
+    }
+}
+
+void SelectNationPowerWindows::on_pushButton_2_clicked()
+{
+    Combination.clear();
+    delete modele;
+}
+
+void SelectNationPowerWindows::on_pushChoisir_clicked()
+{
+    QItemSelectionModel *selection2 = ui->listView->selectionModel();
+    QModelIndex indexElementSelectionne2 = selection2->currentIndex();
+    QVariant elementSelectionne2 = modele->data(indexElementSelectionne2, Qt::DisplayRole);
+    QString choix2 = elementSelectionne2.toString();
+
+    QStringList combi2 = choix2.split(tr(";"));
+    QString sNation2 = combi2[0];
+    QString sPower2 = combi2[1];
+
+    if(debutGame)
+    {
+       emit createJoueur(namejoueur,sNation2,sPower2);
+    }
+    else
+    {
+       //emit UpJoueur(namejoueur,sNation,sNation);
     }
 }

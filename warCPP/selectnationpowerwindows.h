@@ -5,6 +5,7 @@
 #include <QtWidgets>
 #include <QString>
 #include <QDateTime>
+#include <QModelIndex>
 
 
 namespace Ui {
@@ -21,10 +22,15 @@ public:
     void prepareSelectNationPower(QString Joueur);
     void randomSelectionNationPower();
 
+signals:
+    void createJoueur(QString,QString,QString);
+
 private slots:
     void on_listView_doubleClicked(const QModelIndex &index);
 
-    void on_pushButton_clicked();
+    void on_pushButton_2_clicked();
+
+    void on_pushChoisir_clicked();
 
 private:
     Ui::SelectNationPowerWindows *ui;
@@ -32,6 +38,7 @@ private:
     QList <QString> Nation;
     QList <QString> Power;
     QList <QString> Combination;
+    QString namejoueur;
     bool debutGame;
 };
 

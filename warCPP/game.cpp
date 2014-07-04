@@ -87,7 +87,6 @@ void game::selectionPlayer(bool IA)
 
 void game::selectionNationPower(QString nameJ1,QString nameJ2, int first)
 {
-    //QMessageBox::information(this, tr("Application Name"),nameJ1+tr(" ")+nameJ2+tr(" ")+first );
 
     if(first == 1)
     {
@@ -97,8 +96,21 @@ void game::selectionNationPower(QString nameJ1,QString nameJ2, int first)
     {
         selectNationPower->prepareSelectNationPower(nameJ2);
     }
-
+    QObject::connect(selectNationPower,SIGNAL(createJoueur(QString,QString,QString)),this,SLOT(creationJoeur(QString,QString,QString)));
     selectNationPower->show();
+}
+
+void game::creationJoeur(QString namePlayer,QString nation, QString power)
+{
+    if(p1.getName() == tr(""))
+    {
+        QMessageBox::information(this, tr("Joueur 1"),namePlayer+tr(" ")+nation+tr(" ")+power );
+
+    }
+    else
+    {
+        QMessageBox::information(this, tr("Joueur 2"),namePlayer+tr(" ")+nation+tr(" ")+power );
+    }
 }
 
 void game::randomlySetPower(player ps[]){
