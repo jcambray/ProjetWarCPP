@@ -18,7 +18,7 @@ public:
     ~SelectPlayerWindows();
 signals:
 
-   void ButtonCommencer(QString,QString,int);
+   void ButtonCommencer(QString,QString);
 
 private slots:
     void on_pushButtonCommencer_clicked();

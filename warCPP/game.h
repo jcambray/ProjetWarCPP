@@ -7,6 +7,8 @@
 #include "selectnationpowerwindows.h"
 #include "gamemap.h"
 #include "player.h"
+#include "nation.h"
+#include "power.h"
 
 class game : public QWidget
 {
@@ -33,17 +35,20 @@ public:
 public slots:
 
     void MWCreateNouvellePartieBtnClicked();
-    void selectionNationPower(QString nameJ1,QString nameJ2, int first);
-    void creationJoeur(QString namePlayer,QString nation, QString power);
+    void selectionNationPower(QString nameJ1,QString nameJ2);
+    void creationJoeur(QString qsnamePlayer,QString qsnation, QString qspower);
 
 
 private:
-    player p1,p2;
+    player *p1,*p2;
+    Nation *nation;
+    Power * power;
     bool vsIA;
     MainWindow *mainW;
     SelectPlayerWindows * selectPlayer;
     SelectNationPowerWindows * selectNationPower;
     gameMap * map;
+    QString savJoueur2;
 };
 
 
