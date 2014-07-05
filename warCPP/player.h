@@ -13,6 +13,7 @@ public:
     bool operator <(const player &);
     Nation * getNation();
     Power * getPower();
+    QString getName();
     int getToken();
     int getScore();
     void setNation(Nation * nation);

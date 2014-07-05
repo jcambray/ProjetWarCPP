@@ -18,50 +18,50 @@
 	<power id="3" value = "Bucheron : +1 jeton pour chaque foret." />
 
 	<rules id="0" value = "Sélection des joueurs et du plateau de jeu :
-	Lors du lancement d’une partie, une fenêtre apparait pour la sélection des joueurs. 
-	Le joueur a la possibilité de saisir son pseudonyme. 
-	Enfin quand le ou les joueurs sont prêts ils peuvent commencer à jouer." />
+Lors du lancement d’une partie, une fenêtre apparait pour la sélection des joueurs. 
+Le joueur a la possibilité de saisir son pseudonyme. 
+Enfin quand le ou les joueurs sont prêts ils peuvent commencer à jouer." />
 	
 	<rules id="1" value = "Sélection des joueurs et du plateau de jeu :
-	Avant de commencer les hostilités, chaque joueur reçoit 5 jetons de victoire. 
-	Ensuite ils devront choisir un Peuple avec son pouvoir spécial, parmi une pile de 6 peuples proposés aléatoirement. 
-	Chaque peuple de WarC++ possède des caractéristiques spécifiques qui s’ajoute aux bonus ou malus des pouvoirs spéciaux qui leurs sont associés 
-	(voir partie Peuple). Le premier joueur sélectionne son premier peuple, à savoir que le premier peuple de la pile est gratuit et le dernier coute un jeton de victoire pour chaque peuple non choisit dans la pile. 
-	Le joueur suivant choisit son Peuple avec son pouvoir spécial et ainsi de suite.
-	Enfin chaque joueur reçoit un nombre de jeton de peuple égal au chiffre indiqué par le peuple additionné au chiffre indiqué par le pouvoir spécial." />
+Avant de commencer les hostilités, chaque joueur reçoit 5 jetons de victoire. 
+Ensuite ils devront choisir un Peuple avec son pouvoir spécial, parmi une pile de 6 peuples proposés aléatoirement. 
+Chaque peuple de WarC++ possède des caractéristiques spécifiques qui s’ajoute aux bonus ou malus des pouvoirs spéciaux qui leurs sont associés 
+(voir partie Peuple). Le premier joueur sélectionne son premier peuple, à savoir que le premier peuple de la pile est gratuit et le dernier coute un jeton de victoire pour chaque peuple non choisit dans la pile. 
+Le joueur suivant choisit son Peuple avec son pouvoir spécial et ainsi de suite.
+Enfin chaque joueur reçoit un nombre de jeton de peuple égal au chiffre indiqué par le peuple additionné au chiffre indiqué par le pouvoir spécial." />
 
 	<rules id="2" value = "Sélection d’un Peuple et d’un pouvoir spécial :
-	Durant la phase de conquête chaque joueur récupèrera dans un premier temps la totalité de ses jetons de peuple disponible. 
-	Ensuite il pourra conquérir les régions sur le plateau en commençant par une région qui se trouve au bord du plateau ou une région qui est adjacente à une région déjà conquit. 
-	Pour la conquête d’une région le joueur devra utiliser ses jetons de peuple(voir partie Région). Si une région est occupée par un adversaire, 
-	le joueur devra rajouter autant de jeton supplémentaire qu’il y a de jeton de peuple adverse sur cette région. Si la conquête d’une région occupée à lieu, tous les jetons de peuple du joueur perdant revienne dans sa réserve de jeton en dehors du plateau 
-	à l’exception d’un seul qui sera définitivement supprimé du jeu. Enfin durant cette phase, chaque joueur aura la possibilité de le lancer une seule fois un dé de renfort pour les aider à conquérir une région." />
+Durant la phase de conquête chaque joueur récupèrera dans un premier temps la totalité de ses jetons de peuple disponible. 
+Ensuite il pourra conquérir les régions sur le plateau en commençant par une région qui se trouve au bord du plateau ou une région qui est adjacente à une région déjà conquit. 
+Pour la conquête d’une région le joueur devra utiliser ses jetons de peuple(voir partie Région). Si une région est occupée par un adversaire, 
+le joueur devra rajouter autant de jeton supplémentaire qu’il y a de jeton de peuple adverse sur cette région. Si la conquête d’une région occupée à lieu, tous les jetons de peuple du joueur perdant revienne dans sa réserve de jeton en dehors du plateau 
+à l’exception d’un seul qui sera définitivement supprimé du jeu. Enfin durant cette phase, chaque joueur aura la possibilité de le lancer une seule fois un dé de renfort pour les aider à conquérir une région." />
 
 	<rules id="3" value = "Conquérir des régions : 
-	Après chaque phase de conquête d’un joueur, celui-ci aura la possibilité de récupérer chacun de ses jetons de peuple (plateau + réserve compris)
-	pour les disperser selon sa convenance sur chacune des régions qu’il a déjà conquis avec son peuple actif." />
+Après chaque phase de conquête d’un joueur, celui-ci aura la possibilité de récupérer chacun de ses jetons de peuple (plateau + réserve compris)
+pour les disperser selon sa convenance sur chacune des régions qu’il a déjà conquis avec son peuple actif." />
 
 	<rules id="4" value = "Phase de redéploiement :
-	Après chaque phase de conquête d’un joueur, celui-ci aura la possibilité de récupérer chacun de ses jetons de peuple (plateau + réserve compris)
-	pour les disperser selon sa convenance sur chacune des régions qu’il a déjà conquis avec son peuple actif." />
+Après chaque phase de conquête d’un joueur, celui-ci aura la possibilité de récupérer chacun de ses jetons de peuple (plateau + réserve compris)
+pour les disperser selon sa convenance sur chacune des régions qu’il a déjà conquis avec son peuple actif." />
 	
 	<rules id="5" value = "Marquer des points :
-	A la fin du tour d’un joueur, celui-ci recevra un nombre de jeton de victoire égale au nombre de région qu’il possède sur le plateau. 
-	En plus de ce nombre le joueur recevra des jetons de victoire supplémentaire par l’intermédiaire des caractériels de son peuple actif 
-	et de son pouvoir spécial qu’il possède. (Voir Partie Peuple)." />
+A la fin du tour d’un joueur, celui-ci recevra un nombre de jeton de victoire égale au nombre de région qu’il possède sur le plateau. 
+En plus de ce nombre le joueur recevra des jetons de victoire supplémentaire par l’intermédiaire des caractériels de son peuple actif 
+et de son pouvoir spécial qu’il possède. (Voir Partie Peuple)." />
 
 	<rules id="6" value = "Passer son peuple en déclin :
-	Avant de commencer la phase de conquête, chaque joueur à la possibilité de de passer son peuple actif en déclin. 
-	Lorsqu’un joueur passe son peuple actif en déclin il enlève tous les jetons de peuple de chaque région du plateau à l’exception d’un seul. 
-	Tous les autres jetons de peuple seront retirés du jeu et les jetons de peuple restant formeront le peuple en déclin. 
-	Un peuple en déclin ne peut plus être joué par le joueur. Ils ne pourront ni conquérir ni se redéployer. 
-	Mais ils rapporteront toujours un jeton de victoire par région au joueur lors de la phase de récupération des jetons de victoire. 
-	Un joueur ne peut avoir qu’un seul peuple en déclin. Une fois passé en déclin le joueur passe directement à la phase récupération des jetons de victoire. 
-	A son prochain, il aura la possibilité de choisir un nouveau peuple actif comme pour la phase de sélection d’un peuple et de son pouvoir spécial. 
-	Chaque joueur ne peut posséder qu’un seul peuple actif." />
+Avant de commencer la phase de conquête, chaque joueur à la possibilité de de passer son peuple actif en déclin. 
+Lorsqu’un joueur passe son peuple actif en déclin il enlève tous les jetons de peuple de chaque région du plateau à l’exception d’un seul. 
+Tous les autres jetons de peuple seront retirés du jeu et les jetons de peuple restant formeront le peuple en déclin. 
+Un peuple en déclin ne peut plus être joué par le joueur. Ils ne pourront ni conquérir ni se redéployer. 
+Mais ils rapporteront toujours un jeton de victoire par région au joueur lors de la phase de récupération des jetons de victoire. 
+Un joueur ne peut avoir qu’un seul peuple en déclin. Une fois passé en déclin le joueur passe directement à la phase récupération des jetons de victoire. 
+A son prochain, il aura la possibilité de choisir un nouveau peuple actif comme pour la phase de sélection d’un peuple et de son pouvoir spécial. 
+Chaque joueur ne peut posséder qu’un seul peuple actif." />
 	
 	<rules id="7" value = "Fin de la partie :
-	Une fois que le total du nombre tour par joueur aura été atteint, la partie se termine. 
-	Le total des jetons de victoire de chaque joueur sera alors affiché et le gagnant de la partie désigné." />
+Une fois que le total du nombre tour par joueur aura été atteint, la partie se termine. 
+Le total des jetons de victoire de chaque joueur sera alors affiché et le gagnant de la partie désigné." />
 	
 </lexique>

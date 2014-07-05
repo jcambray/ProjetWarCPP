@@ -33,6 +33,11 @@ bool player::operator <(const player &p)
     return (numeroOrdre < p.numeroOrdre) ? true : false;
 }
 
+QString player::getName()
+{
+    return name;
+}
+
 Nation * player::getNation(){
     return nat;
 }

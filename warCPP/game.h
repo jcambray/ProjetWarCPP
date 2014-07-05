@@ -16,6 +16,7 @@ class game : public QWidget
 public:
 
     game();
+    ~game();
     void run();
 
     //Demarre une nouvelle partie
@@ -33,6 +34,7 @@ public slots:
 
     void MWCreateNouvellePartieBtnClicked();
     void selectionNationPower(QString nameJ1,QString nameJ2, int first);
+    void creationJoeur(QString namePlayer,QString nation, QString power);
 
 
 private:

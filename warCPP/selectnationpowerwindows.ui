@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>723</width>
-    <height>344</height>
+    <height>399</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,23 +19,25 @@
   <widget class="QLabel" name="labelJoueur">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>70</y>
-     <width>111</width>
+     <x>40</x>
+     <y>20</y>
+     <width>131</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Lucida Handwriting</family>
-     <pointsize>12</pointsize>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <property name="text">
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QLabel" name="labelJoueur_2">
+  <widget class="QLabel" name="labelTitre">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -58,36 +60,32 @@
    <property name="geometry">
     <rect>
      <x>420</x>
-     <y>70</y>
+     <y>100</y>
      <width>256</width>
      <height>192</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>280</y>
-     <width>141</width>
-     <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Lucida Handwriting</family>
-     <pointsize>12</pointsize>
+     <pointsize>10</pointsize>
     </font>
    </property>
-   <property name="text">
-    <string>Choisir</string>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="showDropIndicator" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="dragEnabled">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>280</y>
+     <x>20</x>
+     <y>340</y>
      <width>141</width>
      <height>41</height>
     </rect>
@@ -102,7 +100,43 @@
     <string>Retour</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushChoisir">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>340</y>
+     <width>141</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Lucida Handwriting</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Choisir</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>SelectNationPowerWindows</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>299</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>254</x>
+     <y>247</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

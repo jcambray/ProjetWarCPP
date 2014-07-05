@@ -9,16 +9,21 @@
 class Glossary
 {
 private :
-    QString name;
+    const QString name = QLatin1String("lex");
+    const QString path = QLatin1String("../ProjetWarCPP/warCPP/lexique.xml");
+    QList <QString> areaList, nationList, powerList, rulesList;
+    QList <QString> getAreas();
+    QList <QString> getNations();
+    QList <QString> getPowers();
+    QList <QString> getRules();
+
 
 public:
     Glossary();
     Glossary(Glossary &glossary);
-    Glossary(QString newName);
     ~Glossary();
     void print();
-    void setName(QString newName);
-    QString getName();
+
 };
 
 #endif // GLOSSARY_H

@@ -11,10 +11,6 @@
 
 int main(int argc, char *argv[])
 {
-/*
-    Glossary gl("nation");
-    gl.print();
-*/
     QApplication a(argc,argv);
     game g;
     g.run();

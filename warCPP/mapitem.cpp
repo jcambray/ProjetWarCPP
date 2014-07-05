@@ -34,12 +34,14 @@ const QString & mapItem::getName()
 
 //gestion de l'evenement click de la souris
 void mapItem::mousePressEvent(QGraphicsSceneMouseEvent *event){
-   if(event->button() == Qt::MouseButton::LeftButton){
+   /*if(event->button() == Qt::MouseButton::LeftButton){
 
        QGraphicsItem::mousePressEvent(event);
        qDebug() <<"click";
 
+
     }
+    }*/
 }
 
 void mapItem::getAreaOnDrag(const QPointF & p)
@@ -68,12 +70,17 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
    if(event->button() == Qt::MouseButton::LeftButton){
 
+  /* if(event->button() != Qt::MouseButton::LeftButton){
+
+
        QGraphicsItem::mouseReleaseEvent(event);
        getAreaOnDrag(scenePos());
        setPos(scenePos());
 
-    }
+    }*/
 
+
+}
 
 }
 
