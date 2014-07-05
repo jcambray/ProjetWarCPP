@@ -3,6 +3,8 @@
 #include <QMessageBox>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsSceneMouseEvent>
+#include "area.h"
+#include "tmxviewer.h"
 
 
 class mapItem : public QObject, public QGraphicsPixmapItem
@@ -17,7 +19,7 @@ public:
     void setName(const QString & _name);
     void setType(const QString & newType);
     const QString & getName();
-
+    void getAreaOnDrag(const QPointF &);
 
 private:
 

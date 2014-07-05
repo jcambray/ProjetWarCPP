@@ -62,7 +62,6 @@ public:
     // noms (temporaires) des area existante: ocean,plage
     MapObject & getAreaByName(const QString &);
 
-    //void setColorToArea(MapObject & area, const QBrush & color);
     Map & getMap();
 
 

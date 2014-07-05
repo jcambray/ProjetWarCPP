@@ -10,10 +10,9 @@ gameMap::gameMap()
 {
     viewer = new TmxViewer;
     items = new QMap<QString,mapItem *>();
-    viewer->viewMap(QString(QLatin1String("map\\mapBis.tmx")));
+    viewer->viewMap(tr("map\\mapBis.tmx"));
     viewer->populateAreas();
-    MapObject obj = viewer->getAreaByName(QLatin1String("ocean"));
-    qDebug()<<obj.type();
+    MapObject a = viewer->getAreaByName(tr("plage"));
 }
 
 
@@ -36,6 +35,7 @@ mapItem * gameMap::addItem(mapItem * item, int x, int y)
    viewer->scene()->addItem(item);
    item->setPos(x,y);
    items->insert(item->getName(),item);
+   item->setParent(viewer->scene());
    return item;
 }
 
