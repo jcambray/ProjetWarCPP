@@ -162,6 +162,9 @@
      <height>20</height>
     </rect>
    </property>
+   <property name="maxLength">
+    <number>15</number>
+   </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_2">
    <property name="enabled">
@@ -177,6 +180,9 @@
    </property>
    <property name="text">
     <string>AlbatorBot</string>
+   </property>
+   <property name="maxLength">
+    <number>15</number>
    </property>
   </widget>
  </widget>

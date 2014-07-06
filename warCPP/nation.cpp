@@ -22,11 +22,25 @@ Nation::Nation(const Nation &n)
     token = n.token;
 }
 
+void Nation::setName(QString nameNat)
+{
+    name = nameNat;
+}
+
+void Nation::setBonus(int bonusNat)
+{
+    bonus=bonusNat;
+}
+
+void Nation::setToken(int tokenNat)
+{
+    token=tokenNat;
+}
+
 QString Nation::getName()
 {
     return name;
 }
-
 
 int Nation::getBonus()
 {

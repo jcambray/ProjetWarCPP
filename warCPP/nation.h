@@ -8,6 +8,9 @@ public:
     Nation();
     Nation(QString,int,int);
     Nation(const Nation &);
+    void setName(QString nameNat);
+    void setBonus(int bonusNat);
+    void setToken(int tokenNat);
     QString getName();
     int getBonus();
     int getToken();

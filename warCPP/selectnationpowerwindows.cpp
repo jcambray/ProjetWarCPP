@@ -6,6 +6,7 @@ SelectNationPowerWindows::SelectNationPowerWindows(QWidget *parent) :
     ui(new Ui::SelectNationPowerWindows)
 {
     debutGame = true;
+    namejoueur = tr("");
     ui->setupUi(this);
 }
 
@@ -16,13 +17,14 @@ SelectNationPowerWindows::~SelectNationPowerWindows()
 
 void SelectNationPowerWindows::prepareSelectNationPower(QString Joueur)
 {
-    namejoueur = Joueur;
-    ui->labelJoueur->setText(namejoueur);
-
-    if(debutGame)
+    if(namejoueur.isEmpty())
     {
         randomSelectionNationPower();
+
     }
+    namejoueur = Joueur;
+    ui->labelJoueur->setText(Joueur);
+
     modele = new QStringListModel(Combination);
     ui->listView->setModel(modele);
 
@@ -88,27 +90,55 @@ void SelectNationPowerWindows::randomSelectionNationPower()
 
 void SelectNationPowerWindows::on_pushButton_2_clicked()
 {
+    namejoueur = tr("");
     Combination.clear();
     delete modele;
 }
 
 void SelectNationPowerWindows::on_pushChoisir_clicked()
 {
+
     QItemSelectionModel *selection2 = ui->listView->selectionModel();
     QModelIndex indexElementSelectionne2 = selection2->currentIndex();
     QVariant elementSelectionne2 = modele->data(indexElementSelectionne2, Qt::DisplayRole);
     QString choix2 = elementSelectionne2.toString();
-
-    QStringList combi2 = choix2.split(tr(";"));
+    QStringList combi2 = choix2.split(tr(" ; "));
     QString sNation2 = combi2[0];
     QString sPower2 = combi2[1];
 
-    if(debutGame)
-    {
-       emit createJoueur(namejoueur,sNation2,sPower2);
-    }
-    else
-    {
-       //emit UpJoueur(namejoueur,sNation,sNation);
-    }
+    switch( QMessageBox::question(
+                    this,
+                    tr("Choix de la combinaison"),
+                    tr("Etes vou sur de vouloir choisir cette combinaison ?"),
+
+                    QMessageBox::Yes |
+                    QMessageBox::No |
+                    QMessageBox::Cancel,
+                    QMessageBox::Cancel ) )
+        {
+          case QMessageBox::Yes:
+            qDebug( "yes" );
+                if(debutGame)
+                {
+                   Combination.removeAt(indexElementSelectionne2.row());
+                   delete modele;
+                   ui->pushButton_2->setDisabled(true);
+                   emit createJoueur(namejoueur,sNation2,sPower2);
+                }
+                else
+                {
+                   //emit UpJoueur(namejoueur,sNation,sNation);
+                }
+            break;
+          case QMessageBox::No:
+                qDebug( "no" );
+            break;
+          case QMessageBox::Cancel:
+            qDebug( "cancel" );
+            break;
+          default:
+            qDebug( "close" );
+            break;
+        }
+
 }

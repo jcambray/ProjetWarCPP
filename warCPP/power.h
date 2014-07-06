@@ -8,6 +8,9 @@ public:
     Power();
     Power(const Power &);
     Power(QString,int,int);
+    void setName(QString namePow);
+    void setBonus(int bonusPow);
+    void setToken(int tokenPow);
     QString getName();
     int getBonus();
     int getToken();

@@ -21,6 +21,21 @@ Power::Power(QString _name,int _bonus,int _token)
     token = _token;
 }
 
+void Power::setName(QString namePow)
+{
+    name=namePow;
+}
+
+void Power::setBonus(int bonusPow)
+{
+    bonus=bonusPow;
+}
+
+void Power::setToken(int tokenPow)
+{
+    token=tokenPow;
+}
+
 QString Power::getName()
 {
     return name;

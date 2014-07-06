@@ -20,7 +20,6 @@ void SelectPlayerWindows::enableLineEdit2()
 
 void SelectPlayerWindows::on_pushButtonCommencer_clicked()
 {
-    int first =0;
     QString NameJ1 = ui->lineEdit->text();
     QString NameJ2 = ui->lineEdit_2->text();
 
@@ -28,13 +27,11 @@ void SelectPlayerWindows::on_pushButtonCommencer_clicked()
     {
         if(ui->radioButtonJ1->isChecked())
         {
-            first = 1;
-            emit ButtonCommencer(NameJ1,NameJ2,first);
+            emit ButtonCommencer(NameJ1,NameJ2);
         }
         else if(ui->radioButtonJ2->isChecked())
         {
-            first = 2;
-            emit ButtonCommencer(NameJ1,NameJ2,first);
+            emit ButtonCommencer(NameJ2,NameJ1);
         }else
         {
             QMessageBox::warning(
