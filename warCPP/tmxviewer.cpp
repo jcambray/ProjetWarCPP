@@ -169,6 +169,7 @@ TmxViewer::TmxViewer(QWidget *parent) :
     setBackgroundBrush(Qt::black);
     setFrameStyle(QFrame::NoFrame);
     viewport()->setAttribute(Qt::WA_StaticContents);
+    setWindowState(Qt::WindowMaximized);
     areas = new QList<Area *>();
 }
 

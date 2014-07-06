@@ -19,7 +19,10 @@ Area::Area(const QString & name, const QString & type, const QPointF & point, co
     ownerPlayerName = QLatin1String("nobody");
 }
 
-
+void Area::setOwnerPlayerName(const QString & name)
+{
+    ownerPlayerName = name;
+}
 
 QString & Area::getOwnerPlayerName()
 {

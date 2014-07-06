@@ -24,8 +24,16 @@ player::player(const player & p)
    token = p.token;
    score = p.score;
    name = p.name;
-   nat = p.nat;
+   if(nat != NULL)
+   {
+       delete nat;
+   }
+   if(pow != NULL)
+   {
+       delete pow;
+   }
    pow = p.pow;
+   nat = p.nat;
 }
 
 bool player::operator <(const player &p)
