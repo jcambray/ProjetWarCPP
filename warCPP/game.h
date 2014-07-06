@@ -28,6 +28,7 @@ public:
     void decline(player p);
     void endRound();
     void endGame();
+    void renderMap();
 
 
 public slots:

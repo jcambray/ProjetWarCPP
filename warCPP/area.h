@@ -8,13 +8,14 @@ class Area : public MapObject
 {
 public:
     Area();
+    Area(const Area &);
     Area(const QString &,const QString &,const QPointF &, const QSizeF &);
-    bool isActive();
     QString & getOwnerPlayerName();
+
+    bool enDeclin;
 
 private:
 
-    bool active;
     QString ownerPlayerName;
 };
 

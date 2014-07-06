@@ -169,7 +169,7 @@ TmxViewer::TmxViewer(QWidget *parent) :
     setBackgroundBrush(Qt::black);
     setFrameStyle(QFrame::NoFrame);
     viewport()->setAttribute(Qt::WA_StaticContents);
-    areas = new QList<Area>();
+    areas = new QList<Area *>();
 }
 
 
@@ -181,7 +181,7 @@ TmxViewer::~TmxViewer()
     delete areas;
 }
 
-QList<Area> & TmxViewer::getAreas()
+QList<Area *> &TmxViewer::getAreas()
 {
     return *areas;
 }
@@ -198,31 +198,26 @@ void TmxViewer::populateAreas()
    for(int i =0;i < AreaLayer->objectCount();i++)
    {
        MapObject mapObj = *(AreaLayer->objects()[i]);
-       Area obj(mapObj.name(),mapObj.type(),mapObj.position(),mapObj.size());
+       Area * obj = new Area(mapObj.name(),mapObj.type(),mapObj.position(),mapObj.size());
        areas->insert(i,obj);
    }
 }
 
-MapObject & TmxViewer::getAreaByName(const QString & name)
+Area * TmxViewer::getAreaByName(const QString & name)
 {
-    MapObject obj = getAreas()[0];
-    obj.setName(QLatin1String("unknown"));
     for(int i = 0; i < getAreas().count();i++)
     {
-        if(getAreas().at(i).name() == name)
+        if(getAreas().at(i)->name() == name)
             return getAreas()[i];
     }
-    return obj;
+
+    return NULL;
 }
 
-/*
-void TmxViewer::setColorToArea(MapObject &area, const QBrush &color)
+MapRenderer & TmxViewer::GetRenderer()
 {
-    QPainterPath painter;
-    painter.addPolygon(area.polygon());
-    QPainter::fillPath(QPainterPath(),QBrush(Qt::blue));
+    return *mRenderer;
 }
-*/
 
 void TmxViewer::viewMap(const QString &fileName)
 {

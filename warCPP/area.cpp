@@ -2,21 +2,23 @@
 
 Area::Area() : MapObject()
 {
-    active = false;
+    enDeclin = false;
     ownerPlayerName = QLatin1String("nobody");
+}
+
+Area::Area(const Area &a)
+{
+    enDeclin = a.enDeclin;
+    ownerPlayerName = a.ownerPlayerName;
 }
 
 
 Area::Area(const QString & name, const QString & type, const QPointF & point, const QSizeF & size) : MapObject(name,type,point,size)
 {
-    active = false;
+    enDeclin = false;
     ownerPlayerName = QLatin1String("nobody");
 }
 
-bool Area::isActive()
-{
-    return active;
-}
 
 
 QString & Area::getOwnerPlayerName()

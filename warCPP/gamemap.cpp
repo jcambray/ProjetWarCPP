@@ -12,7 +12,6 @@ gameMap::gameMap()
     items = new QMap<QString,mapItem *>();
     viewer->viewMap(tr("map\\mapBis.tmx"));
     viewer->populateAreas();
-    MapObject a = viewer->getAreaByName(tr("plage"));
 }
 
 
@@ -41,8 +40,8 @@ mapItem * gameMap::addItem(mapItem * item, int x, int y)
 
 void gameMap::addAllItems(){
 
-    mapItem *it = new mapItem(QLatin1String("greenMonster"),QLatin1String("race"),QPixmap(QLatin1String("images\\monster.jpg")));
-    addItem(it,300,180);
+    mapItem *it = new mapItem(QLatin1String("greenMonster"),QLatin1String("race"),QPixmap(QLatin1String("images\\monster.jpg")),viewer);
+    addItem(it,159,1180);
     it->setScale(0.3);
 }
 

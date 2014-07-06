@@ -53,23 +53,26 @@ public:
     void viewMap(const QString &fileName);
 
     //Retourne la liste des areas
-    QList<Area> &getAreas();
+    QList<Area *> &getAreas();
 
     void populateAreas();
 
     //Retourne l'area suivant le nom en paramètres
     // WARNING Plante si l'area n'est pas trouvée
     // noms (temporaires) des area existante: ocean,plage
-    MapObject & getAreaByName(const QString &);
+    Area * getAreaByName(const QString &);
 
     Map & getMap();
 
+    MapRenderer & GetRenderer();
+
+    Tiled::Map *mMap;
 
 private:
     QGraphicsScene *mScene;
-    Tiled::Map *mMap;
+
     Tiled::MapRenderer *mRenderer;
-    QList<Area> * areas;
+    QList<Area *> * areas;
 };
 
 #endif // TMXVIEWER_H

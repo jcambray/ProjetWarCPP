@@ -61,10 +61,7 @@ void game::start()
             break;
         }
 
-   /* map = new gameMap();
-    map->addAllItems();
-    map->getViewer()->setWindowTitle(QLatin1String("WAR C++"));
-    map->getViewer()->show();*/
+        renderMap();
 }
 
 
@@ -145,4 +142,13 @@ void game::endGame(){
         qDebug()<<"Player 2 win";
     else
         qDebug()<<"Egalite";
+}
+
+
+void game::renderMap()
+{
+    map = new gameMap();
+    map->addAllItems();
+    map->getViewer()->setWindowTitle(tr("WAR C++"));
+    map->getViewer()->show();
 }

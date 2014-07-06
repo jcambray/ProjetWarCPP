@@ -1,15 +1,17 @@
 #include "mapitem.h"
 #include <QDebug>
+#include <QPolygonF>
 
 mapItem::mapItem() : QGraphicsPixmapItem()
 {
 }
 
-mapItem::mapItem(const QString &_name, const QString &_type,const QPixmap &img) : QGraphicsPixmapItem(img)
+mapItem::mapItem(const QString &_name, const QString &_type, const QPixmap &img,TmxViewer *v) : QGraphicsPixmapItem(img)
 {
     name = _name;
     type = _type;
-    setFlags(GraphicsItemFlag::ItemIsMovable | GraphicsItemFlag::ItemIsSelectable | GraphicsItemFlag::ItemIsFocusable);
+    viewer = v;
+    setFlags(ItemIsMovable | ItemIsSelectable | ItemIsFocusable);
 }
 
 mapItem::mapItem(const mapItem &m)
@@ -34,54 +36,47 @@ const QString & mapItem::getName()
 
 //gestion de l'evenement click de la souris
 void mapItem::mousePressEvent(QGraphicsSceneMouseEvent *event){
-   /*if(event->button() == Qt::MouseButton::LeftButton){
-
+   if(event->button() == Qt::LeftButton){
        QGraphicsItem::mousePressEvent(event);
-       qDebug() <<"click";
-
-
     }
-    }*/
 }
 
-void mapItem::getAreaOnDrag(const QPointF & p)
+Area * mapItem::getAreaOnDrag(QPointF & p)
 {
-     TmxViewer * viewer = reinterpret_cast<TmxViewer *>(parent()->parent());
-     QList<Area> listAreas = viewer->getAreas();
-     foreach(Area ar,listAreas)
-     {
+    ObjectGroup * oc = viewer->mMap->layerAt(viewer->mMap->indexOfLayer(tr("Areas")))->asObjectGroup();
 
-     }
-
-     /**
-     for(int i = 0; i < listAreas.count();i++)
+     for(int i = 0; i < oc->objects().count();i++)
      {
-         if(listAreas[i].polygon().containsPoint(p,Qt::FillRule::WindingFill))
+         MapObject * item = oc->objectAt(i);
+         QPolygonF poly = QPolygonF(item->polygon());
+         poly.translate(item->position());
+
+         if(poly.containsPoint(p,Qt::FillRule::OddEvenFill))
          {
-             qDebug()<<listAreas[i].name();
-             return;
+              return viewer->getAreaByName(item->name());
          }
      }
-     **/
+      return  NULL;
 }
 
 //Gestion de l'événement release de la souris
 void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
-   if(event->button() == Qt::MouseButton::LeftButton){
-
-  /* if(event->button() != Qt::MouseButton::LeftButton){
-
+   if(event->button() == Qt::LeftButton){
 
        QGraphicsItem::mouseReleaseEvent(event);
-       getAreaOnDrag(scenePos());
+       Area * dragDestination = getAreaOnDrag(scenePos());
+       if(!dragDestination)
+       {
+           return;
+       }
+       qDebug()<<dragDestination->name();
        setPos(scenePos());
 
-    }*/
+    }
 
 
 }
 
-}
 
 

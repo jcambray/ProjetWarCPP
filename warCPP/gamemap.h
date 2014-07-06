@@ -28,6 +28,8 @@ public:
     //retourne la liste des éléments graphiques de la map
     QMap<QString, mapItem *> *getItems();
 
+
+
     //Agrandit chaque carre de la map en fonction du coefficient
     void setMapItemsScale(double coeff);
 
