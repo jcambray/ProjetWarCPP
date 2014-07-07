@@ -9,8 +9,8 @@
 class Glossary
 {
 private :
-    const QString name = QLatin1String("lex");
-    const QString path = QLatin1String("../GitHub/ProjetWarCPP/warCPP/lexique.xml");
+    QString name;
+    QString path;
     QList <QString> areaList, nationList, powerList, rulesList;
 
 

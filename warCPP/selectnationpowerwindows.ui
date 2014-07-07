@@ -19,10 +19,10 @@
   <widget class="QLabel" name="labelJoueur">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>221</width>
-     <height>41</height>
+     <x>60</x>
+     <y>30</y>
+     <width>201</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -33,14 +33,20 @@
      <bold>true</bold>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/fond/images/panneau2.png);</string>
+   </property>
    <property name="text">
     <string>TextLabel</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="labelTitre">
    <property name="geometry">
     <rect>
-     <x>260</x>
+     <x>370</x>
      <y>20</y>
      <width>361</width>
      <height>41</height>
@@ -71,6 +77,9 @@
      <pointsize>10</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/fond/Bouton);</string>
+   </property>
    <property name="editTriggers">
     <set>QAbstractItemView::NoEditTriggers</set>
    </property>
@@ -96,6 +105,9 @@
      <pointsize>12</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/fond/images/nouvelle_partie.jpg);</string>
+   </property>
    <property name="text">
     <string>Retour</string>
    </property>
@@ -114,6 +126,9 @@
      <family>Lucida Handwriting</family>
      <pointsize>12</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/fond/images/nouvelle_partie.jpg);</string>
    </property>
    <property name="text">
     <string>Choisir</string>
@@ -182,6 +197,31 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>761</width>
+     <height>521</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/fond/images/selectPlayer (754x471).jpg);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>labelJoueur</zorder>
+  <zorder>labelTitre</zorder>
+  <zorder>listView</zorder>
+  <zorder>pushButton_2</zorder>
+  <zorder>pushChoisir</zorder>
+  <zorder>labelPower</zorder>
+  <zorder>labelImage</zorder>
+  <zorder>labelNation</zorder>
  </widget>
  <resources/>
  <connections>

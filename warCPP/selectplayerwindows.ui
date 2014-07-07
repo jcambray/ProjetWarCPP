@@ -16,9 +16,9 @@
   <widget class="QLabel" name="labeljoueur1">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>80</y>
-     <width>91</width>
+     <x>100</x>
+     <y>83</y>
+     <width>101</width>
      <height>31</height>
     </rect>
    </property>
@@ -28,16 +28,22 @@
      <pointsize>12</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/fond/images/panneau2.png);</string>
+   </property>
    <property name="text">
     <string>Joueur1 :</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="labeljoueur2">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>100</x>
      <y>124</y>
-     <width>91</width>
+     <width>101</width>
      <height>30</height>
     </rect>
    </property>
@@ -47,8 +53,15 @@
      <pointsize>12</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/fond/images/panneau2.png);
+border-top-color: rgb(0, 0, 0);</string>
+   </property>
    <property name="text">
     <string>Joueur2 :</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButtonCommencer">
@@ -65,6 +78,9 @@
      <family>Lucida Handwriting</family>
      <pointsize>12</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/fond/images/nouvelle_partie.jpg);</string>
    </property>
    <property name="text">
     <string>Commencer</string>
@@ -84,6 +100,9 @@
      <family>Lucida Handwriting</family>
      <pointsize>12</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/fond/images/nouvelle_partie.jpg);</string>
    </property>
    <property name="text">
     <string>Retour</string>
@@ -106,7 +125,7 @@
    <property name="geometry">
     <rect>
      <x>356</x>
-     <y>120</y>
+     <y>122</y>
      <width>31</width>
      <height>31</height>
     </rect>
@@ -118,8 +137,8 @@
   <widget class="QLabel" name="labelNom">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>40</y>
+     <x>250</x>
+     <y>50</y>
      <width>61</width>
      <height>31</height>
     </rect>
@@ -130,6 +149,9 @@
      <pointsize>12</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
    <property name="text">
     <string>Nom</string>
    </property>
@@ -138,7 +160,7 @@
    <property name="geometry">
     <rect>
      <x>340</x>
-     <y>40</y>
+     <y>50</y>
      <width>51</width>
      <height>31</height>
     </rect>
@@ -149,6 +171,9 @@
      <pointsize>12</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
    <property name="text">
     <string>First</string>
    </property>
@@ -157,7 +182,7 @@
    <property name="geometry">
     <rect>
      <x>220</x>
-     <y>90</y>
+     <y>89</y>
      <width>113</width>
      <height>20</height>
     </rect>
@@ -173,7 +198,7 @@
    <property name="geometry">
     <rect>
      <x>220</x>
-     <y>130</y>
+     <y>129</y>
      <width>113</width>
      <height>21</height>
     </rect>
@@ -185,6 +210,33 @@
     <number>15</number>
    </property>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>541</width>
+     <height>251</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/fond/images/selectNation (532x333).jpg);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>labeljoueur1</zorder>
+  <zorder>labeljoueur2</zorder>
+  <zorder>pushButtonCommencer</zorder>
+  <zorder>pushButtonRetour</zorder>
+  <zorder>radioButtonJ1</zorder>
+  <zorder>radioButtonJ2</zorder>
+  <zorder>labelNom</zorder>
+  <zorder>labelFirst</zorder>
+  <zorder>lineEdit</zorder>
+  <zorder>lineEdit_2</zorder>
  </widget>
  <resources/>
  <connections>

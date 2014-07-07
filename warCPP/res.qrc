@@ -10,5 +10,9 @@
         <file>images/Nation/Amazones.jpg</file>
         <file>images/Nation/Hommes-Rats.jpg</file>
         <file>images/Nation/Squelettes.jpg</file>
+        <file>images/selectNation (532x333).jpg</file>
+        <file>images/fondLabel.png</file>
+        <file>images/selectPlayer (754x471).jpg</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>
