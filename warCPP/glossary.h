@@ -17,13 +17,16 @@ private :
     QList <QString> getPowers();
     QList <QString> getRules();
 
-
 public:
     Glossary();
     Glossary(Glossary &glossary);
     ~Glossary();
     void print();
-
+    void getMSG(QList <QString> listLex);
+    void getMSGArea();
+    void getMSGNation();
+    void getMSGPower();
+    void getMSGRules();
 };
 
 #endif // GLOSSARY_H

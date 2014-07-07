@@ -6,6 +6,7 @@
 #include <QtDebug>
 #include <fstream>
 #include <string>
+#include <QMessageBox>
 
 using namespace std;
 
@@ -88,6 +89,74 @@ void Glossary::print(){
 
 
 
+}
+
+void Glossary::getMSGArea(){
+    QMessageBox box;
+    box.setIcon(QMessageBox::Information);
+    QString msg = QLatin1String("");
+    int i = 0;
+    int length = areaList.length();
+
+    while (i<length){
+        msg += areaList.at(i);
+        msg += QLatin1String("\n");
+        i++;
+    }
+
+    box.setText(msg);
+    box.exec();
+}
+
+void Glossary::getMSGNation(){
+    QMessageBox box;
+    box.setIcon(QMessageBox::Information);
+    QString msg = QLatin1String("");
+    int i = 0;
+    int length = nationList.length();
+
+    while (i<length){
+        msg += nationList.at(i);
+        msg += QLatin1String("\n");
+        i++;
+    }
+
+    box.setText(msg);
+    box.exec();
+}
+
+void Glossary::getMSGPower(){
+    QMessageBox box;
+    box.setIcon(QMessageBox::Information);
+    QString msg = QLatin1String("");
+    int i = 0;
+    int length = powerList.length();
+
+    while (i<length){
+        msg += powerList.at(i);
+        msg += QLatin1String("\n");
+        i++;
+    }
+
+    box.setText(msg);
+    box.exec();
+}
+
+void Glossary::getMSGRules(){
+    QMessageBox box;
+    box.setIcon(QMessageBox::Information);
+    QString msg = QLatin1String("");
+    int i = 0;
+    int length = rulesList.length();
+
+    while (i<length){
+        msg += rulesList.at(i);
+        msg += QLatin1String("\n");
+        i++;
+    }
+
+    box.setText(msg);
+    box.exec();
 }
 
 
