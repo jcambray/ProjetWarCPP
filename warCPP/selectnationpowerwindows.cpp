@@ -50,7 +50,7 @@ void SelectNationPowerWindows::on_listView_doubleClicked(const QModelIndex &inde
 
     for(int i =0; i<listNation.size();i++)
     {
-        listTmp = listNation[i].split(tr(":"));
+        listTmp = listNation[i].split(tr(" :"));
         if(listTmp[0]==sNation)
         {
             sNation = listNation[i];
@@ -60,15 +60,17 @@ void SelectNationPowerWindows::on_listView_doubleClicked(const QModelIndex &inde
 
     for(int i =0; i<listPower.size();i++)
     {
-        listTmp = listPower[i].split(tr(":"));
+        listTmp = listPower[i].split(tr(" :"));
         if(listTmp[0]==sPower)
         {
             sPower = listPower[i];
         }
         listTmp.clear();
     }
-    ui->labelCombi->setText(sNation+tr(" ")+sPower);
-    //ui->labelImage->setPixmap(QPixmap(tr("icone.png")));
+    listTmp = sNation.split(tr(" :"));
+    ui->labelNation->setText(sNation);
+    ui->labelPower->setText(sPower);
+    ui->labelImage->setPixmap(QPixmap(tr(":/fond/images/Nation/")+listTmp[0]+tr(".jpg")));
 
 }
 
@@ -79,7 +81,7 @@ void SelectNationPowerWindows::randomSelectionNationPower()
     int y =0;
     Nation.clear();
     Power.clear();
-    Nation << tr("Amazones") << tr("Humains") << tr("Squelettes") << tr("Hommes-rats");
+    Nation << tr("Amazones") << tr("Humains") << tr("Squelettes") << tr("Hommes-Rats");
     Power << tr("Pirates") << tr("Et leur Dragon") << tr("Bucherons") << tr("Marchands");
 
 

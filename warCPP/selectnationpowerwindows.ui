@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>723</width>
-    <height>399</height>
+    <width>754</width>
+    <height>517</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -40,7 +40,7 @@
   <widget class="QLabel" name="labelTitre">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>260</x>
      <y>20</y>
      <width>361</width>
      <height>41</height>
@@ -59,10 +59,10 @@
   <widget class="QListView" name="listView">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>480</x>
      <y>100</y>
      <width>256</width>
-     <height>192</height>
+     <height>271</height>
     </rect>
    </property>
    <property name="font">
@@ -84,8 +84,8 @@
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>340</y>
+     <x>30</x>
+     <y>460</y>
      <width>141</width>
      <height>41</height>
     </rect>
@@ -103,8 +103,8 @@
   <widget class="QPushButton" name="pushChoisir">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>340</y>
+     <x>580</x>
+     <y>460</y>
      <width>141</width>
      <height>41</height>
     </rect>
@@ -119,13 +119,38 @@
     <string>Choisir</string>
    </property>
   </widget>
-  <widget class="QLabel" name="labelCombi">
+  <widget class="QLabel" name="labelPower">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>270</y>
-     <width>361</width>
-     <height>41</height>
+     <x>20</x>
+     <y>410</y>
+     <width>711</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Lucida Handwriting</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelImage">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>90</y>
+     <width>350</width>
+     <height>281</height>
     </rect>
    </property>
    <property name="font">
@@ -138,19 +163,19 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="labelImage">
+  <widget class="QLabel" name="labelNation">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>110</y>
-     <width>361</width>
-     <height>141</height>
+     <x>20</x>
+     <y>380</y>
+     <width>711</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Lucida Handwriting</family>
-     <pointsize>12</pointsize>
+     <pointsize>11</pointsize>
     </font>
    </property>
    <property name="text">

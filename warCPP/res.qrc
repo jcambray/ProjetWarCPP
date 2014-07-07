@@ -1,10 +1,14 @@
 <RCC>
-    <qresource prefix="/fond" lang="French">
+    <qresource lang="French" prefix="/fond">
         <file alias="background">images/fondAcceuil.jpg</file>
         <file alias="Lexique">images/fond.jpg</file>
         <file alias="Bouton">images/fond_parchemin.png</file>
         <file>images/panneau2.png</file>
         <file>images/panneau.png</file>
         <file>images/nouvelle_partie.jpg</file>
+        <file>images/Nation/Humains.jpg</file>
+        <file>images/Nation/Amazones.jpg</file>
+        <file>images/Nation/Hommes-Rats.jpg</file>
+        <file>images/Nation/Squelettes.jpg</file>
     </qresource>
 </RCC>
