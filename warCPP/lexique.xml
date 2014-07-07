@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lexique>
-	<area id="0" value = "Plaine (Herbe) : 2 jetons nécessaire pour être conquis." />
-	<area id="1" value = "Mer (Aqua) : 1 jeton nécessaire pour être conquis." />
-	<area id="2" value = "Foret (Arbre) : 2 Jetons nécessaire pour être conquis." />
-	<area id="3" value = "Montagne (rocher) : 3 Jetons nécessaire pour être conquis." />
-	<area id="4" value = "Château (un château) : 5 Jetons nécessaire pour être conquis." />
-	<area id="5" value = "Désert (sable) : 1 jetons nécessaire pour être conquis." />
+	<area id="0" value = "Plaine (Herbe) : 2 jetons nécessaire pour être conquis. Rapporte 1 jeton à la fin du tour." />
+	<area id="1" value = "Mer (Aqua) : 1 jeton nécessaire pour être conquis. (Doit avoir le pouvoir Marin) Rapporte 1 jeton à la fin du tour." />
+	<area id="2" value = "Foret (Arbre) : 2 Jetons nécessaire pour être conquis. Rapporte 1 jeton à la fin du tour." />
+	<area id="3" value = "Montagne (rocher) : 3 Jetons nécessaire pour être conquis. Rapporte 1 jeton à la fin du tour." />
+	<area id="4" value = "Désert (sable) : 1 jetons nécessaire pour être conquis. Rapporte 1 jeton à la fin du tour." />
+	<area id="5" value = "Château (un château) : 5 Jetons nécessaire pour être conquis. Rapporte 3 jeton à la fin du tour." />
 	
-	<nation id="0" value = "Amazone : +1 dans Foret." />
-	<nation id="1" value = "Humain : +1 dans Plaine." />
-	<nation id="2" value = "Skeletone : +1 token par 2 conquêtes victorieuse." />
-	<nation id="3" value = "Homme-Rat : pleins de token." />
+	<nation id="0" value = "Amazones : +1 jeton dans une Foret. Nombre de Tokens par Tour : 5" />
+	<nation id="1" value = "Humains : +1 jeton dans une Plaine. Nombre de Tokens par Tour : 5" />
+	<nation id="2" value = "Squelettes : +1 token pour deux régions conquises. Nombre de Tokens par Tour : 6" />
+	<nation id="3" value = "Hommes-Rats : Aucune.  Nombre de Tokens par Tour : 8" />
 			
-	<power id="0" value = "Pirate : conquête des territoires mer." />
-	<power id="1" value = "Dragon : token dragon qui capture 1 territoire pour son coup de base. le territoire occupé par le dragon est imprenable. " />
-	<power id="2" value = "Marchands : +1 jeton pour chaque territoire." />
-	<power id="3" value = "Bucheron : +1 jeton pour chaque foret." />
+	<power id="0" value = "Pirates : Conquête des régions mer." />
+	<power id="1" value = "Et leur Dragon : Un token dragon qui capture une région pour son coup de base. Le territoire occupé par le dragon est imprenable. " />
+	<power id="2" value = "Marchands : +1 jeton pour chaque région." />
+	<power id="3" value = "Bucherons : +1 jeton pour chaque région foret." />
 
 	<rules id="0" value = "Sélection des joueurs et du plateau de jeu :
 Lors du lancement d’une partie, une fenêtre apparait pour la sélection des joueurs. 
