@@ -61,10 +61,10 @@ Area * mapItem::getAreaOnDrag(QPointF & p)
      for(int i = 0; i < oc->objects().count();i++)
      {
          MapObject * item = oc->objectAt(i);
-         QPolygonF poly = QPolygonF(item->polygon());
-         poly.translate(item->position());
+         //QPolygonF poly = QPolygonF(item->polygon());
+         //poly.translate(item->position());
 
-         if(poly.containsPoint(p,Qt::OddEvenFill))
+         if(sceneCoordinatesPolygon(item->polygon(),item->position()).containsPoint(p,Qt::OddEvenFill))
          {
               return viewer->getAreaByName(item->name());
          }
@@ -79,7 +79,6 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
    return;
    }
 
-    qDebug()<<"release";
    QGraphicsItem::mouseReleaseEvent(event);
    /*Area * dragDestination = getAreaOnDrag(scenePos());
    if(!dragDestination)
@@ -88,6 +87,7 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
        return;
    }
 
+   //Debug
    dragDestination->setOwnerPlayerName(QLatin1String("me"));
 
    if(validateMove(dragDestination))
@@ -116,7 +116,9 @@ bool mapItem::validateMove(Area * a)
         return false;
     }
 
+    //Debug
     if(QLatin1String("me") != a->getOwnerPlayerName())
+    //if(ownerPlayer->getName() != a->getOwnerPlayerName())
     {
         return false;
     }
@@ -124,6 +126,11 @@ bool mapItem::validateMove(Area * a)
     return true;
 }
 
-
+QPolygonF mapItem::sceneCoordinatesPolygon(const QPolygonF & poly, const QPointF & p)
+{
+    QPolygonF translatedPolygon  = QPolygonF(poly);
+    translatedPolygon.translate(p);
+    return translatedPolygon;
+}
 
 
