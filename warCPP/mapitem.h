@@ -28,6 +28,7 @@ public:
     void setOwnerPlayer(const player & p);
     void setAnciennePos(QPointF &p);
     bool validateMove(Area *);
+    QPolygonF sceneCoordinatesPolygon(const QPolygonF &,const QPointF &);
 
 private:
 
