@@ -51,7 +51,7 @@ void mapItem::mousePressEvent(QGraphicsSceneMouseEvent *event){
        return;
     }
    QGraphicsItem::mousePressEvent(event);
-   setAnciennePos(scenePos());
+   //this->setAnciennePos(scenePos());
 }
 
 Area * mapItem::getAreaOnDrag(QPointF & p)
@@ -81,7 +81,7 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 
     qDebug()<<"release";
    QGraphicsItem::mouseReleaseEvent(event);
-   Area * dragDestination = getAreaOnDrag(scenePos());
+   /*Area * dragDestination = getAreaOnDrag(scenePos());
    if(!dragDestination)
    {
        setPos(QPointF(anciennePos->x(),anciennePos->y()));
@@ -97,7 +97,7 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
    else
    {
        setPos(QPointF(anciennePos->x(),anciennePos->y()));
-   }
+   }*/
 }
 
 void mapItem::setOwnerPlayer(const player &p)

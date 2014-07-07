@@ -10,12 +10,9 @@ class Glossary
 {
 private :
     const QString name = QLatin1String("lex");
-    const QString path = QLatin1String("../ProjetWarCPP/warCPP/lexique.xml");
+    const QString path = QLatin1String("../GitHub/ProjetWarCPP/warCPP/lexique.xml");
     QList <QString> areaList, nationList, powerList, rulesList;
-    QList <QString> getAreas();
-    QList <QString> getNations();
-    QList <QString> getPowers();
-    QList <QString> getRules();
+
 
 public:
     Glossary();
@@ -27,6 +24,10 @@ public:
     void getMSGNation();
     void getMSGPower();
     void getMSGRules();
+    QList <QString> getAreas();
+    QList <QString> getNations();
+    QList <QString> getPowers();
+    QList <QString> getRules();
 };
 
 #endif // GLOSSARY_H

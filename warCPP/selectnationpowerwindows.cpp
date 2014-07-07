@@ -5,6 +5,7 @@ SelectNationPowerWindows::SelectNationPowerWindows(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SelectNationPowerWindows)
 {
+    lexique = new Glossary();
     debutGame = true;
     namejoueur = tr("");
     ui->setupUi(this);
@@ -38,11 +39,37 @@ void SelectNationPowerWindows::on_listView_doubleClicked(const QModelIndex &inde
     QVariant elementSelectionne = modele->data(indexElementSelectionne, Qt::DisplayRole);
     QString choix = elementSelectionne.toString();
 
-    QStringList combi = choix.split(tr(";"));
+    QStringList combi = choix.split(tr(" ; "));
     QString sNation = combi[0];
     QString sPower = combi[1];
 
-    QMessageBox::information(this, tr("Elément sélectionné"), sNation+tr(" ")+sPower);
+    QStringList listTmp;
+    QList <QString> listNation = lexique->getNations();
+    QList <QString> listPower = lexique->getPowers();
+    QList <QString> listRules = lexique->getRules();
+
+    for(int i =0; i<listNation.size();i++)
+    {
+        listTmp = listNation[i].split(tr(":"));
+        if(listTmp[0]==sNation)
+        {
+            sNation = listNation[i];
+        }
+        listTmp.clear();
+    }
+
+    for(int i =0; i<listPower.size();i++)
+    {
+        listTmp = listPower[i].split(tr(":"));
+        if(listTmp[0]==sPower)
+        {
+            sPower = listPower[i];
+        }
+        listTmp.clear();
+    }
+    ui->labelCombi->setText(sNation+tr(" ")+sPower);
+    //ui->labelImage->setPixmap(QPixmap(tr("icone.png")));
+
 }
 
 void SelectNationPowerWindows::randomSelectionNationPower()
