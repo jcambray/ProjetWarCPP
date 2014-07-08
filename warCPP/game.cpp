@@ -70,7 +70,7 @@ void game::start()
             break;
         }
 
-        renderMap();
+    //renderMap();
 }
 
 
@@ -84,7 +84,6 @@ void game::selectionPlayer(bool IA)
     if(!IA)
     {
         selectPlayer->enableLineEdit2();
-
     }
     QObject::connect(selectPlayer,SIGNAL(ButtonCommencer(QString,QString)),this,SLOT(selectionNationPower(QString,QString)));
     selectPlayer->show();

@@ -10,7 +10,8 @@ gameMap::gameMap()
 {
     viewer = new TmxViewer;
     items = new QMap<QString,mapItem *>();
-    viewer->viewMap(tr("map\\mapBis.tmx"));
+    //viewer->viewMap(tr("map\\mapBis.tmx"));
+    viewer->viewMap(tr("map\\map.tmx"));
     viewer->populateAreas();
 }
 
@@ -41,7 +42,7 @@ mapItem * gameMap::addItem(mapItem * item, int x, int y)
 void gameMap::addAllItems(){
 
     mapItem *it = new mapItem(QLatin1String("greenMonster"),QLatin1String("race"),QPixmap(QLatin1String("images\\monster.jpg")),viewer);
-    addItem(it,159,1180);
+    addItem(it,568,295);
     it->setScale(0.3);
 }
 

@@ -168,7 +168,7 @@ TmxViewer::TmxViewer(QWidget *parent) :
     setFrameStyle(QFrame::NoFrame);
     viewport()->setAttribute(Qt::WA_StaticContents);
     setMouseTracking(true);
-    setWindowState(Qt::WindowMaximized);
+    setGeometry(500,500,1136,689);
     areas = new QList<Area *>();
 }
 
