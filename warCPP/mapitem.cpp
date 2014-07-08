@@ -14,6 +14,7 @@ mapItem::mapItem(const QString &_name, const QString &_type, const QPixmap &img,
     type = _type;
     viewer = v;
     anciennePos = NULL;
+    setParent(viewer);
     setFlags(ItemIsMovable | ItemIsSelectable | ItemIsFocusable);
 }
 
@@ -54,25 +55,9 @@ void mapItem::mousePressEvent(QGraphicsSceneMouseEvent *event){
    setAnciennePos(scenePos());
 }
 
-Area * mapItem::getAreaOnDrag(QPointF & p)
-{
-    ObjectGroup * oc = viewer->mMap->layerAt(viewer->mMap->indexOfLayer(tr("Areas")))->asObjectGroup();
 
-     for(int i = 0; i < oc->objects().count();i++)
-     {
-         MapObject * item = oc->objectAt(i);
-         //QPolygonF poly = QPolygonF(item->polygon());
-         //poly.translate(item->position());
 
-         if(sceneCoordinatesPolygon(item->polygon(),item->position()).containsPoint(p,Qt::OddEvenFill))
-         {
-              return viewer->getAreaByName(item->name());
-         }
-     }
-      return  NULL;
-}
 
-//Gestion de l'événement release de la souris
 void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
    if(event->button() != Qt::LeftButton){
@@ -80,7 +65,8 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
    }
 
    QGraphicsItem::mouseReleaseEvent(event);
-   Area * dragDestination = getAreaOnDrag(scenePos());
+   Area * dragDestination = viewer->getAreaByLocation(scenePos());
+
    if(!dragDestination)
    {
        setPos(QPointF(anciennePos->x(),anciennePos->y()));
@@ -88,6 +74,7 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
    }
 
    //Debug
+   qDebug()<<dragDestination->name();
    dragDestination->setOwnerPlayerName(QLatin1String("me"));
 
    if(validateMove(dragDestination))
@@ -98,7 +85,15 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
    {
        setPos(QPointF(anciennePos->x(),anciennePos->y()));
    }
+/*
+   viewer->setAreaColor(sceneCoordinatesPolygon(dragDestination->polygon(),dragDestination->position()).toPolygon());
+   const QRegion reg(sceneCoordinatesPolygon(dragDestination->polygon(),dragDestination->position()).toPolygon());
+   viewer->canRepaint = true;
+   viewer->repaint(reg);
+   */
 }
+
+
 
 void mapItem::setOwnerPlayer(const player &p)
 {
@@ -126,11 +121,6 @@ bool mapItem::validateMove(Area * a)
     return true;
 }
 
-QPolygonF mapItem::sceneCoordinatesPolygon(const QPolygonF & poly, const QPointF & p)
-{
-    QPolygonF translatedPolygon  = QPolygonF(poly);
-    translatedPolygon.translate(p);
-    return translatedPolygon;
-}
+
 
 

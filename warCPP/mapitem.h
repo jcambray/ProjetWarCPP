@@ -23,12 +23,11 @@ public:
     void setName(const QString & _name);
     void setType(const QString & newType);
     const QString & getName();
-    Area *getAreaOnDrag(QPointF &);
+
     player * getOwnerPlayer();
     void setOwnerPlayer(const player & p);
     void setAnciennePos(QPointF &p);
     bool validateMove(Area *);
-    QPolygonF sceneCoordinatesPolygon(const QPolygonF &,const QPointF &);
 
 private:
 

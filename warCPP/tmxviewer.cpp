@@ -32,18 +32,16 @@
 #include "map.h"
 #include "mapobject.h"
 #include "mapreader.h"
-#include "objectgroup.h"
 #include "orthogonalrenderer.h"
 #include "tilelayer.h"
 #include "tileset.h"
-
 #include <QCoreApplication>
 #include <QGraphicsItem>
 #include <QGraphicsScene>
 #include <QStyleOptionGraphicsItem>
 #include <QMessagebox>
 #include <QDebug>
-#include <QPainterPath>
+
 
 using namespace Tiled;
 
@@ -169,6 +167,7 @@ TmxViewer::TmxViewer(QWidget *parent) :
     setBackgroundBrush(Qt::black);
     setFrameStyle(QFrame::NoFrame);
     viewport()->setAttribute(Qt::WA_StaticContents);
+    setMouseTracking(true);
     setWindowState(Qt::WindowMaximized);
     areas = new QList<Area *>();
 }
@@ -187,10 +186,6 @@ QList<Area *> &TmxViewer::getAreas()
     return *areas;
 }
 
-Map & TmxViewer::getMap()
-{
-    return *mMap;
-}
 
 void TmxViewer::populateAreas()
 {
@@ -215,10 +210,70 @@ Area * TmxViewer::getAreaByName(const QString & name)
     return NULL;
 }
 
-MapRenderer & TmxViewer::GetRenderer()
+/*
+void TmxViewer::setAreaColor(const QPolygon &p)
 {
-    return *mRenderer;
+    repaint(QRegion(p));
 }
+
+void TmxViewer::paintEvent(QPaintEvent *event)
+{
+    QGraphicsView::paintEvent(event);
+
+    if(canRepaint)
+    {
+    QPainter pen(viewport());
+    pen.setBrush(QBrush(Qt::blue));
+    QPainterPath painterP;
+    painterP.addRegion(event->region());
+    pen.drawPath(painterP);
+    pen.save();
+    canRepaint = false;
+    }
+}
+*/
+
+Area * TmxViewer::getAreaByLocation(QPointF & p)
+{
+    ObjectGroup * oc = mMap->layerAt(mMap->indexOfLayer(tr("Areas")))->asObjectGroup();
+
+     for(int i = 0; i < oc->objects().count();i++)
+     {
+         MapObject * item = oc->objectAt(i);
+         if(sceneCoordinatesPolygon(item->polygon(),item->position()).containsPoint(p,Qt::OddEvenFill))
+         {
+              return getAreaByName(item->name());
+         }
+     }
+      return  NULL;
+}
+
+
+QPolygonF TmxViewer::sceneCoordinatesPolygon(const QPolygonF & poly, const QPointF & p)
+{
+    QPolygonF translatedPolygon  = QPolygonF(poly);
+    translatedPolygon.translate(p);
+    return translatedPolygon;
+}
+
+/*
+void TmxViewer::mouseMoveEvent(QMouseEvent *event)
+{
+    QGraphicsView::mouseMoveEvent(event);
+
+    const QPointF p(event->pos());
+    Area * hoveredArea = getAreaByLocation(QPointF(event->pos()));
+
+    if(!hoveredArea)
+        qDebug()<<"nothing";
+    else
+        qDebug()<<hoveredArea->name();
+
+}
+*/
+
+
+
 
 void TmxViewer::viewMap(const QString &fileName)
 {

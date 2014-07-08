@@ -32,7 +32,10 @@
 #include <QGraphicsView>
 #include <QMouseEvent>
 #include "mapobject.h"
+#include "objectgroup.h"
 #include "area.h"
+#include <QPainterPath>
+#include <QPaintEvent>
 #include <QDebug>
 
 namespace Tiled {
@@ -62,17 +65,26 @@ public:
     // noms (temporaires) des area existante: ocean,plage
     Area * getAreaByName(const QString &);
 
-    Map & getMap();
-
-    MapRenderer & GetRenderer();
-
     Tiled::Map *mMap;
+
+    Area * getAreaByLocation(QPointF &);
+
+    QPolygonF sceneCoordinatesPolygon(const QPolygonF &,const QPointF &);
+
+    /*
+    virtual void paintEvent(QPaintEvent * event);
+
+    void setAreaColor(const QPolygon &);
+
+    bool canRepaint = false;
+    */
 
 private:
     QGraphicsScene *mScene;
-
     Tiled::MapRenderer *mRenderer;
     QList<Area *> * areas;
+    //virtual void mouseMoveEvent(QMouseEvent * event);
+
 };
 
 #endif // TMXVIEWER_H

@@ -34,7 +34,7 @@ mapItem * gameMap::addItem(mapItem * item, int x, int y)
    viewer->scene()->addItem(item);
    item->setPos(x,y);
    items->insert(item->getName(),item);
-   item->setParent(viewer->scene());
+   //item->setParent(viewer->scene());
    return item;
 }
 
