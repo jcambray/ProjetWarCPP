@@ -28,7 +28,8 @@ SOURCES += main.cpp\
     nation.cpp \
     selectnationpowerwindows.cpp \
     selectplayerwindows.cpp \
-    area.cpp
+    area.cpp \
+
 
 HEADERS  += mainwindow.h \
     game.h \
@@ -42,7 +43,7 @@ HEADERS  += mainwindow.h \
     nation.h \
     selectnationpowerwindows.h \
     selectplayerwindows.h \
-    area.h
+    area.h \
 
 FORMS    += mainwindow.ui \
     Lexique.ui \
@@ -60,7 +61,9 @@ OTHER_FILES += \
     images/fond.jpg \
     images/Nation/1.jpg \
     images/Nation/2.jpg \
-    images/fond_parchemin.png
+    images/fond_parchemin.png \
+    map/map.jpg \
+    map/map.tmx
 
 RESOURCES += \
     res.qrc

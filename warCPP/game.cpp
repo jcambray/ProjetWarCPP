@@ -70,7 +70,7 @@ void game::start()
             break;
         }
 
-    //renderMap();
+    renderMap();
 }
 
 
