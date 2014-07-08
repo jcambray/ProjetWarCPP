@@ -12,6 +12,9 @@ using namespace std;
 
 Glossary::Glossary(){
 
+    name = QLatin1String("lex");
+    path = QLatin1String("../GitHub/ProjetWarCPP/warCPP/lexique.xml");
+
     QDomDocument dom(name);
     QFile xml_doc(path);
 

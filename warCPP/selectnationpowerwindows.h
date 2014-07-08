@@ -6,6 +6,7 @@
 #include <QString>
 #include <QDateTime>
 #include <QModelIndex>
+#include "glossary.h"
 
 
 namespace Ui {
@@ -35,6 +36,7 @@ private slots:
 private:
     Ui::SelectNationPowerWindows *ui;
     QStringListModel *modele;
+    Glossary * lexique;
     QList <QString> Nation;
     QList <QString> Power;
     QList <QString> Combination;

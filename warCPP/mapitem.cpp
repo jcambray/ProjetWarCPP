@@ -52,7 +52,7 @@ void mapItem::mousePressEvent(QGraphicsSceneMouseEvent *event){
        return;
     }
    QGraphicsItem::mousePressEvent(event);
-   setAnciennePos(scenePos());
+   //this->setAnciennePos(scenePos());
 }
 
 
@@ -65,8 +65,12 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
    }
 
    QGraphicsItem::mouseReleaseEvent(event);
+<<<<<<< HEAD
    Area * dragDestination = viewer->getAreaByLocation(scenePos());
 
+=======
+   /*Area * dragDestination = getAreaOnDrag(scenePos());
+>>>>>>> da477fabb80db591712e338a83c2b619a66b8ec2
    if(!dragDestination)
    {
        setPos(QPointF(anciennePos->x(),anciennePos->y()));
@@ -84,6 +88,7 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
    else
    {
        setPos(QPointF(anciennePos->x(),anciennePos->y()));
+<<<<<<< HEAD
    }
 /*
    viewer->setAreaColor(sceneCoordinatesPolygon(dragDestination->polygon(),dragDestination->position()).toPolygon());
@@ -91,6 +96,9 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
    viewer->canRepaint = true;
    viewer->repaint(reg);
    */
+=======
+   }*/
+>>>>>>> da477fabb80db591712e338a83c2b619a66b8ec2
 }
 
 

@@ -3,6 +3,7 @@
 #include <QMessageBox>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsSceneMouseEvent>
+#include <QPointF>
 #include "area.h"
 #include "tmxviewer.h"
 #include "mapobject.h"
