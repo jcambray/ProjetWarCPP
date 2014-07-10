@@ -12,7 +12,7 @@ public:
     Area(const QString &,const QString &,const QPointF &, const QSizeF &);
     QString & getOwnerPlayerName();
     void setOwnerPlayerName(const QString &);
-
+    bool operator !=(const Area &);
     bool enDeclin;
 
 private:

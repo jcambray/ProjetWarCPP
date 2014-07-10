@@ -42,7 +42,10 @@ mapItem * gameMap::addItem(mapItem * item, int x, int y)
 void gameMap::addAllItems(){
 
     mapItem *it = new mapItem(QLatin1String("greenMonster"),QLatin1String("race"),QPixmap(QLatin1String("images\\monster.jpg")),viewer);
+    mapItem * amazon = new mapItem(tr("amazone"),tr("token"),QPixmap(tr("token\\tokenAmazones.png")),viewer);
+    addItem(amazon,490,389);
     addItem(it,568,295);
+    amazon->setScale(0.225);
     it->setScale(0.3);
 }
 

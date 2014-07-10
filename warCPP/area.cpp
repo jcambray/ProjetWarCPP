@@ -10,6 +10,7 @@ Area::Area(const Area &a)
 {
     enDeclin = a.enDeclin;
     ownerPlayerName = a.ownerPlayerName;
+
 }
 
 
@@ -27,4 +28,9 @@ void Area::setOwnerPlayerName(const QString & name)
 QString & Area::getOwnerPlayerName()
 {
     return ownerPlayerName;
+}
+
+bool Area::operator !=(const Area & ar)
+{
+    return (position() != ar.position());
 }

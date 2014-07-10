@@ -28,6 +28,7 @@ public:
     player * getOwnerPlayer();
     void setOwnerPlayer(const player & p);
     void setAnciennePos(QPointF &p);
+    QPointF getAnciennePos();
     bool validateMove(Area *);
 
 private:

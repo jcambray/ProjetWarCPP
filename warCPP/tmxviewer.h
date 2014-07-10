@@ -55,20 +55,11 @@ public:
 
     void viewMap(const QString &fileName);
 
-    //Retourne la liste des areas
     QList<Area *> &getAreas();
-
-    void populateAreas();
-
-    //Retourne l'area suivant le nom en paramètres
-    // WARNING Plante si l'area n'est pas trouvée
-    // noms (temporaires) des area existante: ocean,plage
+    void populateAreas();   
     Area * getAreaByName(const QString &);
-
     Tiled::Map *mMap;
-
     Area * getAreaByLocation(QPointF &);
-
     QPolygonF sceneCoordinatesPolygon(const QPolygonF &,const QPointF &);
 
     /*
@@ -83,7 +74,7 @@ private:
     QGraphicsScene *mScene;
     Tiled::MapRenderer *mRenderer;
     QList<Area *> * areas;
-    //virtual void mouseMoveEvent(QMouseEvent * event);
+    virtual void mouseMoveEvent(QMouseEvent * event);
 
 };
 

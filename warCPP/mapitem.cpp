@@ -22,6 +22,15 @@ mapItem::mapItem(const mapItem &m)
 {
     name = m.name;
     type = m.type;
+    if(viewer != NULL)
+        delete viewer;
+    if(anciennePos != NULL)
+        delete anciennePos;
+    if(ownerPlayer != NULL)
+        delete ownerPlayer;
+    viewer = m.viewer;
+    anciennePos = m.anciennePos;
+    ownerPlayer = m.ownerPlayer;
 }
 
 void mapItem::setName(const QString &_name){
@@ -106,7 +115,6 @@ void mapItem::setOwnerPlayer(const player &p)
 
 bool mapItem::validateMove(Area * a)
 {
-
     if(!a)
     {
         return false;
@@ -118,10 +126,14 @@ bool mapItem::validateMove(Area * a)
     {
         return false;
     }
-
     return true;
 }
 
 
+
+QPointF mapItem::getAnciennePos()
+{
+    return *anciennePos;
+}
 
 

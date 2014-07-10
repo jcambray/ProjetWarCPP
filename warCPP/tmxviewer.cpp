@@ -256,22 +256,19 @@ QPolygonF TmxViewer::sceneCoordinatesPolygon(const QPolygonF & poly, const QPoin
     return translatedPolygon;
 }
 
-/*
+
 void TmxViewer::mouseMoveEvent(QMouseEvent *event)
 {
     QGraphicsView::mouseMoveEvent(event);
 
-    const QPointF p(event->pos());
-    Area * hoveredArea = getAreaByLocation(QPointF(event->pos()));
-
+    QPointF p = mapToScene((event->pos()));
+    Area * hoveredArea = getAreaByLocation(p);
     if(!hoveredArea)
         qDebug()<<"nothing";
     else
         qDebug()<<hoveredArea->name();
 
 }
-*/
-
 
 
 
