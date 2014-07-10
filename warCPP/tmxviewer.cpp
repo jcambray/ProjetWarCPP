@@ -267,7 +267,6 @@ void TmxViewer::mouseMoveEvent(QMouseEvent *event)
         qDebug()<<"nothing";
     else
         qDebug()<<hoveredArea->name();
-
 }
 
 

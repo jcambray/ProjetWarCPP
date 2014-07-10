@@ -1,4 +1,5 @@
 #include "gamemap.h"
+#include "game.h"
 #include <QPixmap>
 #include <QMessageBox>
 #include <QGraphicsItem>
@@ -8,9 +9,16 @@
 
 gameMap::gameMap()
 {
+    viewer = NULL;
+    partie = NULL;
+    tokens = NULL;
+}
+
+gameMap::gameMap(game *g)
+{
     viewer = new TmxViewer;
-    items = new QMap<QString,mapItem *>();
-    //viewer->viewMap(tr("map\\mapBis.tmx"));
+    partie = g;
+    tokens = new QList<mapItem*>();
     viewer->viewMap(tr("map//map.tmx"));
     viewer->populateAreas();
 }
@@ -18,40 +26,36 @@ gameMap::gameMap()
 
 gameMap::gameMap(const gameMap &map)
 {
-    if(map.viewer != NULL)
-    {
+    if(viewer != NULL)
         delete viewer;
-        viewer = map.viewer;
-    }
-    if(map.items != NULL)
-    {
-        delete items;
-        items = map.items;
-    }
+    if(tokens != NULL)
+        delete tokens;
+    if(partie != NULL)
+        delete partie;
+
+    tokens = map.tokens;
+    viewer = map.viewer;
+    partie = map.partie;
 }
 
 mapItem * gameMap::addItem(mapItem * item, int x, int y)
 {
    viewer->scene()->addItem(item);
    item->setPos(x,y);
-   items->insert(item->getName(),item);
-   //item->setParent(viewer->scene());
+   tokens->append(item);
    return item;
 }
 
 void gameMap::addAllItems(){
 
-    mapItem *it = new mapItem(QLatin1String("greenMonster"),QLatin1String("race"),QPixmap(QLatin1String("images\\monster.jpg")),viewer);
-    mapItem * amazon = new mapItem(tr("amazone"),tr("token"),QPixmap(tr("token\\tokenAmazones.png")),viewer);
+    mapItem * amazon = new mapItem(tr("amazone"),tr("token"),QPixmap(tr("tokens\\tokenAmazones.png")),viewer);
     addItem(amazon,490,389);
-    addItem(it,568,295);
     amazon->setScale(0.225);
-    it->setScale(0.3);
 }
 
-QMap<QString,mapItem *> * gameMap::getItems()
+QList<mapItem *> *gameMap::getTokens()
 {
-    return items;
+    return tokens;
 }
 
 TmxViewer * gameMap::getViewer()
@@ -71,6 +75,8 @@ void gameMap::setMapItemsScale(double coeff)
 gameMap::~gameMap()
 {
     delete  viewer;
+    delete tokens;
+    delete partie;
 }
 
 

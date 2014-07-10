@@ -187,7 +187,7 @@ void game::endGame(){
 
 void game::renderMap()
 {
-    map = new gameMap();
+    map = new gameMap(this);
     map->addAllItems();
     map->getViewer()->setWindowTitle(tr("WAR C++"));
     map->getViewer()->show();

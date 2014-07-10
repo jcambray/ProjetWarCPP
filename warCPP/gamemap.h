@@ -2,9 +2,10 @@
 #define GAMEMAP_H
 #include "tmxviewer.h"
 #include "mapitem.h"
-#include <QMap>
 
 using namespace Tiled;
+
+class game;
 
 class gameMap : public QObject
 {
@@ -13,6 +14,7 @@ class gameMap : public QObject
 
 public:
     gameMap();
+    gameMap(game * g);
     gameMap(const gameMap & map);
     ~gameMap();
 
@@ -26,18 +28,20 @@ public:
     void addAllItems();
 
     //retourne la liste des éléments graphiques de la map
-    QMap<QString, mapItem *> *getItems();
+    QList<mapItem*> * getTokens();
 
 
 
     //Agrandit chaque carre de la map en fonction du coefficient
     void setMapItemsScale(double coeff);
 
+    void loadTokens();
 
 private:
 
     TmxViewer *viewer;
-    QMap<QString,mapItem *> *items;
+    QList<mapItem*> *tokens;
+    game * partie;
 };
 
 #endif // GAMEMAP_H
