@@ -96,6 +96,7 @@ void game::selectionNationPower(QString nameJ1,QString nameJ2)
     selectNationPower->prepareSelectNationPower(nameJ1);
 
     QObject::connect(selectNationPower,SIGNAL(createJoueur(QString,QString,QString)),this,SLOT(creationJoeur(QString,QString,QString)));
+    QObject::connect(selectNationPower,SIGNAL(UpJoueur(QString,QString,QString)),this,SLOT(upDateJoueur(QString,QString,QString)));
     selectNationPower->show();
 
 }
@@ -140,8 +141,61 @@ void game::creationJoeur(QString qsnamePlayer,QString qsnation, QString qspower)
     if(p1->getName() == tr("player"))
     {
         p1 = new player(0,qsnamePlayer,nation,power);
-        QMessageBox::information(this, tr("Joueur 1"),qsnamePlayer+tr(" ")+qsnation+tr(" ")+qspower );
+        QMessageBox::information(this, tr("Joueur 1"),tr("Sélection de ")+qsnamePlayer+tr(" terminée. Au tour de ")+savJoueur2+tr(" de faire sa sélection."));
         selectNationPower->prepareSelectNationPower(savJoueur2);
+    }
+    else
+    {
+        p2 = new player(0,qsnamePlayer,nation,power);
+        QMessageBox::information(this, tr("Joueur 2"),qsnamePlayer+tr(" ")+qsnation+tr(" ")+qspower );
+        selectNationPower->setDebutGame(false);
+    }
+
+    if(p1->getName() != tr("player") && p2->getName() != tr("player"))
+        renderMap();
+}
+
+void game::upDateJoueur(QString qsnamePlayer,QString qsnation, QString qspower)
+{
+
+    if(qsnation == tr("Amazones"))
+    {
+        nation = new Nation(qsnation,1,5);
+    }
+    if(qsnation == tr("Humains"))
+    {
+        nation = new Nation(qsnation,2,5);
+    }
+    if(qsnation == tr("Squelettes"))
+    {
+        nation = new Nation(qsnation,3,6);
+    }
+    if(qsnation == tr("Hommes-rats"))
+    {
+        nation = new Nation(qsnation,4,8);
+    }
+
+    if(qspower == tr("Pirates"))
+    {
+        power = new Power(qspower,1,5);
+    }
+    if(qspower == tr("Et leur Dragon"))
+    {
+        power = new Power(qspower,2,5);
+    }
+    if(qspower == tr("Bucherons"))
+    {
+        power = new Power(qspower,3,4);
+    }
+    if(qspower == tr("Marchands"))
+    {
+        power = new Power(qspower,4,2);
+    }
+
+    if(p1->getName() == qsnamePlayer)
+    {
+        p1 = new player(0,qsnamePlayer,nation,power);
+        QMessageBox::information(this, tr("Joueur 1"),qsnamePlayer+tr(" ")+qsnation+tr(" ")+qspower );
     }
     else
     {

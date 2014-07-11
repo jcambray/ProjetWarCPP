@@ -22,9 +22,11 @@ public:
     ~SelectNationPowerWindows();
     void prepareSelectNationPower(QString Joueur);
     void randomSelectionNationPower();
+    void setDebutGame(bool val);
 
 signals:
     void createJoueur(QString,QString,QString);
+    void UpJoueur(QString,QString,QString);
 
 private slots:
     void on_listView_doubleClicked(const QModelIndex &index);

@@ -138,7 +138,7 @@ void SelectNationPowerWindows::on_pushChoisir_clicked()
     switch( QMessageBox::question(
                     this,
                     tr("Choix de la combinaison"),
-                    tr("Etes vou sur de vouloir choisir cette combinaison ?"),
+                    tr("Etes vous sur de vouloir choisir cette combinaison ?"),
 
                     QMessageBox::Yes |
                     QMessageBox::No |
@@ -156,7 +156,7 @@ void SelectNationPowerWindows::on_pushChoisir_clicked()
                 }
                 else
                 {
-                   //emit UpJoueur(namejoueur,sNation,sNation);
+                   emit UpJoueur(namejoueur,sNation2,sPower2);
                 }
             break;
           case QMessageBox::No:
@@ -170,4 +170,9 @@ void SelectNationPowerWindows::on_pushChoisir_clicked()
             break;
         }
 
+}
+
+void SelectNationPowerWindows::setDebutGame(bool val)
+{
+    debutGame = val;
 }

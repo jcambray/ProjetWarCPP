@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>SelectNationPowerWindows</class>
  <widget class="QDialog" name="SelectNationPowerWindows">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -200,6 +203,9 @@ font: 75 12pt &quot;Lucida Handwriting&quot;;</string>
    </property>
   </widget>
   <widget class="QLabel" name="labelImage">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>60</x>
