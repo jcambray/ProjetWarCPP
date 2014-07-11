@@ -31,6 +31,8 @@ public:
     void endRound();
     void endGame();
     void renderMap();
+    player * getP1();
+    player * getP2();
 
 
 public slots:

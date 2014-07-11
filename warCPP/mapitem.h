@@ -20,11 +20,8 @@ class mapItem : public QObject, public QGraphicsPixmapItem
 public:
     mapItem();
     mapItem(const mapItem &);
-    mapItem(const QString & _name, const QString & _type, const QPixmap &,TmxViewer *);
-    void setName(const QString & _name);
+    mapItem(const QPixmap &,TmxViewer *);
     void setType(const QString & newType);
-    const QString & getName();
-
     player * getOwnerPlayer();
     void setOwnerPlayer(const player & p);
     void setAnciennePos(QPointF &p);
@@ -33,7 +30,7 @@ public:
 
 private:
 
-    QString name,type;
+    QString type;
     TmxViewer * viewer;
     QPointF * anciennePos;
     player * ownerPlayer;

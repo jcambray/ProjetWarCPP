@@ -70,7 +70,7 @@ void game::start()
             break;
         }
 
-    renderMap();
+
 }
 
 
@@ -148,6 +148,9 @@ void game::creationJoeur(QString qsnamePlayer,QString qsnation, QString qspower)
         p2 = new player(0,qsnamePlayer,nation,power);
         QMessageBox::information(this, tr("Joueur 2"),qsnamePlayer+tr(" ")+qsnation+tr(" ")+qspower );
     }
+
+    if(p1->getName() != tr("player") && p2->getName() != tr("player"))
+        renderMap();
 }
 
 void game::randomlySetPower(player ps[]){
@@ -188,7 +191,18 @@ void game::endGame(){
 void game::renderMap()
 {
     map = new gameMap(this);
-    map->addAllItems();
+    map->initToken(*p1);
+    map->initToken(*p2);
     map->getViewer()->setWindowTitle(tr("WAR C++"));
     map->getViewer()->show();
+}
+
+player * game::getP1()
+{
+    return p1;
+}
+
+player * game::getP2()
+{
+    return p2;
 }

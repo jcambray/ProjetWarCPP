@@ -8,10 +8,9 @@ mapItem::mapItem() : QGraphicsPixmapItem()
     anciennePos = NULL;
 }
 
-mapItem::mapItem(const QString &_name, const QString &_type, const QPixmap &img,TmxViewer *v) : QGraphicsPixmapItem(img)
+mapItem::mapItem(const QPixmap &img, TmxViewer *v) : QGraphicsPixmapItem(img)
 {
-    name = _name;
-    type = _type;
+    type = tr("token");
     viewer = v;
     anciennePos = NULL;
     setParent(viewer);
@@ -20,7 +19,6 @@ mapItem::mapItem(const QString &_name, const QString &_type, const QPixmap &img,
 
 mapItem::mapItem(const mapItem &m)
 {
-    name = m.name;
     type = m.type;
     if(viewer != NULL)
         delete viewer;
@@ -33,19 +31,12 @@ mapItem::mapItem(const mapItem &m)
     ownerPlayer = m.ownerPlayer;
 }
 
-void mapItem::setName(const QString &_name){
-    name = _name;
-}
 
 void mapItem::setType(const QString & newType)
 {
     type = newType;
 }
 
-const QString & mapItem::getName()
-{
-    return name;
-}
 
 void mapItem::setAnciennePos(QPointF & p)
 {
@@ -63,7 +54,6 @@ void mapItem::mousePressEvent(QGraphicsSceneMouseEvent *event){
    QGraphicsItem::mousePressEvent(event);
    this->setAnciennePos(scenePos());
 }
-
 
 
 

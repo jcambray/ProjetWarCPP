@@ -37,6 +37,8 @@ public:
 
     void loadTokens();
 
+    void initToken(player &p);
+
 private:
 
     TmxViewer *viewer;

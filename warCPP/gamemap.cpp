@@ -40,6 +40,7 @@ gameMap::gameMap(const gameMap &map)
 
 mapItem * gameMap::addItem(mapItem * item, int x, int y)
 {
+   item->setScale(0.225);
    viewer->scene()->addItem(item);
    item->setPos(x,y);
    tokens->append(item);
@@ -47,10 +48,11 @@ mapItem * gameMap::addItem(mapItem * item, int x, int y)
 }
 
 void gameMap::addAllItems(){
-
-    mapItem * amazon = new mapItem(tr("amazone"),tr("token"),QPixmap(tr("tokens\\tokenAmazones.png")),viewer);
+/*
+    mapItem * amazon = new mapItem(tr("token"),QPixmap(tr("token\\tokenAmazones.png")),viewer);
     addItem(amazon,490,389);
     amazon->setScale(0.225);
+    */
 }
 
 QList<mapItem *> *gameMap::getTokens()
@@ -70,6 +72,20 @@ void gameMap::setMapItemsScale(double coeff)
     {
         items[i]->setScale(coeff);
     }
+}
+
+void gameMap::initToken(player &p)
+{
+    if(p.getNation()->getName() == tr("Amazones"))
+        addItem(new mapItem(QPixmap(tr("images\\token\\tokenAmazones.png")),viewer),500,500);
+    if(p.getNation()->getName() == tr("Humains"))
+          addItem(new mapItem(QPixmap(tr("images\\token\\tokenHumains.png")),viewer),500,500);
+    if(p.getNation()->getName() == tr("Squelettes"))
+        addItem(new mapItem(QPixmap(tr("images\\token\\tokenSquelette.png")),viewer),500,500);
+     if(p.getNation()->getName() == tr("Hommes-rats"))
+        addItem(new mapItem(QPixmap(tr("images\\token\\tokenHommesRats.png")),viewer),500,500);
+
+
 }
 
 gameMap::~gameMap()
