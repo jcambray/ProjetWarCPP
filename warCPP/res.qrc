@@ -1,5 +1,5 @@
 <RCC>
-    <qresource lang="French" prefix="/fond">
+    <qresource prefix="/fond" lang="French">
         <file alias="background">images/fondAcceuil.jpg</file>
         <file alias="Lexique">images/fond.jpg</file>
         <file alias="Bouton">images/fond_parchemin.png</file>
@@ -13,6 +13,8 @@
         <file>images/selectNation (532x333).jpg</file>
         <file>images/fondLabel.png</file>
         <file>images/selectPlayer (754x471).jpg</file>
+        <file>images/mapViewFond.jpg</file>
+        <file>images/rightArrow.jpg</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

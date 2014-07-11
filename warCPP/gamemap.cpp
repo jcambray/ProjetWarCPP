@@ -12,6 +12,7 @@ gameMap::gameMap()
     viewer = NULL;
     partie = NULL;
     tokens = NULL;
+    mapView = NULL;
 }
 
 gameMap::gameMap(game *g)
@@ -19,8 +20,9 @@ gameMap::gameMap(game *g)
     viewer = new TmxViewer;
     partie = g;
     tokens = new QList<mapItem*>();
-    viewer->viewMap(tr("map//map.tmx"));
-    viewer->populateAreas();
+    //viewer->viewMap(tr("map//map.tmx"));
+    //viewer->populateAreas();
+    mapView = new MapWindow(this);
 }
 
 
@@ -32,10 +34,13 @@ gameMap::gameMap(const gameMap &map)
         delete tokens;
     if(partie != NULL)
         delete partie;
+    if(mapView != NULL)
+        delete mapView;
 
     tokens = map.tokens;
     viewer = map.viewer;
     partie = map.partie;
+    mapView = map.mapView;
 }
 
 mapItem * gameMap::addItem(mapItem * item, int x, int y)
@@ -90,9 +95,10 @@ void gameMap::initToken(player &p)
 
 gameMap::~gameMap()
 {
-    delete  viewer;
+    delete viewer;
     delete tokens;
     delete partie;
+    delete mapView;
 }
 
 

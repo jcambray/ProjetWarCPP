@@ -2,6 +2,8 @@
 #define GAMEMAP_H
 #include "tmxviewer.h"
 #include "mapitem.h"
+#include "mapwindow.h"
+
 
 using namespace Tiled;
 
@@ -39,11 +41,14 @@ public:
 
     void initToken(player &p);
 
+    TmxViewer *viewer;
+    game * partie;
+
 private:
 
-    TmxViewer *viewer;
+
     QList<mapItem*> *tokens;
-    game * partie;
+    MapWindow * mapView;
 };
 
 #endif // GAMEMAP_H

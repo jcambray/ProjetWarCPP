@@ -29,6 +29,7 @@ SOURCES += main.cpp\
     selectnationpowerwindows.cpp \
     selectplayerwindows.cpp \
     area.cpp \
+    mapwindow.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -44,11 +45,13 @@ HEADERS  += mainwindow.h \
     selectnationpowerwindows.h \
     selectplayerwindows.h \
     area.h \
+    mapwindow.h
 
 FORMS    += mainwindow.ui \
     Lexique.ui \
     selectnationpowerwindows.ui \
-    selectplayerwindows.ui
+    selectplayerwindows.ui \
+    mapwindow.ui
 
 OTHER_FILES += \
     images/fondAcceuil.jpg \
