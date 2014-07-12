@@ -216,8 +216,8 @@ void game::currentGame()
 
     while(nbTour != 6)
     {
-
-        //QMessageBox::information(this, tr(""),p1->getName()+tr(", Partez à l'attaque"));
+        mapWindows->enableGroupBoxJ2(false);
+        QMessageBox::information(this, tr(""),p1->getName()+tr(", Partez à l'attaque"));
         nbTour++;
     }
 }

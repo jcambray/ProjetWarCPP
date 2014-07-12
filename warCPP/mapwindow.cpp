@@ -2,7 +2,7 @@
 #include "ui_mapwindow.h"
 #include "gamemap.h"
 #include "game.h"
-#include "player.h"
+
 
 MapWindow::MapWindow(gameMap *m, QWidget *parent) :
     QMainWindow(parent),
@@ -37,4 +37,14 @@ MapWindow::~MapWindow()
 {
     delete ui;
     delete gameM;
+}
+
+void MapWindow::enableGroupBoxJ1(bool val)
+{
+    ui->groupBoxJ1->setEnabled(val);
+}
+
+void MapWindow::enableGroupBoxJ2(bool val)
+{
+    ui->groupBoxJ2->setEnabled(val);
 }
