@@ -40,12 +40,21 @@ MapWindow::~MapWindow()
     delete gameM;
 }
 
-void MapWindow::enableGroupBoxJ1(bool val)
+void MapWindow::enableGroupBox(player *p, bool val)
 {
-    ui->groupBoxJ1->setEnabled(val);
+
+    if(p->getName()==ui->groupBoxJ1->title())
+    {
+        ui->groupBoxJ1->setEnabled(val);
+    }
+    else if(p->getName()==ui->groupBoxJ2->title())
+    {
+        ui->groupBoxJ2->setEnabled(val);
+    }
 }
 
-void MapWindow::enableGroupBoxJ2(bool val)
+void MapWindow::setNbTour(int tour)
 {
-    ui->groupBoxJ2->setEnabled(val);
+    QString t = QString::number(tour);
+    ui->labelNbTour->setText(tr("Tour : ")+t+tr("/6"));
 }

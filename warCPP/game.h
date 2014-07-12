@@ -32,7 +32,7 @@ public:
     void endRound();
     void endGame();
     void renderMap();
-    void currentGame();
+    void currentGame(player *currentPlayer, player *secondPlayer);
     player * getP1();
     player * getP2();
 
