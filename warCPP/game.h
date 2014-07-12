@@ -53,7 +53,6 @@ private:
     MainWindow *mainW;
     SelectPlayerWindows * selectPlayer;
     SelectNationPowerWindows * selectNationPower;
-    MapWindow * mapWindows;
     gameMap * map;
     QString savJoueur2;
     int nbTour;

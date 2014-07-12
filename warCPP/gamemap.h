@@ -43,12 +43,13 @@ public:
 
     TmxViewer *viewer;
     game * partie;
+    MapWindow * mapView;
 
 private:
 
 
     QList<mapItem*> *tokens;
-    MapWindow * mapView;
+
 };
 
 #endif // GAMEMAP_H
