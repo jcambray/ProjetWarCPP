@@ -27,7 +27,8 @@ void MainWindow::btnNouvellePartieClicked()
 }
 
 void MainWindow::printArea(){
-    g->getMSGArea();
+    //g->getMSGArea();
+    g->getUIArea();
 }
 
 void MainWindow::printNation(){

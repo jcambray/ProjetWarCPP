@@ -15,7 +15,7 @@ Glossary::Glossary(){
 
     name = QLatin1String("lex");
     path = QLatin1String("../ProjetWarCPP/warCPP/lexique.xml");
-
+    lexiqueWindow = new LexiqueWindow();
     QDomDocument dom(name);
     QFile xml_doc(path);
 

@@ -19,7 +19,7 @@ LexiqueWindow::~LexiqueWindow()
 
 void LexiqueWindow::on_pushNext_clicked()
 {
-    if(currentI<lexique.length())
+    if(currentI<lexique.length()-1)
     {
         currentI++;
         load();
