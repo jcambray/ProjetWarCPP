@@ -5,6 +5,7 @@
 #include "mainwindow.h"
 #include "selectplayerwindows.h"
 #include "selectnationpowerwindows.h"
+#include "mapwindow.h"
 #include "gamemap.h"
 #include "player.h"
 #include "nation.h"
@@ -52,6 +53,7 @@ private:
     MainWindow *mainW;
     SelectPlayerWindows * selectPlayer;
     SelectNationPowerWindows * selectNationPower;
+    MapWindow * mapWindows;
     gameMap * map;
     QString savJoueur2;
     int nbTour;

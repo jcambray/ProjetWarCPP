@@ -19,6 +19,7 @@ public:
     void displayPlayer2Name(QString &);
     void displayPlayer1Score(int);
     void displayPlayer2Score(int);
+
     ~MapWindow();
 
 public slots:
