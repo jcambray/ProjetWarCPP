@@ -22,6 +22,7 @@ public:
     ~LexiqueWindow();
     void setLexique(QList <QString> _lexique);
     void setNameLexique(QString _nameLexique);
+    void init();
 
 private slots:
     void on_pushNext_clicked();

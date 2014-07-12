@@ -35,10 +35,14 @@ void LexiqueWindow::on_pushPrevious_clicked()
 }
 
 void LexiqueWindow::load(){
-    ui->labelText->setText(nameLexique);
+    ui->labelNameLexique->setText(nameLexique);
     ui->labelText->setText(lexique.at(currentI));
     //ui->labelPicture
     //ui->labelImage->setPixmap(QPixmap(tr(":/fond/images/nation/")+listTmp[0]+tr(".jpg")))
+}
+
+void LexiqueWindow::init(){
+    currentI = 0;
 }
 
 void LexiqueWindow::setLexique(QList <QString> _lexique){

@@ -32,15 +32,18 @@ void MainWindow::printArea(){
 }
 
 void MainWindow::printNation(){
-    g->getMSGNation();
+    //g->getMSGNation();
+    g->getUINation();
 }
 
 void MainWindow::printPower(){
-    g->getMSGPower();
+   // g->getMSGPower();
+    g->getUIPower();
 }
 
 void MainWindow::printRules(){
-    g->getMSGRules();
+    //g->getMSGRules();
+    g->getUIRules();
 }
 
 
