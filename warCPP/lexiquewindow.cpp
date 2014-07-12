@@ -19,6 +19,7 @@ LexiqueWindow::~LexiqueWindow()
 
 void LexiqueWindow::on_pushNext_clicked()
 {
+    qDebug()<<"Push Next";
     if(currentI<lexique.length()-1)
     {
         currentI++;
@@ -27,10 +28,14 @@ void LexiqueWindow::on_pushNext_clicked()
 }
 void LexiqueWindow::on_pushPrevious_clicked()
 {
+    qDebug()<<"Push Previous";
     if(currentI>0)
     {
+        qDebug()<<"Push Previous 2";
         currentI--;
         load();
+
+        qDebug()<<"Push Previous 3";
     }
 }
 

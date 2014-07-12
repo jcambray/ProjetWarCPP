@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Sélection du peuple et de son pouvoir</string>
+   <string>WarCpp - Sélection du peuple et de son pouvoir</string>
   </property>
   <property name="modal">
    <bool>false</bool>
