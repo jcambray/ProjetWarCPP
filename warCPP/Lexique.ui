@@ -137,7 +137,7 @@
      <x>370</x>
      <y>90</y>
      <width>371</width>
-     <height>281</height>
+     <height>331</height>
     </rect>
    </property>
    <property name="font">
@@ -151,6 +151,12 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>10</number>
    </property>
   </widget>
   <zorder>label</zorder>
