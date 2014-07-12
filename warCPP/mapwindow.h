@@ -20,8 +20,8 @@ public:
     void displayPlayer2Name(QString &);
     void displayPlayer1Score(int);
     void displayPlayer2Score(int);
-    void enableGroupBoxJ1(bool val);
-    void enableGroupBoxJ2(bool val);
+    void enableGroupBox(player *p, bool val);
+    void setNbTour(int tour);
 
     ~MapWindow();
 

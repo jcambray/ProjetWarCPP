@@ -19,6 +19,7 @@ game::game()
     p2 = new player();
     nation = new Nation();
     power = new Power();
+    nbTour = 0;
 }
 game::~game()
 {
@@ -152,16 +153,12 @@ void game::creationJoeur(QString qsnamePlayer,QString qsnation, QString qspower)
         selectNationPower->setDebutGame(false);
     }
 
-    if(p1->getName() != tr("player") && p2->getName() != tr("player"))
-    {
-        currentGame();
-        renderMap();
     if(p1->getName() != tr("player") && p2->getName() != tr("player")){
         renderMap();
-        currentGame();
+        currentGame(p1,p2);
     }
 }
-}
+
 
 void game::upDateJoueur(QString qsnamePlayer,QString qsnation, QString qspower)
 {
@@ -215,15 +212,19 @@ void game::upDateJoueur(QString qsnamePlayer,QString qsnation, QString qspower)
         renderMap();
 }
 
-void game::currentGame()
+void game::currentGame(player *currentPlayer, player *secondPlayer)
 {
-    nbTour = 0;
-
-    while(nbTour != 6)
+    if(nbTour != 6)
     {
-        mapWindows->enableGroupBoxJ2(false);
-        QMessageBox::information(this, tr(""),p1->getName()+tr(", Partez à l'attaque"));
-        nbTour++;
+        /*nbTour++;
+        mapWindows->setNbTour(nbTour);
+        mapWindows->enableGroupBox(secondPlayer,false);
+        QMessageBox::information(this, tr(""),currentPlayer->getName()+tr(", Partez à l'attaque"));*/
+
+    }
+    else
+    {
+        endGame();
     }
 }
 
