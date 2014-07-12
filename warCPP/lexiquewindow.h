@@ -23,6 +23,7 @@ public:
     void setLexique(QList <QString> _lexique);
     void setNameLexique(QString _nameLexique);
     void init();
+    void load();
 
 private slots:
     void on_pushNext_clicked();
@@ -33,7 +34,6 @@ private:
     QList <QString> lexique;
     QString nameLexique;
     int currentI;
-    void load();
 };
 
 #endif // LEXIQUEWINDOW_H
