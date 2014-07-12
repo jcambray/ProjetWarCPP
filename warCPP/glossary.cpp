@@ -167,7 +167,6 @@ void Glossary::getUIArea(){
     lexiqueWindow->init();
     lexiqueWindow->setLexique(areaList);
     lexiqueWindow->setNameLexique(QLatin1String("Regions"));
-    lexiqueWindow->setPathRes(QLatin1String("area"));
     lexiqueWindow->load();
     lexiqueWindow->show();
 }
@@ -176,7 +175,6 @@ void Glossary::getUINation(){
     lexiqueWindow->init();
     lexiqueWindow->setLexique(nationList);
     lexiqueWindow->setNameLexique(QLatin1String("Peuples"));
-    lexiqueWindow->setPathRes(QLatin1String("nation"));
     lexiqueWindow->load();
     lexiqueWindow->show();
 }
@@ -185,7 +183,6 @@ void Glossary::getUIPower(){
     lexiqueWindow->init();
     lexiqueWindow->setLexique(powerList);
     lexiqueWindow->setNameLexique(QLatin1String("Pouvoirs"));
-    lexiqueWindow->setPathRes(QLatin1String("power"));
     lexiqueWindow->load();
     lexiqueWindow->show();
 }
@@ -193,7 +190,6 @@ void Glossary::getUIPower(){
 void Glossary::getUIRules(){
     lexiqueWindow->setLexique(rulesList);
     lexiqueWindow->setNameLexique(QLatin1String("Regles"));
-    lexiqueWindow->setPathRes(QLatin1String("rules"));
     lexiqueWindow->load();
     lexiqueWindow->show();
 }

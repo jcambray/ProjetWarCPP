@@ -62,7 +62,7 @@
      <property name="geometry">
       <rect>
        <x>1000</x>
-       <y>50</y>
+       <y>20</y>
        <width>181</width>
        <height>61</height>
       </rect>
@@ -87,7 +87,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>110</y>
+       <y>120</y>
        <width>901</width>
        <height>111</height>
       </rect>
@@ -111,6 +111,9 @@
         <width>101</width>
         <height>51</height>
        </rect>
+      </property>
+      <property name="toolTip">
+       <string extracomment="Voir votre total de pièce d'o"/>
       </property>
       <property name="styleSheet">
        <string notr="true">background-image: url(:/images/Or.png);</string>
@@ -154,7 +157,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>0</y>
+       <y>10</y>
        <width>901</width>
        <height>111</height>
       </rect>
@@ -204,6 +207,17 @@
         <height>51</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Lucida Handwriting</family>
+        <pointsize>14</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string extracomment="Voir votre total de pièce d'or"/>
+      </property>
       <property name="styleSheet">
        <string notr="true">background-image: url(:/images/Or.png);</string>
       </property>
@@ -216,7 +230,7 @@
      <property name="geometry">
       <rect>
        <x>1000</x>
-       <y>140</y>
+       <y>110</y>
        <width>181</width>
        <height>61</height>
       </rect>
@@ -237,10 +251,41 @@
       <string>Mode Déclin</string>
      </property>
     </widget>
+    <widget class="QLabel" name="labelNbTour">
+     <property name="geometry">
+      <rect>
+       <x>1100</x>
+       <y>200</y>
+       <width>171</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Lucida Handwriting</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/fond/Bouton);</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tour : 0/6&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
     <zorder>groupBoxJ2</zorder>
     <zorder>pushButton</zorder>
     <zorder>groupBoxJ1</zorder>
     <zorder>pushButton_2</zorder>
+    <zorder>labelNbTour</zorder>
    </widget>
   </widget>
  </widget>

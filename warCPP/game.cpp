@@ -116,7 +116,7 @@ void game::creationJoeur(QString qsnamePlayer,QString qsnation, QString qspower)
     {
         nation = new Nation(qsnation,3,6);
     }
-    if(qsnation == tr("Hommes-rats"))
+    if(qsnation == tr("Hommes-Rats"))
     {
         nation = new Nation(qsnation,4,8);
     }
@@ -142,12 +142,13 @@ void game::creationJoeur(QString qsnamePlayer,QString qsnation, QString qspower)
     {
         p1 = new player(0,qsnamePlayer,nation,power);
         QMessageBox::information(this, tr("Joueur 1"),tr("Sélection de ")+qsnamePlayer+tr(" terminée. Au tour de ")+savJoueur2+tr(" de faire sa sélection."));
+        //QMessageBox::information(this, tr("Joueur 1"),qsnamePlayer+tr(" ")+qsnation+tr(" ")+qspower );
         selectNationPower->prepareSelectNationPower(savJoueur2);
     }
     else
     {
         p2 = new player(0,qsnamePlayer,nation,power);
-        QMessageBox::information(this, tr("Joueur 2"),qsnamePlayer+tr(" ")+qsnation+tr(" ")+qspower );
+        //QMessageBox::information(this, tr("Joueur 2"),qsnamePlayer+tr(" ")+qsnation+tr(" ")+qspower );
         selectNationPower->setDebutGame(false);
     }
 
@@ -155,7 +156,11 @@ void game::creationJoeur(QString qsnamePlayer,QString qsnation, QString qspower)
     {
         currentGame();
         renderMap();
+    if(p1->getName() != tr("player") && p2->getName() != tr("player")){
+        renderMap();
+        currentGame();
     }
+}
 }
 
 void game::upDateJoueur(QString qsnamePlayer,QString qsnation, QString qspower)
@@ -173,7 +178,7 @@ void game::upDateJoueur(QString qsnamePlayer,QString qsnation, QString qspower)
     {
         nation = new Nation(qsnation,3,6);
     }
-    if(qsnation == tr("Hommes-rats"))
+    if(qsnation == tr("Hommes-Rats"))
     {
         nation = new Nation(qsnation,4,8);
     }
@@ -214,9 +219,10 @@ void game::currentGame()
 {
     nbTour = 0;
 
-    while(nbTour != 8)
+    while(nbTour != 6)
     {
-        QMessageBox::information(this, tr("Joueur 1"),p1->getName()+tr(", Partez à l'attaque"));
+        mapWindows->enableGroupBoxJ2(false);
+        QMessageBox::information(this, tr(""),p1->getName()+tr(", Partez à l'attaque"));
         nbTour++;
     }
 }
