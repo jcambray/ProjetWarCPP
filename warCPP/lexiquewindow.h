@@ -22,6 +22,7 @@ public:
     ~LexiqueWindow();
     void setLexique(QList <QString> _lexique);
     void setNameLexique(QString _nameLexique);
+    void setPathRes(QString _pathRes);
     void init();
     void load();
 
@@ -33,6 +34,7 @@ private:
     Ui::LexiqueWindow *ui;
     QList <QString> lexique;
     QString nameLexique;
+    QString pathRes;
     int currentI;
 };
 

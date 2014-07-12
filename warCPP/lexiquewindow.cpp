@@ -35,10 +35,12 @@ void LexiqueWindow::on_pushPrevious_clicked()
 }
 
 void LexiqueWindow::load(){
+
+    QString pathPic = QLatin1String(":/fond/images/")+pathRes+QLatin1String("/")+QString::number(currentI)+QLatin1String(".jpg");
     ui->labelNameLexique->setText(nameLexique);
     ui->labelText->setText(lexique.at(currentI));
-    //ui->labelPicture
-    //ui->labelImage->setPixmap(QPixmap(tr(":/fond/images/nation/")+listTmp[0]+tr(".jpg")))
+    ui->labelImage->setPixmap(QPixmap(pathPic));
+
 }
 
 void LexiqueWindow::init(){
@@ -51,4 +53,8 @@ void LexiqueWindow::setLexique(QList <QString> _lexique){
 
 void LexiqueWindow::setNameLexique(QString _nameLexique){
     nameLexique = _nameLexique;
+}
+
+void LexiqueWindow::setPathRes(QString _pathRes){
+    pathRes = _pathRes;
 }
