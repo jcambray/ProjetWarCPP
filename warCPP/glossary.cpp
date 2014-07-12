@@ -1,4 +1,5 @@
 #include "glossary.h"
+#include "lexiquewindow.h"
 #include <QtXml>
 #include <qfile.h>
 #include <qdom.h>
@@ -13,7 +14,7 @@ using namespace std;
 Glossary::Glossary(){
 
     name = QLatin1String("lex");
-    path = QLatin1String("../GitHub/ProjetWarCPP/warCPP/lexique.xml");
+    path = QLatin1String("../ProjetWarCPP/warCPP/lexique.xml");
 
     QDomDocument dom(name);
     QFile xml_doc(path);
@@ -162,6 +163,29 @@ void Glossary::getMSGRules(){
     box.exec();
 }
 
+void Glossary::getUIArea(){
+    lexiqueWindow->setLexique(areaList);
+    lexiqueWindow->setNameLexique(QLatin1String("Régions"));
+    lexiqueWindow->show();
+}
+
+void Glossary::getUINation(){
+    lexiqueWindow->setLexique(nationList);
+    lexiqueWindow->setNameLexique(QLatin1String("Peuples"));
+    lexiqueWindow->show();
+}
+
+void Glossary::getUIPower(){
+    lexiqueWindow->setLexique(powerList);
+    lexiqueWindow->setNameLexique(QLatin1String("Pouvoirs"));
+    lexiqueWindow->show();
+}
+
+void Glossary::getUIRules(){
+    lexiqueWindow->setLexique(rulesList);
+    lexiqueWindow->setNameLexique(QLatin1String("Règles"));
+    lexiqueWindow->show();
+}
 
 QList <QString> Glossary::getAreas(){
     return areaList;

@@ -1,19 +1,182 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>SelectNationPowerWindows</class>
+ <widget class="QDialog" name="SelectNationPowerWindows">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>754</width>
+    <height>517</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Sélection du peuple et de son pouvoir</string>
   </property>
+  <property name="modal">
+   <bool>false</bool>
+  </property>
+  <widget class="QLabel" name="labelNameLexique">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>30</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Lucida Handwriting</family>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/fond/images/panneau2.png);</string>
+   </property>
+   <property name="text">
+    <string>Name Lexique</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushPrevious">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>460</y>
+     <width>141</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Lucida Handwriting</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/fond/images/nouvelle_partie.jpg);</string>
+   </property>
+   <property name="text">
+    <string>Précédent</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushNext">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>460</y>
+     <width>141</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Lucida Handwriting</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/fond/images/nouvelle_partie.jpg);</string>
+   </property>
+   <property name="text">
+    <string>Suivant</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelImage">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>90</y>
+     <width>350</width>
+     <height>281</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Lucida Handwriting</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>761</width>
+     <height>521</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/fond/images/rules/font.jpg);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelText">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>90</y>
+     <width>281</width>
+     <height>281</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Lucida Handwriting</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/fond/Bouton);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>labelNameLexique</zorder>
+  <zorder>pushPrevious</zorder>
+  <zorder>pushNext</zorder>
+  <zorder>labelImage</zorder>
+  <zorder>labelText</zorder>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushPrevious</sender>
+   <signal>clicked()</signal>
+   <receiver>SelectNationPowerWindows</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>299</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>254</x>
+     <y>247</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

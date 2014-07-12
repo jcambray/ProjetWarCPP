@@ -1,18 +1,38 @@
 #ifndef LEXIQUEWINDOW_H
 #define LEXIQUEWINDOW_H
 
-#include <QApplication>
+#include <QDialog>
 #include <QWidget>
+#include <QString>
 #include <QPushButton>
+#include "glossary.h"
 
-class LexiqueWindow : public QWidget
+namespace Ui {
+class LexiqueWindow;
+}
+
+
+
+class LexiqueWindow : public QDialog
 {
-    public:
-    LexiqueWindow();
+    Q_OBJECT
 
-    private:
+public:
+    explicit LexiqueWindow(QWidget *parent = 0);
+    ~LexiqueWindow();
+    void setLexique(QList <QString> _lexique);
+    void setNameLexique(QString _nameLexique);
 
+private slots:
+    void on_pushNext_clicked();
+    void on_pushPrevious_clicked();
+
+private:
+    Ui::LexiqueWindow *ui;
+    QList <QString> lexique;
+    QString nameLexique;
+    int currentI;
+    void load();
 };
-
 
 #endif // LEXIQUEWINDOW_H

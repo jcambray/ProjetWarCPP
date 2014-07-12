@@ -1,5 +1,6 @@
 #ifndef GLOSSARY_H
 #define GLOSSARY_H
+#include "lexiquewindow.h"
 #include <QStringBuilder>
 #include <QtGui>
 #include <QtXml>
@@ -12,7 +13,7 @@ private :
     QString name;
     QString path;
     QList <QString> areaList, nationList, powerList, rulesList;
-
+    LexiqueWindow * lexiqueWindow;
 
 public:
     Glossary();
@@ -24,6 +25,10 @@ public:
     void getMSGNation();
     void getMSGPower();
     void getMSGRules();
+    void getUIArea();
+    void getUINation();
+    void getUIPower();
+    void getUIRules();
     QList <QString> getAreas();
     QList <QString> getNations();
     QList <QString> getPowers();

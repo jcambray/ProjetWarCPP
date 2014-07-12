@@ -51,19 +51,34 @@ FORMS    += mainwindow.ui \
     Lexique.ui \
     selectnationpowerwindows.ui \
     selectplayerwindows.ui \
+	lexique.ui \
     mapwindow.ui
 
 OTHER_FILES += \
-    images/fondAcceuil.jpg \
-        images/area \
-        images/Rules \
-        images/Power \
-        images/Nation/1 \
-        images/Nation/2 \
+        images/fondAcceuil.jpg \
+    images/area \
+    images/rules \
+    images/power \
+    images/nation \
+    images/token \
+    images/area/0.jpg \
+    images/area/1.jpg \
+    images/area/2.jpg \
+    images/area/3.jpg \
+    images/area/4.jpg \
+    images/area/5.jpg \
+    images/area/6.jpg \
+    images/nation/0.jpg \
+    images/nation/1.jpg \
+    images/nation/2.jpg \
+    images/nation/3.jpg \
+    images/power/0.jpg \
+    images/power/1.jpg \
+    images/power/2.jpg \
+    images/power/3.jpg \
+    images/rules/font.jpg \
     lexique.xml \
     images/fond.jpg \
-    images/Nation/1.jpg \
-    images/Nation/2.jpg \
     images/fond_parchemin.png \
     map/map.jpg \
     map/map.tmx
