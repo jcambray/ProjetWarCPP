@@ -6,13 +6,15 @@ mapItem::mapItem() : QGraphicsPixmapItem()
 {
     viewer = NULL;
     anciennePos = NULL;
+    ownerPlayer = NULL;
 }
 
-mapItem::mapItem(const QPixmap &img, TmxViewer *v) : QGraphicsPixmapItem(img)
+mapItem::mapItem(const QPixmap &img, TmxViewer *v, player *p) : QGraphicsPixmapItem(img)
 {
     type = tr("token");
     viewer = v;
     anciennePos = NULL;
+    ownerPlayer = p;
     setParent(viewer);
     setFlags(ItemIsMovable | ItemIsSelectable | ItemIsFocusable);
 }
@@ -130,3 +132,9 @@ QPointF mapItem::getAnciennePos()
 }
 
 
+mapItem::~mapItem()
+{
+    delete viewer;
+    delete anciennePos;
+    delete ownerPlayer;
+}

@@ -20,8 +20,6 @@ gameMap::gameMap(game *g)
     viewer = new TmxViewer;
     partie = g;
     tokens = new QList<mapItem*>();
-    //viewer->viewMap(tr("map//map.tmx"));
-    //viewer->populateAreas();
     mapView = new MapWindow(this);
 }
 
@@ -79,18 +77,19 @@ void gameMap::setMapItemsScale(double coeff)
     }
 }
 
-void gameMap::initToken(player &p)
+void gameMap::initToken(player *p,const QPoint spawnPos)
 {
-    if(p.getNation()->getName() == tr("Amazones"))
-        addItem(new mapItem(QPixmap(tr("images\\token\\tokenAmazones.png")),viewer),500,500);
-    if(p.getNation()->getName() == tr("Humains"))
-          addItem(new mapItem(QPixmap(tr("images\\token\\tokenHumains.png")),viewer),500,500);
-    if(p.getNation()->getName() == tr("Squelettes"))
-        addItem(new mapItem(QPixmap(tr("images\\token\\tokenSquelette.png")),viewer),500,500);
-     if(p.getNation()->getName() == tr("Hommes-rats"))
-        addItem(new mapItem(QPixmap(tr("images\\token\\tokenHommesRats.png")),viewer),500,500);
+    qDebug()<<p->getName()<<" "<<p->getNation()->getName();
 
-qDebug()<<tr("Hommes-rats");
+    if(p->getNation()->getName() == tr("Amazones"))
+        addItem(new mapItem(QPixmap(tr("images\\token\\tokenAmazones.png")),viewer,p),spawnPos.x(),spawnPos.y());
+    if(p->getNation()->getName() == tr("Humains"))
+          addItem(new mapItem(QPixmap(tr("images\\token\\tokenHumains.png")),viewer,p),spawnPos.x(),spawnPos.y());
+    if(p->getNation()->getName() == tr("Squelettes"))
+        addItem(new mapItem(QPixmap(tr("images\\token\\tokenSquelette.png")),viewer,p),spawnPos.x(),spawnPos.y());
+     if(p->getNation()->getName() == tr("Hommes-rats"))
+        addItem(new mapItem(QPixmap(tr("images\\token\\tokenHommesRats.png")),viewer,p),spawnPos.x(),spawnPos.y());
+
 }
 
 gameMap::~gameMap()

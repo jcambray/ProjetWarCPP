@@ -39,7 +39,7 @@ public:
 
     void loadTokens();
 
-    void initToken(player &p);
+    void initToken(player *p, const QPoint);
 
     TmxViewer *viewer;
     game * partie;

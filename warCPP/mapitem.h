@@ -20,7 +20,8 @@ class mapItem : public QObject, public QGraphicsPixmapItem
 public:
     mapItem();
     mapItem(const mapItem &);
-    mapItem(const QPixmap &,TmxViewer *);
+    mapItem(const QPixmap &, TmxViewer *, player *);
+    ~mapItem();
     void setType(const QString & newType);
     player * getOwnerPlayer();
     void setOwnerPlayer(const player & p);
