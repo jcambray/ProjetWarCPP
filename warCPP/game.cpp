@@ -153,14 +153,9 @@ void game::creationJoeur(QString qsnamePlayer,QString qsnation, QString qspower)
     }
 
     if(p1->getName() != tr("player") && p2->getName() != tr("player"))
-    {
         currentGame();
         renderMap();
-    if(p1->getName() != tr("player") && p2->getName() != tr("player")){
-        renderMap();
-        currentGame();
-    }
-}
+
 }
 
 void game::upDateJoueur(QString qsnamePlayer,QString qsnation, QString qspower)
@@ -210,9 +205,6 @@ void game::upDateJoueur(QString qsnamePlayer,QString qsnation, QString qspower)
         p2 = new player(0,qsnamePlayer,nation,power);
         QMessageBox::information(this, tr("Joueur 2"),qsnamePlayer+tr(" ")+qsnation+tr(" ")+qspower );
     }
-
-    if(p1->getName() != tr("player") && p2->getName() != tr("player"))
-        renderMap();
 }
 
 void game::currentGame()
@@ -267,8 +259,6 @@ void game::renderMap()
     map = new gameMap(this);
     map->initToken(p1,QPoint(-100,200));
     map->initToken(p2,QPoint(-100,400));
-    //map->getViewer()->setWindowTitle(tr("WAR C++"));
-    //map->getViewer()->show();
 }
 
 player * game::getP1()

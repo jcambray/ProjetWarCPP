@@ -11,6 +11,7 @@ MapWindow::MapWindow(gameMap *m, QWidget *parent) :
     ui->setupUi(this);
     ui->bottomPanelWindow->setFixedHeight(250);
     gameM = m;
+    setWindowTitle(tr("War CPP"));
     ui->groupBoxJ1->setTitle(gameM->partie->getP1()->getName());
     ui->groupBoxJ2->setTitle(gameM->partie->getP2()->getName());
     ui->combiJ1->setText(gameM->partie->getP1()->nat->getName()+tr(" ")+gameM->partie->getP1()->pow->getName());

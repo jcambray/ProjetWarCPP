@@ -1,29 +1,30 @@
 #include "mapitem.h"
+#include "gamemap.h"
 #include <QDebug>
 #include <QPolygonF>
 
 mapItem::mapItem() : QGraphicsPixmapItem()
 {
-    viewer = NULL;
+    gameM = NULL;
     anciennePos = NULL;
     ownerPlayer = NULL;
 }
 
-mapItem::mapItem(const QPixmap &img, TmxViewer *v, player *p) : QGraphicsPixmapItem(img)
+mapItem::mapItem(const QPixmap &img, player *p, gameMap *g) : QGraphicsPixmapItem(img)
 {
     type = tr("token");
-    viewer = v;
+    gameM = g;
     anciennePos = NULL;
     ownerPlayer = p;
-    setParent(viewer);
+    setParent(gameM->viewer);
     setFlags(ItemIsMovable | ItemIsSelectable | ItemIsFocusable);
 }
 
 mapItem::mapItem(const mapItem &m)
 {
     type = m.type;
-    if(viewer != NULL)
-        delete viewer;
+    if(gameM != NULL)
+        delete gameM;
     if(anciennePos != NULL)
         delete anciennePos;
     if(ownerPlayer != NULL)
@@ -70,7 +71,7 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
    QGraphicsItem::mouseReleaseEvent(event);
    QPointF point;
    point =scenePos();
-   Area * dragDestination = viewer->getAreaByLocation(point);
+   Area * dragDestination = gameM->viewer->getAreaByLocation(point);
 
    if(!dragDestination)
    {
@@ -133,7 +134,7 @@ QPointF mapItem::getAnciennePos()
 
 mapItem::~mapItem()
 {
-    delete viewer;
+    delete gameM;
     delete anciennePos;
     delete ownerPlayer;
 }

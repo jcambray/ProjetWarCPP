@@ -11,6 +11,7 @@
 #include "objectgroup.h"
 #include "player.h"
 
+class gameMap;
 
 class mapItem : public QObject, public QGraphicsPixmapItem
 {
@@ -20,7 +21,7 @@ class mapItem : public QObject, public QGraphicsPixmapItem
 public:
     mapItem();
     mapItem(const mapItem &);
-    mapItem(const QPixmap &, TmxViewer *, player *);
+    mapItem(const QPixmap &, player *,gameMap *);
     ~mapItem();
     void setType(const QString & newType);
     player * getOwnerPlayer();
@@ -35,6 +36,7 @@ private:
     TmxViewer * viewer;
     QPointF * anciennePos;
     player * ownerPlayer;
+    gameMap * gameM;
     virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
     virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent * event);
 };
