@@ -11,8 +11,10 @@ MapWindow::MapWindow(gameMap *m, QWidget *parent) :
     ui->setupUi(this);
     ui->bottomPanelWindow->setFixedHeight(250);
     gameM = m;
-    ui->player1Name->setText(gameM->partie->getP1()->getName());
-    ui->player2Name->setText(gameM->partie->getP2()->getName());
+    ui->groupBoxJ1->setTitle(gameM->partie->getP1()->getName());
+    ui->groupBoxJ2->setTitle(gameM->partie->getP2()->getName());
+    ui->combiJ1->setText(gameM->partie->getP1()->nat->getName()+tr(" ")+gameM->partie->getP1()->pow->getName());
+    ui->combiJ2->setText(gameM->partie->getP2()->nat->getName()+tr(" ")+gameM->partie->getP2()->pow->getName());
     setCentralWidget(gameM->viewer);
     gameM->viewer->viewMap(tr("map//map.tmx"));
     gameM->viewer->populateAreas();
@@ -22,12 +24,13 @@ MapWindow::MapWindow(gameMap *m, QWidget *parent) :
 
 void MapWindow::displayPlayer1Name(QString & name)
 {
-    ui->player1Name->setText(name);
+    ui->groupBoxJ1->setTitle(name);
+
 }
 
 void MapWindow::displayPlayer2Name(QString & name)
 {
-    ui->player2Name->setText(name);
+    ui->groupBoxJ2->setTitle(name);
 }
 
 MapWindow::~MapWindow()

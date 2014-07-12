@@ -27,6 +27,9 @@
   </property>
   <widget class="QWidget" name="centralwidget"/>
   <widget class="QDockWidget" name="bottomPanel">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="minimumSize">
     <size>
      <width>1136</width>
@@ -58,8 +61,8 @@
     <widget class="QPushButton" name="pushButton">
      <property name="geometry">
       <rect>
-       <x>1070</x>
-       <y>70</y>
+       <x>1000</x>
+       <y>50</y>
        <width>181</width>
        <height>61</height>
       </rect>
@@ -68,65 +71,176 @@
       <font>
        <family>Lucida Handwriting</family>
        <pointsize>14</pointsize>
-       <italic>true</italic>
+       <weight>75</weight>
+       <italic>false</italic>
+       <bold>true</bold>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-image: url(:/fond/images/panneau2.png);</string>
+      <string notr="true">background-image: url(:/fond/images/nouvelle_partie.jpg);</string>
      </property>
      <property name="text">
-      <string>NEXT</string>
+      <string>Redéployer</string>
      </property>
     </widget>
-    <widget class="QLabel" name="player1Name">
+    <widget class="QGroupBox" name="groupBoxJ2">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>50</y>
-       <width>161</width>
-       <height>31</height>
+       <y>110</y>
+       <width>901</width>
+       <height>111</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Lucida Handwriting</family>
-       <pointsize>12</pointsize>
+       <pointsize>14</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
-     <property name="styleSheet">
-      <string notr="true">background-image: url(:/fond/images/panneau2.png);
+     <property name="title">
+      <string>GroupBox</string>
+     </property>
+     <widget class="QLabel" name="goldP2">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>50</y>
+        <width>101</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/images/Or.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="combiJ2">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>30</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Lucida Handwriting</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/fond/images/panneau2.png);</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBoxJ1">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>0</y>
+       <width>901</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Lucida Handwriting</family>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="title">
+      <string>GroupBox</string>
+     </property>
+     <widget class="QLabel" name="combiJ1">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>30</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Lucida Handwriting</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/fond/images/panneau2.png);
 </string>
-     </property>
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="goldP1">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>40</y>
+        <width>101</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/images/Or.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
-    <widget class="QLabel" name="player2Name">
+    <widget class="QPushButton" name="pushButton_2">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>120</y>
-       <width>161</width>
-       <height>31</height>
+       <x>1000</x>
+       <y>140</y>
+       <width>181</width>
+       <height>61</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Lucida Handwriting</family>
-       <pointsize>12</pointsize>
+       <pointsize>14</pointsize>
        <weight>75</weight>
+       <italic>false</italic>
        <bold>true</bold>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-image: url(:/fond/images/panneau2.png);</string>
+      <string notr="true">background-image: url(:/fond/images/nouvelle_partie.jpg);</string>
      </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string>Mode Déclin</string>
      </property>
     </widget>
+    <zorder>groupBoxJ2</zorder>
+    <zorder>pushButton</zorder>
+    <zorder>groupBoxJ1</zorder>
+    <zorder>pushButton_2</zorder>
    </widget>
   </widget>
  </widget>

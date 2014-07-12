@@ -152,6 +152,7 @@ void game::creationJoeur(QString qsnamePlayer,QString qsnation, QString qspower)
     }
 
     if(p1->getName() != tr("player") && p2->getName() != tr("player"))
+        currentGame();
         renderMap();
 }
 
@@ -205,6 +206,17 @@ void game::upDateJoueur(QString qsnamePlayer,QString qsnation, QString qspower)
 
     if(p1->getName() != tr("player") && p2->getName() != tr("player"))
         renderMap();
+}
+
+void game::currentGame()
+{
+    nbTour = 0;
+
+    while(nbTour != 8)
+    {
+        QMessageBox::information(this, tr("Joueur 1"),p1->getName()+tr(", Partez à l'attaque"));
+        nbTour++;
+    }
 }
 
 void game::randomlySetPower(player ps[]){

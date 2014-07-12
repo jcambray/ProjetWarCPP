@@ -31,6 +31,7 @@ public:
     void endRound();
     void endGame();
     void renderMap();
+    void currentGame();
     player * getP1();
     player * getP2();
 
@@ -53,6 +54,7 @@ private:
     SelectNationPowerWindows * selectNationPower;
     gameMap * map;
     QString savJoueur2;
+    int nbTour;
 };
 
 

@@ -20,14 +20,15 @@ public:
     void setPower(Power * power);
     void setToken(int t);
     void setScore(int s);
+    Nation * nat;
+    Power * pow;
 
 
 private:
 
     int numeroOrdre,token,score;
     QString name;
-    Nation * nat;
-    Power * pow;
+
 
 
 };
