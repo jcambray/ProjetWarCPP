@@ -1,6 +1,7 @@
 #include "lexiquewindow.h"
+#include "ui_Lexique.h"
 //#include "ui_€"
-#include "glossary.h"
+
 
 LexiqueWindow::LexiqueWindow(QWidget *parent) :
     QDialog(parent),
@@ -34,8 +35,8 @@ void LexiqueWindow::on_pushPrevious_clicked()
 }
 
 void LexiqueWindow::load(){
-    ui->labelText = nameLexique;
-    ui->labelText = lexique.at(currentI);
+    ui->labelText->setText(nameLexique);
+    ui->labelText->setText(lexique.at(currentI));
     //ui->labelPicture
     //ui->labelImage->setPixmap(QPixmap(tr(":/fond/images/nation/")+listTmp[0]+tr(".jpg")))
 }

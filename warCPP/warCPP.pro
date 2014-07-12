@@ -48,11 +48,11 @@ HEADERS  += mainwindow.h \
     mapwindow.h
 
 FORMS    += mainwindow.ui \
-    Lexique.ui \
     selectnationpowerwindows.ui \
     selectplayerwindows.ui \
 	lexique.ui \
-    mapwindow.ui
+    mapwindow.ui \
+    Lexique.ui
 
 OTHER_FILES += \
         images/fondAcceuil.jpg \
