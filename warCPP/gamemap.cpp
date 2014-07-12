@@ -79,15 +79,15 @@ void gameMap::setMapItemsScale(double coeff)
 
 void gameMap::initToken(player *p,const QPoint spawnPos)
 {
-    qDebug()<<p->getName()<<" "<<p->getNation()->getName();
+    qDebug()<<p->nat<<" "<<p->getNation()->getName();
 
-    if(p->getNation()->getName() == tr("Amazones"))
+    if(p->nat->getName() == tr("Amazones"))
         addItem(new mapItem(QPixmap(tr("images\\token\\tokenAmazones.png")),viewer,p),spawnPos.x(),spawnPos.y());
-    if(p->getNation()->getName() == tr("Humains"))
+    if(p->nat->getName() == tr("Humains"))
           addItem(new mapItem(QPixmap(tr("images\\token\\tokenHumains.png")),viewer,p),spawnPos.x(),spawnPos.y());
-    if(p->getNation()->getName() == tr("Squelettes"))
+    if(p->nat->getName() == tr("Squelettes"))
         addItem(new mapItem(QPixmap(tr("images\\token\\tokenSquelette.png")),viewer,p),spawnPos.x(),spawnPos.y());
-     if(p->getNation()->getName() == tr("Hommes-rats"))
+     if(p->nat->getName() == tr("Hommes-rats"))
         addItem(new mapItem(QPixmap(tr("images\\token\\tokenHommesRats.png")),viewer,p),spawnPos.x(),spawnPos.y());
 
 }

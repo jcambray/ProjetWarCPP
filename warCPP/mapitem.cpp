@@ -80,7 +80,7 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 
    //Debug
    //qDebug()<<dragDestination->name();
-   dragDestination->setOwnerPlayerName(QLatin1String("me"));
+   //dragDestination->setOwnerPlayerName(QLatin1String("me"));
 
    if(validateMove(dragDestination))
    {
@@ -115,9 +115,8 @@ bool mapItem::validateMove(Area * a)
         return false;
     }
 
-    //Debug
-    if(QLatin1String("me") != a->getOwnerPlayerName())
-    //if(ownerPlayer->getName() != a->getOwnerPlayerName())
+
+    if(ownerPlayer->getName() != a->getOwnerPlayerName())
     {
         return false;
     }

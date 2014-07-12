@@ -152,8 +152,10 @@ void game::creationJoeur(QString qsnamePlayer,QString qsnation, QString qspower)
     }
 
     if(p1->getName() != tr("player") && p2->getName() != tr("player"))
+    {
         currentGame();
         renderMap();
+    }
 }
 
 void game::upDateJoueur(QString qsnamePlayer,QString qsnation, QString qspower)
