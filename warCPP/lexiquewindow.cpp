@@ -1,5 +1,6 @@
 #include "lexiquewindow.h"
 //#include "ui_€"
+#include "glossary.h"
 
 LexiqueWindow::LexiqueWindow(QWidget *parent) :
     QDialog(parent),

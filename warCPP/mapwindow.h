@@ -15,8 +15,8 @@ class MapWindow : public QMainWindow
 
 public:
     explicit MapWindow(gameMap *, QWidget *parent = 0);
-    void displayPlayer1Name(QString);
-    void displayPlayer2Name(QString);
+    void displayPlayer1Name(QString &);
+    void displayPlayer2Name(QString &);
     void displayPlayer1Score(int);
     void displayPlayer2Score(int);
     ~MapWindow();

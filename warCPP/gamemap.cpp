@@ -90,7 +90,7 @@ void gameMap::initToken(player &p)
      if(p.getNation()->getName() == tr("Hommes-rats"))
         addItem(new mapItem(QPixmap(tr("images\\token\\tokenHommesRats.png")),viewer),500,500);
 
-
+qDebug()<<tr("Hommes-rats");
 }
 
 gameMap::~gameMap()

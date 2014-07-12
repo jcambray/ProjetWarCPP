@@ -16,7 +16,18 @@ MapWindow::MapWindow(gameMap *m, QWidget *parent) :
     setCentralWidget(gameM->viewer);
     gameM->viewer->viewMap(tr("map//map.tmx"));
     gameM->viewer->populateAreas();
-    showMaximized();
+    showNormal();
+}
+
+
+void MapWindow::displayPlayer1Name(QString & name)
+{
+    ui->player1Name->setText(name);
+}
+
+void MapWindow::displayPlayer2Name(QString & name)
+{
+    ui->player2Name->setText(name);
 }
 
 MapWindow::~MapWindow()

@@ -1,11 +1,11 @@
 #ifndef GLOSSARY_H
 #define GLOSSARY_H
-#include "lexiquewindow.h"
 #include <QStringBuilder>
 #include <QtGui>
 #include <QtXml>
 #include <QWidget>
 
+class LexiqueWindow;
 
 class Glossary
 {

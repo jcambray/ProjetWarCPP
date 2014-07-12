@@ -247,8 +247,8 @@ void game::renderMap()
     map = new gameMap(this);
     map->initToken(*p1);
     map->initToken(*p2);
-    map->getViewer()->setWindowTitle(tr("WAR C++"));
-    map->getViewer()->show();
+    //map->getViewer()->setWindowTitle(tr("WAR C++"));
+    //map->getViewer()->show();
 }
 
 player * game::getP1()

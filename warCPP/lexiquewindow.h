@@ -5,13 +5,12 @@
 #include <QWidget>
 #include <QString>
 #include <QPushButton>
-#include "glossary.h"
 
 namespace Ui {
 class LexiqueWindow;
 }
 
-
+class Glossary;
 
 class LexiqueWindow : public QDialog
 {
