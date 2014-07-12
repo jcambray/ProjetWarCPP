@@ -25,7 +25,7 @@ public:
     void start();
     void selectionPlayer(bool IA);
     void randomlySetPower(player ps[]);
-    void conquere(player p1, player p2);
+    void conquere();
     void deploy(player p);
     void decline(player p);
     void endRound();

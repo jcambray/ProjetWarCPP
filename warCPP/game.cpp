@@ -213,7 +213,7 @@ void game::randomlySetPower(player ps[]){
 
 }
 
-void game::conquere(player p1, player p2){
+void game::conquere(){
 
 }
 

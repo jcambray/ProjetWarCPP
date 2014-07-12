@@ -51,8 +51,10 @@ void mapItem::mousePressEvent(QGraphicsSceneMouseEvent *event){
    if(event->button() != Qt::LeftButton){
        return;
     }
+   QPointF point;
+   point =scenePos();
    QGraphicsItem::mousePressEvent(event);
-   this->setAnciennePos(scenePos());
+   this->setAnciennePos(point);
 }
 
 
@@ -64,8 +66,9 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
    }
 
    QGraphicsItem::mouseReleaseEvent(event);
-
-   Area * dragDestination = viewer->getAreaByLocation(scenePos());
+   QPointF point;
+   point =scenePos();
+   Area * dragDestination = viewer->getAreaByLocation(point);
 
    if(!dragDestination)
    {
