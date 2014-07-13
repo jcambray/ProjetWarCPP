@@ -3,7 +3,7 @@
 Area::Area() : MapObject()
 {
     enDeclin = false;
-    ownerPlayerName = QLatin1String("nobody");
+    ownerPlayerName = QLatin1String("");
 }
 
 Area::Area(const Area &a)
@@ -17,7 +17,7 @@ Area::Area(const Area &a)
 Area::Area(const QString & name, const QString & type, const QPointF & point, const QSizeF & size, const QPolygonF & p, const Properties & prop) : MapObject(name,type,point,size)
 {
     enDeclin = false;
-    ownerPlayerName = QLatin1String("nobody");
+    ownerPlayerName = QLatin1String("");
     setPolygon(p);
     setProperties(prop);
 }

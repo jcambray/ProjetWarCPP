@@ -46,6 +46,7 @@ mapItem * gameMap::addItem(mapItem * item, int x, int y)
    item->setScale(0.225);
    viewer->scene()->addItem(item);
    item->setPos(x,y);
+   item->setZValue(1);
    tokens->append(item);
    return item;
 }

@@ -33,7 +33,6 @@ public:
 private:
 
     QString type;
-    TmxViewer * viewer;
     QPointF * anciennePos;
     player * ownerPlayer;
     gameMap * gameM;

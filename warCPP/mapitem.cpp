@@ -30,7 +30,6 @@ mapItem::mapItem(const mapItem &m)
         delete anciennePos;
     if(ownerPlayer != NULL)
         delete ownerPlayer;
-    viewer = m.viewer;
     anciennePos = m.anciennePos;
     ownerPlayer = m.ownerPlayer;
 }
@@ -84,7 +83,7 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 
    //Debug
    //dragDestination->setOwnerPlayerName(QLatin1String("me"));
-    qDebug()<<validateMove(dragDestination);
+
    if(!validateMove(dragDestination))
    {
        setPos(QPointF(anciennePos->x(),anciennePos->y()));
@@ -92,10 +91,6 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
    }
 
    setPos(scenePos());
-   if(ownerPlayer->getName() == gameM->partie->getP1()->getName())
-       gameM->viewer->setColorToAreaBorder(QPen(Qt::red,3),dragDestination);
-   else
-       gameM->viewer->setColorToAreaBorder(QPen(Qt::green,3),dragDestination);
 
 }
 

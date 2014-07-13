@@ -62,6 +62,8 @@ public:
     Area * getAreaByLocation(QPointF &);
     QPolygonF sceneCoordinatesPolygon(const QPolygonF &,const QPointF &);
     void setColorToAreaBorder(QPen, Area *);
+    void fillAreaWithColor(QPen p,QBrush b,Area* a);
+    void setEnDeclin(Area *);
 
 
 private:

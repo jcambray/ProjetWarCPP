@@ -202,7 +202,7 @@ void TmxViewer::populateAreas()
 
 Area * TmxViewer::getAreaByName(const QString & name)
 {
-    ObjectGroup * areasObjectGroup = mMap->layerAt(mMap->indexOfLayer(tr("Areas")))->asObjectGroup();
+    //ObjectGroup * areasObjectGroup = mMap->layerAt(mMap->indexOfLayer(tr("Areas")))->asObjectGroup();
     for(int i = 0; i < getAreas().count();i++)
     {
         if(getAreas().at(i)->name() == name)
@@ -242,7 +242,7 @@ void TmxViewer::mouseMoveEvent(QMouseEvent *event)
     QGraphicsView::mouseMoveEvent(event);
 
     QPointF p = mapToScene((event->pos()));
-    Area * hoveredArea = getAreaByLocation(p);
+    //Area * hoveredArea = getAreaByLocation(p);
 }
 
 
@@ -250,6 +250,20 @@ void TmxViewer::setColorToAreaBorder(QPen pen, Area *area)
 {
     QPolygonF polygon = sceneCoordinatesPolygon(getAreaByName(area->name())->polygon(),area->position());
     mScene->addPolygon(polygon,pen);
+}
+
+
+void TmxViewer::fillAreaWithColor(QPen p,QBrush b,Area* a)
+{
+    QPolygonF areaPoly = sceneCoordinatesPolygon(a->polygon(),a->position());
+    QGraphicsPolygonItem * polyItem = mScene->addPolygon(areaPoly,QPen(Qt::gray,3.0),QBrush(Qt::gray));
+    polyItem->setZValue(0);
+}
+
+void TmxViewer::setEnDeclin(Area *a)
+{
+  a->setOwnerPlayerName(tr(""));
+  fillAreaWithColor(QPen(Qt::gray,3),QBrush(Qt::gray),a);
 }
 
 void TmxViewer::viewMap(const QString &fileName)
