@@ -33,6 +33,7 @@ public:
     void currentGame(player *currentPlayer, player *secondPlayer);
     player * getP1();
     player * getP2();
+    player * getCurrentPlayer();
     int nbTour;
 
 

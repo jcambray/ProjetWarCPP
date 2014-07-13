@@ -81,8 +81,6 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
        return;
    }
 
-   //Debug
-   //dragDestination->setOwnerPlayerName(QLatin1String("me"));
 
    if(!validateMove(dragDestination))
    {
@@ -106,6 +104,9 @@ void mapItem::setOwnerPlayer(const player &p)
 
 bool mapItem::validateMove(Area * a)
 {
+    if(gameM->partie->getCurrentPlayer()->getName() != ownerPlayer->getName())
+        return false;
+
     if(!a->isEdgeArea() && gameM->partie->nbTour == 1)
         return false;
     return true;

@@ -266,6 +266,8 @@ void TmxViewer::setEnDeclin(Area *a)
   fillAreaWithColor(QPen(Qt::gray,3),QBrush(Qt::gray),a);
 }
 
+
+
 void TmxViewer::viewMap(const QString &fileName)
 {
     delete mRenderer;

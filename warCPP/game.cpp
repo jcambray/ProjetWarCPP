@@ -268,6 +268,14 @@ void game::currentGame(player *currentPlayer, player *secondPlayer)
      }
 }
 
+player * game::getCurrentPlayer()
+{
+    if((nbTour % 2) != 0)
+        return p1;
+    else
+        return p2;
+}
+
 void game::randomlySetPower(player ps[]){
 
 
