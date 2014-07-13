@@ -87,6 +87,7 @@ void MapWindow::enableGroupBox(player *p, bool val)
 
 void MapWindow::setNbTour(int tour)
 {
+    tour = tour/2;
     QString t = QString::number(tour);
     ui->labelNbTour->setText(tr("Tour : ")+t+tr("/6"));
 }
@@ -99,6 +100,21 @@ void MapWindow::on_pushGoldP1_clicked()
 
 void MapWindow::on_pushGoldP2_clicked()
 {
-    QString score = QString::number(gameM->partie->getP2()->getScore());
-    QMessageBox::information(this, tr("Information pour ")+gameM->partie->getP2()->getName(),tr("Votre score actuel est de ")+score+tr(" pièce d'or"));
+    QString score = QString::number(gameM->partie->getP1()->getScore());
+    QMessageBox::information(this, tr("Information pour ")+gameM->partie->getP1()->getName(),tr("Votre score actuel est de ")+score+tr(" pièce d'or"));
+}
+
+
+void MapWindow::on_pushButtonMapWindow_clicked()
+{
+    if(ui->pushButtonMapWindow->text()==tr("Redéployer"))
+    {
+        ui->pushButtonMapWindow->setText(tr("Terminé"));
+        emit redeploy(gameM->partie->getP1());
+    }
+    else if (ui->pushButtonMapWindow->text()==tr("Terminé"))
+    {
+        ui->pushButtonMapWindow->setText(tr("Redéployer"));
+        emit endTurn(gameM->partie->getP1());
+    }
 }

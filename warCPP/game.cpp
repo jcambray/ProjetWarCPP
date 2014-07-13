@@ -19,7 +19,7 @@ game::game()
     p2 = new player();
     nation = new Nation();
     power = new Power();
-    nbTour = 0;
+    nbTour = 1;
 }
 game::~game()
 {
@@ -143,7 +143,8 @@ void game::creationJoeur(QString qsnamePlayer,QString qsnation, QString qspower)
     if(p1->getName() == tr("player"))
     {
         p1 = new player(0,qsnamePlayer,nation,power);
-        QMessageBox::information(this, tr("Joueur 1"),tr("Sélection de ")+qsnamePlayer+tr(" terminée. Au tour de ")+savJoueur2+tr(" de faire sa sélection."));
+        p1->setToken(p1->nat->getToken()+p1->pow->getToken());
+        QMessageBox::information(this, tr("Joueur 1"),tr("Sélection de ")+qsnamePlayer+tr(" terminée. Au tour de ")+savJoueur2+tr(" de faire sa sélection"));
         //QMessageBox::information(this, tr("Joueur 1"),qsnamePlayer+tr(" ")+qsnation+tr(" ")+qspower );
         selectNationPower->prepareSelectNationPower(savJoueur2);
         delete selectPlayer;
@@ -151,6 +152,7 @@ void game::creationJoeur(QString qsnamePlayer,QString qsnation, QString qspower)
     else
     {
         p2 = new player(0,qsnamePlayer,nation,power);
+        p2->setToken(p2->nat->getToken()+p2->pow->getToken());
         //QMessageBox::information(this, tr("Joueur 2"),qsnamePlayer+tr(" ")+qsnation+tr(" ")+qspower );
         selectNationPower->setDebutGame(false);
     }
@@ -158,6 +160,9 @@ void game::creationJoeur(QString qsnamePlayer,QString qsnation, QString qspower)
     if(p1->getName() != tr("player") && p2->getName() != tr("player")){
         renderMap();
         currentGame(p1,p2);
+        QObject::connect(map->mapView,SIGNAL(quitterGame()),this,SLOT(pushQuitter()));
+        QObject::connect(map->mapView,SIGNAL(redeploy(player*)),this,SLOT(deploy(player*)));
+        QObject::connect(map->mapView,SIGNAL(endTurn(player*)),this,SLOT(endRound(player*)));
     }
 }
 
@@ -201,11 +206,13 @@ void game::upDateJoueur(QString qsnamePlayer,QString qsnation, QString qspower)
     if(p1->getName() == qsnamePlayer)
     {
         p1 = new player(0,qsnamePlayer,nation,power);
+        p1->setToken(p1->nat->getToken()+p1->pow->getToken());
         QMessageBox::information(this, tr("Joueur 1"),qsnamePlayer+tr(" ")+qsnation+tr(" ")+qspower );
     }
     else
     {
         p2 = new player(0,qsnamePlayer,nation,power);
+        p2->setToken(p2->nat->getToken()+p2->pow->getToken());
         QMessageBox::information(this, tr("Joueur 2"),qsnamePlayer+tr(" ")+qsnation+tr(" ")+qspower );
     }
 }
@@ -230,14 +237,16 @@ void game::pushQuitter()
 
 void game::currentGame(player *currentPlayer, player *secondPlayer)
 {
-    if(nbTour != 6)
+    p1 = currentPlayer;
+    p2 = secondPlayer;
+    if(nbTour != 13)
     {
         nbTour++;
         map->mapView->setNbTour(nbTour);
         map->mapView->enableGroupBox(secondPlayer,false);
+        map->mapView->enableGroupBox(currentPlayer,true);
         QMessageBox::information(this, tr(""),currentPlayer->getName()+tr(", Partez à l'attaque"));
-        QObject::connect(map->mapView,SIGNAL(quitterGame()),this,SLOT(pushQuitter()));
-        //QObject::connect(map->mapView,SIGNAL(createJoueur(QString,QString,QString)),this,SLOT(creationJoeur(QString,QString,QString)));
+
     }
     else
     {
@@ -255,28 +264,37 @@ void game::conquere(){
 
 }
 
-void game::deploy(player p){
+void game::deploy(player *p){
 
+    QMessageBox::information(this, tr(""),p->getName()+tr(", Redéployez vos troupes !"));
 }
 
 void game::decline(player p){
 
 }
 
-void game::endRound(){
-
-
+void game::endRound(player* p){
+    QMessageBox::information(this, tr("Fin du tour"),p->getName()+tr(", Vous remportez ")+tr(" pièce(s) d'or durant ce tour"));
+    currentGame(p2,p1);
 }
 
 void game::endGame(){
 
 
     if(p1->getScore()>p2->getScore())
-        qDebug()<<"Player 1 win";
-    else if (p1->getScore()<p2->getScore())
-        qDebug()<<"Player 2 win";
+    {
+        QString score = QString::number(p1->getScore());
+        QMessageBox::information(this, tr("Fin de la partie"),p1->getName()+tr(", Vous remportez la partie avec un score de ")+score+tr(" pièce(s) d'or"));
+    }
+   else if (p1->getScore()<p2->getScore())
+    {
+        QString score = QString::number(p2->getScore());
+        QMessageBox::information(this, tr("Fin de la partie"),p2->getName()+tr(", Vous remportez la partie avec un score de ")+score+tr(" pièce(s) d'or"));
+    }
     else
-        qDebug()<<"Egalite";
+    {
+        QMessageBox::information(this, tr("Fin de la partie"),p2->getName()+tr(" et ")+p1->getName()+tr(", Vous êtes en égalité."));
+    }
 }
 
 
@@ -296,3 +314,4 @@ player * game::getP2()
 {
     return p2;
 }
+

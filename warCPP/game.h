@@ -27,7 +27,6 @@ public:
     void selectionPlayer(bool IA);
     void randomlySetPower(player ps[]);
     void conquere();
-    void deploy(player p);
     void decline(player p);
     void endRound();
     void endGame();
@@ -44,6 +43,8 @@ public slots:
     void selectionNationPower(QString nameJ1,QString nameJ2);
     void creationJoeur(QString qsnamePlayer,QString qsnation, QString qspower);
     void upDateJoueur(QString qsnamePlayer,QString qsnation, QString qspower);
+    void deploy(player *p);
+    void endRound(player* p);
     void pushRetour();
     void pushQuitter();
 

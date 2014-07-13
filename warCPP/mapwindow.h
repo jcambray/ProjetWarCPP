@@ -24,6 +24,7 @@ public:
     void enableGroupBox(player *p, bool val);
     void setNbTour(int tour);
 
+
     ~MapWindow();
 
 public slots:
@@ -36,6 +37,8 @@ public slots:
 
 signals:
     void quitterGame();
+    void redeploy(player*p);
+    void endTurn(player*p);
 
 private slots:
 
@@ -43,6 +46,10 @@ private slots:
     void on_pushGoldP1_clicked();
 
     void on_pushGoldP2_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_pushButtonMapWindow_clicked();
 
 private:
     Ui::MapWindow *ui;

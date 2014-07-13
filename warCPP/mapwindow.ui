@@ -64,7 +64,7 @@
     <property name="styleSheet">
      <string notr="true">background-image: url(:/fond/images/mapViewFond.jpg);</string>
     </property>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="pushButtonMapWindow">
      <property name="geometry">
       <rect>
        <x>1000</x>
@@ -221,7 +221,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="pushButtonDeclin">
      <property name="geometry">
       <rect>
        <x>1000</x>
@@ -277,9 +277,9 @@
      </property>
     </widget>
     <zorder>groupBoxJ2</zorder>
-    <zorder>pushButton</zorder>
+    <zorder>pushButtonMapWindow</zorder>
     <zorder>groupBoxJ1</zorder>
-    <zorder>pushButton_2</zorder>
+    <zorder>pushButtonDeclin</zorder>
     <zorder>labelNbTour</zorder>
    </widget>
   </widget>
@@ -289,7 +289,7 @@
      <x>0</x>
      <y>0</y>
      <width>1264</width>
-     <height>23</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">
