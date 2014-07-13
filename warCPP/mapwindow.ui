@@ -19,6 +19,12 @@
     <height>700</height>
    </size>
   </property>
+  <property name="font">
+   <font>
+    <family>Lucida Handwriting</family>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -103,34 +109,15 @@
      <property name="title">
       <string>GroupBox</string>
      </property>
-     <widget class="QLabel" name="goldP2">
-      <property name="geometry">
-       <rect>
-        <x>790</x>
-        <y>50</y>
-        <width>101</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="toolTip">
-       <string extracomment="Voir votre total de pièce d'o"/>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-image: url(:/images/Or.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
      <widget class="QLabel" name="combiJ2">
       <property name="enabled">
        <bool>true</bool>
       </property>
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>30</x>
         <y>30</y>
-        <width>211</width>
+        <width>271</width>
         <height>31</height>
        </rect>
       </property>
@@ -147,6 +134,22 @@
       </property>
       <property name="text">
        <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushGoldP2">
+      <property name="geometry">
+       <rect>
+        <x>780</x>
+        <y>30</y>
+        <width>101</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/images/Or.png);</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </widget>
@@ -170,15 +173,18 @@
        <bold>true</bold>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-color: rgb(0, 0, 0);</string>
+     </property>
      <property name="title">
       <string>GroupBox</string>
      </property>
      <widget class="QLabel" name="combiJ1">
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>30</x>
         <y>30</y>
-        <width>211</width>
+        <width>271</width>
         <height>31</height>
        </rect>
       </property>
@@ -198,28 +204,17 @@
        <string>TextLabel</string>
       </property>
      </widget>
-     <widget class="QLabel" name="goldP1">
+     <widget class="QPushButton" name="pushGoldP1">
       <property name="geometry">
        <rect>
-        <x>790</x>
-        <y>40</y>
+        <x>780</x>
+        <y>30</y>
         <width>101</width>
-        <height>51</height>
+        <height>61</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <family>Lucida Handwriting</family>
-        <pointsize>14</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="toolTip">
-       <string extracomment="Voir votre total de pièce d'or"/>
-      </property>
       <property name="styleSheet">
-       <string notr="true">background-image: url(:/images/Or.png);</string>
+       <string notr="true">image: url(:/images/Or.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -288,6 +283,82 @@
     <zorder>labelNbTour</zorder>
    </widget>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1264</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuMenu">
+    <property name="title">
+     <string>Menu</string>
+    </property>
+    <addaction name="actionQuitter"/>
+   </widget>
+   <widget class="QMenu" name="menuLexique">
+    <property name="title">
+     <string>Lexique</string>
+    </property>
+    <addaction name="actionR_gles"/>
+    <addaction name="actionR_gions"/>
+    <addaction name="actionPeuples"/>
+    <addaction name="actionPouvoirs"/>
+   </widget>
+   <addaction name="menuMenu"/>
+   <addaction name="menuLexique"/>
+  </widget>
+  <action name="actionQuitter">
+   <property name="text">
+    <string>Quitter</string>
+   </property>
+  </action>
+  <action name="actionR_gles">
+   <property name="text">
+    <string>Règles</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Lucida Handwriting</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="actionR_gions">
+   <property name="text">
+    <string>Régions</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Lucida Handwriting</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="actionPeuples">
+   <property name="text">
+    <string>Peuples</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Lucida Handwriting</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="actionPouvoirs">
+   <property name="text">
+    <string>Pouvoirs</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Lucida Handwriting</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

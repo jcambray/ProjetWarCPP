@@ -119,6 +119,7 @@ void SelectNationPowerWindows::randomSelectionNationPower()
 
 void SelectNationPowerWindows::on_pushButton_2_clicked()
 {
+    emit retour();
     namejoueur = tr("");
     Combination.clear();
     delete modele;

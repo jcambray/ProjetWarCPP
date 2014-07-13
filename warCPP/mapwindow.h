@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "player.h"
+#include "glossary.h"
 
 namespace Ui {
 class MapWindow;
@@ -26,11 +27,26 @@ public:
     ~MapWindow();
 
 public slots:
-
+    void quitter();
+    void printArea();
+    void printNation();
+    void printPower();
+    void printRules();
     //void btnNextStepClicked();
+
+signals:
+    void quitterGame();
+
+private slots:
+
+
+    void on_pushGoldP1_clicked();
+
+    void on_pushGoldP2_clicked();
 
 private:
     Ui::MapWindow *ui;
+    Glossary *g;
     gameMap * gameM;
 
 };

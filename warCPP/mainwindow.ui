@@ -115,7 +115,6 @@ background-image: url(:/fond/images/panneau.png);</string>
      <string>Fichier</string>
     </property>
     <addaction name="actionNouvelle_Partie"/>
-    <addaction name="actionCharger_Partie"/>
     <addaction name="actionQuitter"/>
    </widget>
    <widget class="QMenu" name="menuLexique">

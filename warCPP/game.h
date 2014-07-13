@@ -44,6 +44,8 @@ public slots:
     void selectionNationPower(QString nameJ1,QString nameJ2);
     void creationJoeur(QString qsnamePlayer,QString qsnation, QString qspower);
     void upDateJoueur(QString qsnamePlayer,QString qsnation, QString qspower);
+    void pushRetour();
+    void pushQuitter();
 
 
 private:

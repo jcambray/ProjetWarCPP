@@ -98,6 +98,7 @@ void game::selectionNationPower(QString nameJ1,QString nameJ2)
 
     QObject::connect(selectNationPower,SIGNAL(createJoueur(QString,QString,QString)),this,SLOT(creationJoeur(QString,QString,QString)));
     QObject::connect(selectNationPower,SIGNAL(UpJoueur(QString,QString,QString)),this,SLOT(upDateJoueur(QString,QString,QString)));
+    QObject::connect(selectNationPower,SIGNAL(retour()),this,SLOT(pushRetour()));
     selectNationPower->show();
 
 }
@@ -145,6 +146,7 @@ void game::creationJoeur(QString qsnamePlayer,QString qsnation, QString qspower)
         QMessageBox::information(this, tr("Joueur 1"),tr("Sélection de ")+qsnamePlayer+tr(" terminée. Au tour de ")+savJoueur2+tr(" de faire sa sélection."));
         //QMessageBox::information(this, tr("Joueur 1"),qsnamePlayer+tr(" ")+qsnation+tr(" ")+qspower );
         selectNationPower->prepareSelectNationPower(savJoueur2);
+        delete selectPlayer;
     }
     else
     {
@@ -158,7 +160,6 @@ void game::creationJoeur(QString qsnamePlayer,QString qsnation, QString qspower)
         currentGame(p1,p2);
     }
 }
-
 
 void game::upDateJoueur(QString qsnamePlayer,QString qsnation, QString qspower)
 {
@@ -209,6 +210,24 @@ void game::upDateJoueur(QString qsnamePlayer,QString qsnation, QString qspower)
     }
 }
 
+void game::pushRetour()
+{
+    savJoueur2 = tr("");
+    selectNationPower = new SelectNationPowerWindows();
+}
+
+void game::pushQuitter()
+{
+    selectNationPower->close();
+    savJoueur2 = tr("");
+    selectPlayer = new SelectPlayerWindows();
+    selectNationPower = new SelectNationPowerWindows();
+    p1 = new player();
+    p2 = new player();
+    nation = new Nation();
+    power = new Power();
+}
+
 void game::currentGame(player *currentPlayer, player *secondPlayer)
 {
     if(nbTour != 6)
@@ -217,7 +236,7 @@ void game::currentGame(player *currentPlayer, player *secondPlayer)
         map->mapView->setNbTour(nbTour);
         map->mapView->enableGroupBox(secondPlayer,false);
         QMessageBox::information(this, tr(""),currentPlayer->getName()+tr(", Partez à l'attaque"));
-        //QObject::connect(map->mapView,SIGNAL(createJoueur(QString,QString,QString)),this,SLOT(creationJoeur(QString,QString,QString)));
+        QObject::connect(map->mapView,SIGNAL(quitterGame()),this,SLOT(pushQuitter()));
         //QObject::connect(map->mapView,SIGNAL(createJoueur(QString,QString,QString)),this,SLOT(creationJoeur(QString,QString,QString)));
     }
     else

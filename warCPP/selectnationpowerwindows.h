@@ -26,6 +26,7 @@ public:
 
 signals:
     void createJoueur(QString,QString,QString);
+    void retour();
     void UpJoueur(QString,QString,QString);
 
 private slots:
