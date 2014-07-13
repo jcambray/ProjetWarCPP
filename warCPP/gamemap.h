@@ -26,8 +26,6 @@ public:
     //affiche un item sur la map à partir d'une image
     mapItem *addItem(mapItem *, int x, int y);
 
-    //ajoute les items sur la map
-    void addAllItems();
 
     //retourne la liste des éléments graphiques de la map
     QList<mapItem*> * getTokens();

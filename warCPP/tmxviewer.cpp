@@ -167,6 +167,7 @@ TmxViewer::TmxViewer(QWidget *parent) :
     setBackgroundBrush(Qt::black);
     setFrameStyle(QFrame::NoFrame);
     viewport()->setAttribute(Qt::WA_StaticContents);
+
     setMouseTracking(true);
     setGeometry(500,500,1136,689);
     areas = new QList<Area *>();
@@ -193,14 +194,15 @@ void TmxViewer::populateAreas()
    ObjectGroup *AreaLayer = mMap->layerAt(index)->asObjectGroup();
    for(int i =0;i < AreaLayer->objectCount();i++)
    {
-       MapObject mapObj = *(AreaLayer->objects()[i]);
-       Area * obj = new Area(mapObj.name(),mapObj.type(),mapObj.position(),mapObj.size());
+       MapObject  mapObj = *AreaLayer->objects()[i];
+       Area * obj = new Area(mapObj.name(),mapObj.type(),mapObj.position(),mapObj.size(),mapObj.polygon(),mapObj.properties());
        areas->insert(i,obj);
    }
 }
 
 Area * TmxViewer::getAreaByName(const QString & name)
 {
+    ObjectGroup * areasObjectGroup = mMap->layerAt(mMap->indexOfLayer(tr("Areas")))->asObjectGroup();
     for(int i = 0; i < getAreas().count();i++)
     {
         if(getAreas().at(i)->name() == name)
@@ -210,28 +212,6 @@ Area * TmxViewer::getAreaByName(const QString & name)
     return NULL;
 }
 
-/*
-void TmxViewer::setAreaColor(const QPolygon &p)
-{
-    repaint(QRegion(p));
-}
-
-void TmxViewer::paintEvent(QPaintEvent *event)
-{
-    QGraphicsView::paintEvent(event);
-
-    if(canRepaint)
-    {
-    QPainter pen(viewport());
-    pen.setBrush(QBrush(Qt::blue));
-    QPainterPath painterP;
-    painterP.addRegion(event->region());
-    pen.drawPath(painterP);
-    pen.save();
-    canRepaint = false;
-    }
-}
-*/
 
 Area * TmxViewer::getAreaByLocation(QPointF & p)
 {
@@ -263,12 +243,7 @@ void TmxViewer::mouseMoveEvent(QMouseEvent *event)
 
     QPointF p = mapToScene((event->pos()));
     Area * hoveredArea = getAreaByLocation(p);
-    if(!hoveredArea)
-        qDebug()<<"nothing";
-    else
-        qDebug()<<hoveredArea->name();
 }
-
 
 
 void TmxViewer::viewMap(const QString &fileName)

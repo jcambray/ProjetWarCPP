@@ -1,5 +1,6 @@
 #include "mapitem.h"
 #include "gamemap.h"
+#include "game.h"
 #include <QDebug>
 #include <QPolygonF>
 
@@ -80,23 +81,12 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
    }
 
    //Debug
-   //qDebug()<<dragDestination->name();
    //dragDestination->setOwnerPlayerName(QLatin1String("me"));
 
    if(validateMove(dragDestination))
-   {
        setPos(scenePos());
-   }
    else
-   {
        setPos(QPointF(anciennePos->x(),anciennePos->y()));
-   }
-/*
-   viewer->setAreaColor(sceneCoordinatesPolygon(dragDestination->polygon(),dragDestination->position()).toPolygon());
-   const QRegion reg(sceneCoordinatesPolygon(dragDestination->polygon(),dragDestination->position()).toPolygon());
-   viewer->canRepaint = true;
-   viewer->repaint(reg);
-   */
 }
 
 
@@ -111,16 +101,15 @@ void mapItem::setOwnerPlayer(const player &p)
 
 bool mapItem::validateMove(Area * a)
 {
-    if(!a)
-    {
+    if(!a->isEdgeArea() && gameM->partie->nbTour == 0)
         return false;
-    }
 
-
+    /*
     if(ownerPlayer->getName() != a->getOwnerPlayerName())
     {
         return false;
     }
+    */
     return true;
 }
 

@@ -14,10 +14,12 @@ Area::Area(const Area &a)
 }
 
 
-Area::Area(const QString & name, const QString & type, const QPointF & point, const QSizeF & size) : MapObject(name,type,point,size)
+Area::Area(const QString & name, const QString & type, const QPointF & point, const QSizeF & size, const QPolygonF & p, const Properties & prop) : MapObject(name,type,point,size)
 {
     enDeclin = false;
     ownerPlayerName = QLatin1String("nobody");
+    setPolygon(p);
+    setProperties(prop);
 }
 
 void Area::setOwnerPlayerName(const QString & name)
@@ -33,4 +35,14 @@ QString & Area::getOwnerPlayerName()
 bool Area::operator !=(const Area & ar)
 {
     return (position() != ar.position());
+}
+
+bool Area::isEdgeArea()
+{
+    return hasProperty(QLatin1String("isEdgeArea"));
+}
+
+Area::~Area()
+{
+
 }

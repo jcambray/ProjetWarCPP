@@ -35,6 +35,7 @@ public:
     void currentGame(player *currentPlayer, player *secondPlayer);
     player * getP1();
     player * getP2();
+    int nbTour;
 
 
 public slots:
@@ -56,7 +57,7 @@ private:
     MapWindow * mapWindows;
     gameMap * map;
     QString savJoueur2;
-    int nbTour;
+
 };
 
 

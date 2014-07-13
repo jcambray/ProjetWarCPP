@@ -62,13 +62,6 @@ public:
     Area * getAreaByLocation(QPointF &);
     QPolygonF sceneCoordinatesPolygon(const QPolygonF &,const QPointF &);
 
-    /*
-    virtual void paintEvent(QPaintEvent * event);
-
-    void setAreaColor(const QPolygon &);
-
-    bool canRepaint = false;
-    */
 
 private:
     QGraphicsScene *mScene;

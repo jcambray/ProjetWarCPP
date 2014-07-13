@@ -50,13 +50,6 @@ mapItem * gameMap::addItem(mapItem * item, int x, int y)
    return item;
 }
 
-void gameMap::addAllItems(){
-/*
-    mapItem * amazon = new mapItem(tr("token"),QPixmap(tr("token\\tokenAmazones.png")),viewer);
-    addItem(amazon,490,389);
-    amazon->setScale(0.225);
-    */
-}
 
 QList<mapItem *> *gameMap::getTokens()
 {
