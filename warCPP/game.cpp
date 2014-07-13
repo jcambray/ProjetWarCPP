@@ -219,7 +219,6 @@ void game::currentGame(player *currentPlayer, player *secondPlayer)
         QMessageBox::information(this, tr(""),currentPlayer->getName()+tr(", Partez à l'attaque"));
         //QObject::connect(map->mapView,SIGNAL(createJoueur(QString,QString,QString)),this,SLOT(creationJoeur(QString,QString,QString)));
         //QObject::connect(map->mapView,SIGNAL(createJoueur(QString,QString,QString)),this,SLOT(creationJoeur(QString,QString,QString)));
-
     }
     else
     {

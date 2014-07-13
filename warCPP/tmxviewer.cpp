@@ -246,6 +246,12 @@ void TmxViewer::mouseMoveEvent(QMouseEvent *event)
 }
 
 
+void TmxViewer::setColorToAreaBorder(QPen pen, Area *area)
+{
+    QPolygonF polygon = sceneCoordinatesPolygon(getAreaByName(area->name())->polygon(),area->position());
+    mScene->addPolygon(polygon,pen);
+}
+
 void TmxViewer::viewMap(const QString &fileName)
 {
     delete mRenderer;

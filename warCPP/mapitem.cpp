@@ -52,9 +52,10 @@ void mapItem::setAnciennePos(QPointF & p)
 }
 
 void mapItem::mousePressEvent(QGraphicsSceneMouseEvent *event){
-   if(event->button() != Qt::LeftButton){
+
+   if(event->button() != Qt::LeftButton)
        return;
-    }
+
    QPointF point;
    point =scenePos();
    QGraphicsItem::mousePressEvent(event);
@@ -69,6 +70,7 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
    return;
    }
 
+
    QGraphicsItem::mouseReleaseEvent(event);
    QPointF point;
    point =scenePos();
@@ -82,11 +84,19 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 
    //Debug
    //dragDestination->setOwnerPlayerName(QLatin1String("me"));
-
-   if(validateMove(dragDestination))
-       setPos(scenePos());
-   else
+    qDebug()<<validateMove(dragDestination);
+   if(!validateMove(dragDestination))
+   {
        setPos(QPointF(anciennePos->x(),anciennePos->y()));
+       return;
+   }
+
+   setPos(scenePos());
+   if(ownerPlayer->getName() == gameM->partie->getP1()->getName())
+       gameM->viewer->setColorToAreaBorder(QPen(Qt::red,3),dragDestination);
+   else
+       gameM->viewer->setColorToAreaBorder(QPen(Qt::green,3),dragDestination);
+
 }
 
 
@@ -101,15 +111,8 @@ void mapItem::setOwnerPlayer(const player &p)
 
 bool mapItem::validateMove(Area * a)
 {
-    if(!a->isEdgeArea() && gameM->partie->nbTour == 0)
+    if(!a->isEdgeArea() && gameM->partie->nbTour == 1)
         return false;
-
-    /*
-    if(ownerPlayer->getName() != a->getOwnerPlayerName())
-    {
-        return false;
-    }
-    */
     return true;
 }
 

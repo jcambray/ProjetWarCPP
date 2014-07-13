@@ -61,6 +61,7 @@ public:
     Tiled::Map *mMap;
     Area * getAreaByLocation(QPointF &);
     QPolygonF sceneCoordinatesPolygon(const QPolygonF &,const QPointF &);
+    void setColorToAreaBorder(QPen, Area *);
 
 
 private:
