@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Sélection des joueurs</string>
+   <string>WarCpp - Sélection des joueurs</string>
   </property>
   <widget class="QLabel" name="labeljoueur1">
    <property name="geometry">

@@ -213,10 +213,12 @@ void game::currentGame(player *currentPlayer, player *secondPlayer)
 {
     if(nbTour != 6)
     {
-        /*nbTour++;
-        mapWindows->setNbTour(nbTour);
-        mapWindows->enableGroupBox(secondPlayer,false);
-        QMessageBox::information(this, tr(""),currentPlayer->getName()+tr(", Partez à l'attaque"));*/
+        nbTour++;
+        map->mapView->setNbTour(nbTour);
+        map->mapView->enableGroupBox(secondPlayer,false);
+        QMessageBox::information(this, tr(""),currentPlayer->getName()+tr(", Partez à l'attaque"));
+        //QObject::connect(map->mapView,SIGNAL(createJoueur(QString,QString,QString)),this,SLOT(creationJoeur(QString,QString,QString)));
+        //QObject::connect(map->mapView,SIGNAL(createJoueur(QString,QString,QString)),this,SLOT(creationJoeur(QString,QString,QString)));
 
     }
     else

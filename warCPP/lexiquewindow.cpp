@@ -1,6 +1,5 @@
 #include "lexiquewindow.h"
 #include "ui_Lexique.h"
-//#include "ui_€"
 
 
 LexiqueWindow::LexiqueWindow(QWidget *parent) :

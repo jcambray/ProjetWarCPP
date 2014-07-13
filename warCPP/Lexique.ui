@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Sélection du peuple et de son pouvoir</string>
+   <string>WarCpp - Lexique</string>
   </property>
   <property name="modal">
    <bool>false</bool>
@@ -96,7 +96,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>10</x>
      <y>90</y>
      <width>350</width>
      <height>281</height>
@@ -134,10 +134,10 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>460</x>
+     <x>370</x>
      <y>90</y>
-     <width>281</width>
-     <height>281</height>
+     <width>371</width>
+     <height>331</height>
     </rect>
    </property>
    <property name="font">
@@ -152,6 +152,12 @@
    <property name="text">
     <string/>
    </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>10</number>
+   </property>
   </widget>
   <zorder>label</zorder>
   <zorder>labelNameLexique</zorder>
@@ -161,22 +167,5 @@
   <zorder>labelText</zorder>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>pushPrevious</sender>
-   <signal>clicked()</signal>
-   <receiver>LexiqueWindow</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>299</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>254</x>
-     <y>247</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
