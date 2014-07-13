@@ -8,7 +8,7 @@ class player
 {
 public:
     player();
-    player(int numOrdre,QString _name, Nation *nation,Power *power);
+    player(int declin,QString _name, Nation *nation,Power *power);
     player(const player &); 
     bool operator <(const player &);
     Nation * getNation();
@@ -16,17 +16,19 @@ public:
     QString getName();
     int getToken();
     int getScore();
+    int getDeclin();
     void setNation(Nation * nation);
     void setPower(Power * power);
     void setToken(int t);
     void setScore(int s);
+    void setDeclin(int d);
     Nation * nat;
     Power * pow;
 
 
 private:
 
-    int numeroOrdre,token,score;
+    int indiceDeclin,token,score;
     QString name;
 
 

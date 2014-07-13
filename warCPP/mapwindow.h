@@ -21,7 +21,9 @@ public:
     void displayPlayer2Name(QString &);
     void displayPlayer1Score(int);
     void displayPlayer2Score(int);
+    void displayNewPlayer(player * p1, player * p2);
     void enableGroupBox(player *p, bool val);
+    void enableButtonDeclin(bool val);
     void setNbTour(int tour);
 
 
@@ -39,6 +41,7 @@ signals:
     void quitterGame();
     void redeploy(player*p);
     void endTurn(player*p);
+    void modeDeclin(player*p);
 
 private slots:
 
@@ -50,6 +53,8 @@ private slots:
     void on_pushButton_clicked();
 
     void on_pushButtonMapWindow_clicked();
+
+    void on_pushButtonDeclin_clicked();
 
 private:
     Ui::MapWindow *ui;

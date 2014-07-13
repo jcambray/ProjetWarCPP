@@ -32,12 +32,28 @@ MapWindow::MapWindow(gameMap *m, QWidget *parent) :
 void MapWindow::displayPlayer1Name(QString & name)
 {
     ui->groupBoxJ1->setTitle(name);
+    ui->combiJ1->setText(gameM->partie->getP1()->nat->getName()+tr(" ")+gameM->partie->getP1()->pow->getName());
 
 }
 
 void MapWindow::displayPlayer2Name(QString & name)
 {
     ui->groupBoxJ2->setTitle(name);
+    ui->combiJ2->setText(gameM->partie->getP2()->nat->getName()+tr(" ")+gameM->partie->getP2()->pow->getName());
+}
+
+void MapWindow::displayNewPlayer(player * p1, player * p2)
+{
+    if(ui->groupBoxJ1->title()!=p2->getName())
+    {
+        ui->groupBoxJ1->setTitle(p1->getName());
+        ui->combiJ1->setText(gameM->partie->getP1()->nat->getName()+tr(" ")+gameM->partie->getP1()->pow->getName());
+    }
+    else
+    {
+        ui->groupBoxJ2->setTitle(p1->getName());
+        ui->combiJ2->setText(gameM->partie->getP1()->nat->getName()+tr(" ")+gameM->partie->getP1()->pow->getName());
+    }
 }
 
 void MapWindow::quitter()
@@ -85,6 +101,11 @@ void MapWindow::enableGroupBox(player *p, bool val)
     }
 }
 
+void MapWindow::enableButtonDeclin(bool val)
+{
+    ui->pushButtonDeclin->setEnabled(val);
+}
+
 void MapWindow::setNbTour(int tour)
 {
     tour = tour/2;
@@ -117,4 +138,32 @@ void MapWindow::on_pushButtonMapWindow_clicked()
         ui->pushButtonMapWindow->setText(tr("Redéployer"));
         emit endTurn(gameM->partie->getP1());
     }
+}
+
+void MapWindow::on_pushButtonDeclin_clicked()
+{
+    switch( QMessageBox::question(
+                    this,
+                    tr("Déclin"),
+                    tr("Voulez-vous vraiment faire passer votre peuple actif en déclin ?"),
+
+                    QMessageBox::Yes |
+                    QMessageBox::No |
+                    QMessageBox::Cancel,
+                    QMessageBox::Cancel ) )
+        {
+          case QMessageBox::Yes:
+            qDebug( "yes" );
+                emit modeDeclin(gameM->partie->getP1());
+            break;
+          case QMessageBox::No:
+                qDebug( "no" );
+            break;
+          case QMessageBox::Cancel:
+            qDebug( "cancel" );
+            break;
+          default:
+            qDebug( "close" );
+            break;
+        }
 }

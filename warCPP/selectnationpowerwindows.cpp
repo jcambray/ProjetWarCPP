@@ -157,6 +157,8 @@ void SelectNationPowerWindows::on_pushChoisir_clicked()
                 }
                 else
                 {
+                   Combination.removeAt(indexElementSelectionne2.row());
+                   delete modele;
                    emit UpJoueur(namejoueur,sNation2,sPower2);
                 }
             break;

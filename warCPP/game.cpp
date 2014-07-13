@@ -158,11 +158,13 @@ void game::creationJoeur(QString qsnamePlayer,QString qsnation, QString qspower)
     }
 
     if(p1->getName() != tr("player") && p2->getName() != tr("player")){
+        selectNationPower->close();
         renderMap();
         currentGame(p1,p2);
         QObject::connect(map->mapView,SIGNAL(quitterGame()),this,SLOT(pushQuitter()));
         QObject::connect(map->mapView,SIGNAL(redeploy(player*)),this,SLOT(deploy(player*)));
         QObject::connect(map->mapView,SIGNAL(endTurn(player*)),this,SLOT(endRound(player*)));
+        QObject::connect(map->mapView,SIGNAL(modeDeclin(player*)),this,SLOT(decline(player*)));
     }
 }
 
@@ -203,18 +205,13 @@ void game::upDateJoueur(QString qsnamePlayer,QString qsnation, QString qspower)
         power = new Power(qspower,4,2);
     }
 
-    if(p1->getName() == qsnamePlayer)
-    {
-        p1 = new player(0,qsnamePlayer,nation,power);
-        p1->setToken(p1->nat->getToken()+p1->pow->getToken());
-        QMessageBox::information(this, tr("Joueur 1"),qsnamePlayer+tr(" ")+qsnation+tr(" ")+qspower );
-    }
-    else
-    {
-        p2 = new player(0,qsnamePlayer,nation,power);
-        p2->setToken(p2->nat->getToken()+p2->pow->getToken());
-        QMessageBox::information(this, tr("Joueur 2"),qsnamePlayer+tr(" ")+qsnation+tr(" ")+qspower );
-    }
+    p1 = new player(2,qsnamePlayer,nation,power);
+    p1->setToken(p1->nat->getToken()+p1->pow->getToken());
+    QMessageBox::information(this, tr("Joueur"),qsnamePlayer+tr(" ")+qsnation+tr(" ")+qspower );
+    selectNationPower->close();
+    map->mapView->displayNewPlayer(p1,p2);
+    currentGame(p1,p2);
+
 }
 
 void game::pushRetour()
@@ -239,19 +236,36 @@ void game::currentGame(player *currentPlayer, player *secondPlayer)
 {
     p1 = currentPlayer;
     p2 = secondPlayer;
-    if(nbTour != 13)
-    {
-        nbTour++;
-        map->mapView->setNbTour(nbTour);
-        map->mapView->enableGroupBox(secondPlayer,false);
-        map->mapView->enableGroupBox(currentPlayer,true);
-        QMessageBox::information(this, tr(""),currentPlayer->getName()+tr(", Partez à l'attaque"));
 
+    if(currentPlayer->getDeclin()==1)
+    {
+        selectNationPower->prepareSelectNationPower(currentPlayer->getName());
+        selectNationPower->show();
     }
     else
     {
-        endGame();
-    }
+        if(nbTour != 13)
+        {
+            if(currentPlayer->getDeclin()==2)
+            {
+                map->mapView->enableButtonDeclin(false);
+            }
+            else
+            {
+                map->mapView->enableButtonDeclin(true);
+            }
+            nbTour++;
+            map->mapView->setNbTour(nbTour);
+            map->mapView->enableGroupBox(secondPlayer,false);
+            map->mapView->enableGroupBox(currentPlayer,true);
+            QMessageBox::information(this, tr(""),currentPlayer->getName()+tr(", Partez à l'attaque"));
+
+        }
+        else
+        {
+            endGame();
+        }
+     }
 }
 
 void game::randomlySetPower(player ps[]){
@@ -269,8 +283,10 @@ void game::deploy(player *p){
     QMessageBox::information(this, tr(""),p->getName()+tr(", Redéployez vos troupes !"));
 }
 
-void game::decline(player p){
-
+void game::decline(player *p)
+{
+    p->setDeclin(1);
+    endRound(p);
 }
 
 void game::endRound(player* p){

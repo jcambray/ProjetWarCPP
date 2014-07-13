@@ -27,7 +27,6 @@ public:
     void selectionPlayer(bool IA);
     void randomlySetPower(player ps[]);
     void conquere();
-    void decline(player p);
     void endRound();
     void endGame();
     void renderMap();
@@ -47,6 +46,7 @@ public slots:
     void endRound(player* p);
     void pushRetour();
     void pushQuitter();
+    void decline(player *p);
 
 
 private:

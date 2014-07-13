@@ -7,20 +7,20 @@ player::player()
     pow = new Power();
     token =0;
     score =0;
-    numeroOrdre=0;
+    indiceDeclin=0;
 }
 
-player::player(int numOrdre,QString _name, Nation *nation,Power *power)
+player::player(int declin,QString _name, Nation *nation,Power *power)
 {
     name = _name;
-    numeroOrdre = numOrdre;
+    indiceDeclin = declin;
     nat = nation;
     pow = power;
 }
 
 player::player(const player & p)
 {
-   numeroOrdre = p.numeroOrdre;
+   indiceDeclin = p.indiceDeclin;
    token = p.token;
    score = p.score;
    name = p.name;
@@ -38,7 +38,7 @@ player::player(const player & p)
 
 bool player::operator <(const player &p)
 {
-    return (numeroOrdre < p.numeroOrdre) ? true : false;
+    return (indiceDeclin < p.indiceDeclin) ? true : false;
 }
 
 QString player::getName()
@@ -61,6 +61,10 @@ int player::getToken(){
 int player::getScore(){
     return score;
 }
+int player::getDeclin()
+{
+    return indiceDeclin;
+}
 
 void player::setNation(Nation * nation)
 {
@@ -78,3 +82,8 @@ void player::setToken(int t){
 void player::setScore(int s){
     score=s;
 }
+
+void player::setDeclin(int d){
+    indiceDeclin=d;
+}
+
