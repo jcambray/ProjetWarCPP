@@ -34,6 +34,7 @@
 #include "mapobject.h"
 #include "objectgroup.h"
 #include "area.h"
+#include "player.h"
 #include <QPainterPath>
 #include <QPaintEvent>
 #include <QDebug>
@@ -64,6 +65,7 @@ public:
     void setColorToAreaBorder(QPen, Area *);
     void fillAreaWithColor(QPen p,QBrush b,Area* a);
     void setEnDeclin(Area *);
+    void activateModeDeclin(player *);
 
 
 private:

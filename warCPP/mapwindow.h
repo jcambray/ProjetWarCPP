@@ -50,7 +50,7 @@ private slots:
 
     void on_pushGoldP2_clicked();
 
-    void on_pushButton_clicked();
+    //void on_pushButton_clicked();
 
     void on_pushButtonMapWindow_clicked();
 

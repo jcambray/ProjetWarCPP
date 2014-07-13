@@ -262,11 +262,20 @@ void TmxViewer::fillAreaWithColor(QPen p,QBrush b,Area* a)
 
 void TmxViewer::setEnDeclin(Area *a)
 {
-  a->setOwnerPlayerName(tr(""));
   fillAreaWithColor(QPen(Qt::gray,3),QBrush(Qt::gray),a);
 }
 
-
+void TmxViewer::activateModeDeclin(player *p)
+{
+    for(int i = 0; i<getAreas().length();i++)
+    {
+        if(getAreas()[i]->getOwnerPlayerName() == p->getName())
+        {
+            getAreas()[i]->enDeclin = true;
+            setEnDeclin(getAreas()[i]);
+        }
+    }
+}
 
 void TmxViewer::viewMap(const QString &fileName)
 {

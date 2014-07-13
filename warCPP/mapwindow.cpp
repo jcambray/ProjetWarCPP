@@ -154,6 +154,8 @@ void MapWindow::on_pushButtonDeclin_clicked()
         {
           case QMessageBox::Yes:
             qDebug( "yes" );
+                //TEST
+                gameM->viewer->activateModeDeclin(gameM->partie->getCurrentPlayer());
                 emit modeDeclin(gameM->partie->getP1());
             break;
           case QMessageBox::No:

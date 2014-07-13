@@ -89,7 +89,6 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
    }
 
    setPos(scenePos());
-
 }
 
 
@@ -107,8 +106,9 @@ bool mapItem::validateMove(Area * a)
     if(gameM->partie->getCurrentPlayer()->getName() != ownerPlayer->getName())
         return false;
 
-    if(!a->isEdgeArea() && gameM->partie->nbTour == 1)
+    if(!a->isEdgeArea() && gameM->partie->nbTour == 2)
         return false;
+
     return true;
 }
 
