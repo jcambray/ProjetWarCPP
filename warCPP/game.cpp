@@ -207,7 +207,7 @@ void game::upDateJoueur(QString qsnamePlayer,QString qsnation, QString qspower)
 
     p1 = new player(2,qsnamePlayer,nation,power);
     p1->setToken(p1->nat->getToken()+p1->pow->getToken());
-    QMessageBox::information(this, tr("Joueur"),qsnamePlayer+tr(" ")+qsnation+tr(" ")+qspower );
+    //QMessageBox::information(this, tr("Joueur"),qsnamePlayer+tr(" ")+qsnation+tr(" ")+qspower );
     selectNationPower->close();
     map->mapView->displayNewPlayer(p1,p2);
     currentGame(p1,p2);
