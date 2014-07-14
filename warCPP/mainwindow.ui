@@ -112,7 +112,7 @@ background-image: url(:/fond/images/panneau.png);</string>
    </property>
    <widget class="QMenu" name="menuFichier">
     <property name="title">
-     <string>Fichier</string>
+     <string>Partie</string>
     </property>
     <addaction name="actionNouvelle_Partie"/>
     <addaction name="actionQuitter"/>

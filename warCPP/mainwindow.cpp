@@ -18,10 +18,25 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->actionPeuples,SIGNAL(triggered()),this,SLOT(printNation()));
     QObject::connect(ui->actionPouvoirs,SIGNAL(triggered()),this,SLOT(printPower()));
     QObject::connect(ui->actionNouvelle_Partie,SIGNAL(triggered()),this,SLOT(btnNouvellePartieClicked()));
+    QObject::connect(ui->actionQuitter,SIGNAL(triggered()),this,SLOT(closeDialog()));
 
 
 }
 
+void MainWindow::closeDialog()
+{
+    int reponse = QMessageBox::question(this, QLatin1String("Fin"), QLatin1String("Etes-vous sur(e) de vouloir quitter ?"), QMessageBox::Yes | QMessageBox::No);
+
+    if (reponse == QMessageBox::Yes)
+    {
+        QMessageBox::information(this, QLatin1String("Quitter"), QLatin1String("A bientot !"));
+        this->close();
+    }
+    else if (reponse == QMessageBox::No)
+    {
+        QMessageBox::information(this, QLatin1String("Continuer"), QLatin1String("Sage descision"));
+    }
+}
 
 void MainWindow::btnNouvellePartieClicked()
 {

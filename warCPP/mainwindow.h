@@ -36,6 +36,7 @@ public slots:
     void printPower();
     void printRules();
     void btnNouvellePartieClicked();
+    void closeDialog();
 
 private:
 
