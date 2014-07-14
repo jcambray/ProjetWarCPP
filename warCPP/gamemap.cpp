@@ -101,9 +101,18 @@ void gameMap::tryConquere(Area *area)
 {
     if(area->getOwnerPlayerName() == partie->getP1()->getName())
         return;
+
+
+    if(area->type() == QLatin1String("aqua") && partie->getP1()->getPower()->getName() != QLatin1String("Pirates"))
+        return;
+
     QList<mapItem * > p1Items = getPlayerTokensOnArea(area,partie->getP1());
     QList<mapItem * > p2Items = getPlayerTokensOnArea(area,partie->getP2());
 
+
+
+    if(p1Items.size() < area->getTokensToConquiert())
+        return;
 
     if((p1Items.length() > p2Items.length()) || (p1Items.size() == 0 && p2Items.size() == 0))
     {

@@ -42,6 +42,24 @@ bool Area::isEdgeArea()
     return hasProperty(QLatin1String("isEdgeArea"));
 }
 
+int Area::getTokensToConquiert()
+{
+    if(type() == QLatin1String("herbe"))
+        return 2;
+    if(type() == QLatin1String("aqua"))
+        return 1;
+    if(type() == QLatin1String("arbre"))
+        return 2;
+    if(type() == QLatin1String("rocher"))
+        return 3;
+    if(type() == QLatin1String("sable"))
+        return 1;
+    if(type() == QLatin1String("chateau"))
+        return 5;
+    if(type() == QLatin1String("champs"))
+        return 1;
+}
+
 Area::~Area()
 {
 

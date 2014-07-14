@@ -17,6 +17,7 @@ public:
     bool operator !=(const Area &);
     bool isEdgeArea();
     bool enDeclin;
+    int getTokensToConquiert();
 
 private:
 
