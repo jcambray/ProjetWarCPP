@@ -92,8 +92,25 @@ QList<mapItem *> gameMap::getPlayerTokensOnArea(Area *a,player *p)
         if(areaPoly.containsPoint(getTokens()[i]->pos(),Qt::OddEvenFill) && getTokens()[i]->getOwnerPlayer()->getName() == p->getName())
             findTokens.append(getTokens()[i]);
     }
-
     return findTokens;
+}
+
+void gameMap::removePlayerTokensArea(Area *a, player *p,int nbIteration)
+{
+    QPolygonF areaPoly = viewer->sceneCoordinatesPolygon(a->polygon(),a->position());
+
+    for(int j = 0; j < nbIteration; j++)
+    {
+    for(int i = 0; i < tokens->length(); i++)
+    {
+
+        if(areaPoly.containsPoint(getTokens()[i]->pos(),Qt::OddEvenFill) && getTokens()[i]->getOwnerPlayer()->getName() == p->getName())
+        {
+           viewer->scene()->removeItem(tokens->at(i));
+            tokens->removeAt(i);
+        }
+    }
+    }
 }
 
 
@@ -121,6 +138,16 @@ void gameMap::tryConquere(Area *area)
             viewer->setColorToAreaBorder(QPen(Qt::red,3.0),area);
         else
             viewer->setColorToAreaBorder(QPen(Qt::green,3.0),area);
+
+        if(p2Items.size() > 0)
+        {
+        removePlayerTokensArea(area,partie->getP2(),p2Items.size());
+
+        if(partie->nbTour % 2 == 0)
+            initToken(partie->getP2(),QPoint(-100,400),1);
+        else
+            initToken(partie->getP2(),QPoint(-100,200),1);
+        }
     }
 }
 

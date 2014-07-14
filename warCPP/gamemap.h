@@ -30,6 +30,7 @@ public:
     void loadTokens();
     void initToken(player *p, const QPoint, int nbToken);
     QList<mapItem *> getPlayerTokensOnArea(Area *a, player *p);
+    void removePlayerTokensArea(Area *a, player *p, int nbIteration);
     void tryConquere(Area *);
 
     TmxViewer *viewer;
@@ -37,7 +38,6 @@ public:
     MapWindow * mapView;
 
 private:
-
 
     QList<mapItem*> *tokens;
 
