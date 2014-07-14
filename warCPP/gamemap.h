@@ -15,6 +15,7 @@ class gameMap : public QObject
     Q_OBJECT
 
 public:
+
     gameMap();
     gameMap(game * g);
     gameMap(const gameMap & map);
@@ -31,7 +32,10 @@ public:
     void initToken(player *p, const QPoint, int nbToken);
     QList<mapItem *> getPlayerTokensOnArea(Area *a, player *p);
     void removePlayerTokensArea(Area *a, player *p, int nbIteration);
+    void removeAllPlayerTokens(player *);
     void tryConquere(Area *);
+    int getAreaScore(Area *);
+    int getTourScore();
 
     TmxViewer *viewer;
     game * partie;

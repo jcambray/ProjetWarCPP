@@ -151,6 +151,52 @@ void gameMap::tryConquere(Area *area)
     }
 }
 
+void gameMap::removeAllPlayerTokens(player * p)
+{
+    for(int i = 0; i < viewer->getAreas().length();i++)
+    {
+        int nbIteration = getPlayerTokensOnArea(viewer->getAreas()[i],p).length();
+        removePlayerTokensArea(viewer->getAreas()[i],p,nbIteration);
+    }
+}
+
+int gameMap::getAreaScore(Area * area)
+{
+    int baseScore = 1;
+    int nbTokens = getPlayerTokensOnArea(area,partie->getP1()).length();
+    int bonus = 0;
+    if(partie->getP1()->getNation()->getName() == QLatin1String("Amazones") && area->type() == QLatin1String("arbre"))
+        bonus = 1;
+    if(partie->getP1()->getNation()->getName() == QLatin1String("Humains") && area->type() == QLatin1String("herbe"))
+        bonus = 1;
+
+    return (baseScore + bonus) * nbTokens;
+}
+
+int gameMap::getTourScore()
+{
+    int scoreByAreas = 0;
+    for(int i = 0; i < viewer->getAreas().length(); i++)
+    {
+        if(viewer->getAreas()[i]->getOwnerPlayerName() == partie->getP1()->getName())
+            scoreByAreas += getAreaScore(viewer->getAreas()[i]);
+    }
+
+    int bonusSqueletteNationScore = 0;
+    if(partie->getP1()->getNation()->getName() == QLatin1String("Squelettes"))
+    {
+        int nbBonusAreas = 0;
+        for(int i = 0; i < viewer->getAreas().length();i++)
+        {
+            if(viewer->getAreas()[i]->getOwnerPlayerName() == partie->getP1()->getName())
+                nbBonusAreas++;
+        }
+        bonusSqueletteNationScore = nbBonusAreas / 2;
+    }
+
+    return scoreByAreas + bonusSqueletteNationScore;
+}
+
 gameMap::~gameMap()
 {
     delete viewer;

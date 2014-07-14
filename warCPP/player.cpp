@@ -16,6 +16,7 @@ player::player(int declin,QString _name, Nation *nation,Power *power)
     indiceDeclin = declin;
     nat = nation;
     pow = power;
+    score = 0;
 }
 
 player::player(const player & p)

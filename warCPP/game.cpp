@@ -208,7 +208,7 @@ void game::upDateJoueur(QString qsnamePlayer,QString qsnation, QString qspower)
 
     p1 = new player(2,qsnamePlayer,nation,power);
     p1->setToken(p1->nat->getToken()+p1->pow->getToken());
-    //QMessageBox::information(this, tr("Joueur"),qsnamePlayer+tr(" ")+qsnation+tr(" ")+qspower );
+
     selectNationPower->close();
     map->mapView->displayNewPlayer(p1,p2);
     currentGame(p1,p2);
@@ -242,6 +242,7 @@ void game::currentGame(player *currentPlayer, player *secondPlayer)
     {
         selectNationPower->prepareSelectNationPower(currentPlayer->getName());
         selectNationPower->show();
+        map->removeAllPlayerTokens(currentPlayer);
     }
     else
     {
@@ -283,6 +284,7 @@ void game::conquere(){
 void game::deploy(player *p){
 
     QMessageBox::information(this, tr(""),p->getName()+tr(", Redéployez vos troupes !"));
+
 }
 
 void game::decline(player *p)
@@ -292,7 +294,9 @@ void game::decline(player *p)
 }
 
 void game::endRound(player* p){
-    QMessageBox::information(this, tr("Fin du tour"),p->getName()+tr(", Vous remportez ")+tr(" pièce(s) d'or durant ce tour"));
+    int score = map->getTourScore();
+    p1->setScore(p1->getScore() + score);
+    QMessageBox::information(this, tr("Fin du tour"),p->getName()+tr(", Vous remportez ")+ QString::number(score) + tr(" pièce(s) d'or durant ce tour"));
     currentGame(p2,p1);
 }
 
