@@ -68,27 +68,24 @@ void mapItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
    if(event->button() != Qt::LeftButton){
    return;
    }
-
-
    QGraphicsItem::mouseReleaseEvent(event);
    QPointF point;
    point =scenePos();
    Area * dragDestination = gameM->viewer->getAreaByLocation(point);
-
    if(!dragDestination)
    {
        setPos(QPointF(anciennePos->x(),anciennePos->y()));
        return;
    }
 
-
    if(!validateMove(dragDestination))
    {
        setPos(QPointF(anciennePos->x(),anciennePos->y()));
        return;
    }
-
    setPos(scenePos());
+
+   gameM->tryConquere(dragDestination);
 }
 
 
@@ -101,17 +98,22 @@ void mapItem::setOwnerPlayer(const player &p)
     ownerPlayer = new player(p);
 }
 
+player * mapItem::getOwnerPlayer()
+{
+    return ownerPlayer;
+}
+
+
 bool mapItem::validateMove(Area * a)
 {
-    if(gameM->partie->getCurrentPlayer()->getName() != ownerPlayer->getName())
+    if(gameM->partie->getP1()->getName() != ownerPlayer->getName())
         return false;
 
-    if(!a->isEdgeArea() && gameM->partie->nbTour == 2)
+    if(!a->isEdgeArea() && (gameM->partie->nbTour == 2 || gameM->partie->nbTour == 3))
         return false;
 
     return true;
 }
-
 
 
 QPointF mapItem::getAnciennePos()

@@ -277,6 +277,8 @@ void TmxViewer::activateModeDeclin(player *p)
     }
 }
 
+
+
 void TmxViewer::viewMap(const QString &fileName)
 {
     delete mRenderer;

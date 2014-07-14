@@ -20,24 +20,17 @@ public:
     gameMap(const gameMap & map);
     ~gameMap();
 
-    //retourne le QGraphicsView contenant la map
-    TmxViewer * getViewer();
 
     //affiche un item sur la map à partir d'une image
     mapItem *addItem(mapItem *, int x, int y);
-
-
     //retourne la liste des éléments graphiques de la map
-    QList<mapItem*> * getTokens();
-
-
-
+    QList<mapItem*> & getTokens();
     //Agrandit chaque carre de la map en fonction du coefficient
     void setMapItemsScale(double coeff);
-
     void loadTokens();
-
     void initToken(player *p, const QPoint);
+    QList<mapItem *> getPlayerTokensOnArea(Area *a, player *p);
+    void tryConquere(Area *);
 
     TmxViewer *viewer;
     game * partie;

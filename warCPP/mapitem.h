@@ -30,6 +30,7 @@ public:
     QPointF getAnciennePos();
     bool validateMove(Area *);
 
+
 private:
 
     QString type;

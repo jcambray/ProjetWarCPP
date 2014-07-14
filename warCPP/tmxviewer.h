@@ -68,6 +68,8 @@ public:
     void activateModeDeclin(player *);
 
 
+
+
 private:
     QGraphicsScene *mScene;
     Tiled::MapRenderer *mRenderer;
