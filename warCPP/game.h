@@ -34,6 +34,7 @@ public:
     player * getP1();
     player * getP2();
     int nbTour;
+    bool deployStep;
 
 
 public slots:

@@ -106,13 +106,19 @@ player * mapItem::getOwnerPlayer()
 
 bool mapItem::validateMove(Area * a)
 {
+    //Si l'item n'appartient pass au joueur actif
     if(gameM->partie->getP1()->getName() != ownerPlayer->getName())
         return false;
 
+    //Si c'est le premier tour et que l'item est deplacer vers un terrain qui n'est pas en bordure
     if(!a->isEdgeArea() && (gameM->partie->nbTour == 2 || gameM->partie->nbTour == 3))
         return false;
 
+    //si l'item est déplacé sur un terrain en declin
     if(a->enDeclin)
+        return false;
+
+    if(gameM->partie->deployStep == true && a->getOwnerPlayerName() != ownerPlayer->getName())
         return false;
 
     return true;

@@ -130,11 +130,13 @@ void MapWindow::on_pushButtonMapWindow_clicked()
 {
     if(ui->pushButtonMapWindow->text()==tr("Redéployer"))
     {
+        gameM->partie->deployStep = true;
         ui->pushButtonMapWindow->setText(tr("Terminé"));
         emit redeploy(gameM->partie->getP1());
     }
     else if (ui->pushButtonMapWindow->text()==tr("Terminé"))
     {
+        gameM->partie->deployStep = false;
         ui->pushButtonMapWindow->setText(tr("Redéployer"));
         emit endTurn(gameM->partie->getP1());
     }
@@ -154,6 +156,7 @@ void MapWindow::on_pushButtonDeclin_clicked()
         {
           case QMessageBox::Yes:
             qDebug( "yes" );
+                gameM->partie->deployStep = false;
                 gameM->viewer->activateModeDeclin(gameM->partie->getP1());
                 emit modeDeclin(gameM->partie->getP1());
             break;

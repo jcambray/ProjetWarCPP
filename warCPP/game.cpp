@@ -20,6 +20,7 @@ game::game()
     nation = new Nation();
     power = new Power();
     nbTour = 1;
+    deployStep = false;
 }
 game::~game()
 {
