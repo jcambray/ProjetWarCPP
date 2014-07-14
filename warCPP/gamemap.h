@@ -28,7 +28,7 @@ public:
     //Agrandit chaque carre de la map en fonction du coefficient
     void setMapItemsScale(double coeff);
     void loadTokens();
-    void initToken(player *p, const QPoint);
+    void initToken(player *p, const QPoint, int nbToken);
     QList<mapItem *> getPlayerTokensOnArea(Area *a, player *p);
     void tryConquere(Area *);
 

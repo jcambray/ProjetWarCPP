@@ -66,8 +66,10 @@ void gameMap::setMapItemsScale(double coeff)
     }
 }
 
-void gameMap::initToken(player *p,const QPoint spawnPos)
+void gameMap::initToken(player *p,const QPoint spawnPos, int nbToken)
 {
+    for(int i = 0;i < nbToken;i++)
+    {
     if(p->nat->getName() == tr("Amazones"))
         addItem(new mapItem(QPixmap(tr("images\\token\\tokenAmazones.png")),p,this),spawnPos.x(),spawnPos.y());
     if(p->nat->getName() == tr("Humains"))
@@ -76,6 +78,7 @@ void gameMap::initToken(player *p,const QPoint spawnPos)
         addItem(new mapItem(QPixmap(tr("images\\token\\tokenSquelette.png")),p,this),spawnPos.x(),spawnPos.y());
      if(p->nat->getName() == tr("Hommes-Rats"))
         addItem(new mapItem(QPixmap(tr("images\\token\\tokenHommesRats.png")),p,this),spawnPos.x(),spawnPos.y());
+    }
 }
 
 
@@ -85,9 +88,8 @@ QList<mapItem *> gameMap::getPlayerTokensOnArea(Area *a,player *p)
     QList<mapItem *> findTokens = QList<mapItem *>();
     for(int i = 0; i < tokens->length(); i++)
     {
-        //TEST
-        //qDebug()<<areaPoly.containsPoint(getTokens()[i]->pos(),Qt::OddEvenFill);
-        if(areaPoly.containsPoint(getTokens()[i]->pos(),Qt::OddEvenFill) && getTokens()[i]->getOwnerPlayer()->getName() == a->getOwnerPlayerName())
+
+        if(areaPoly.containsPoint(getTokens()[i]->pos(),Qt::OddEvenFill) && getTokens()[i]->getOwnerPlayer()->getName() == p->getName())
             findTokens.append(getTokens()[i]);
     }
 
@@ -101,6 +103,7 @@ void gameMap::tryConquere(Area *area)
         return;
     QList<mapItem * > p1Items = getPlayerTokensOnArea(area,partie->getP1());
     QList<mapItem * > p2Items = getPlayerTokensOnArea(area,partie->getP2());
+
 
     if((p1Items.length() > p2Items.length()) || (p1Items.size() == 0 && p2Items.size() == 0))
     {
