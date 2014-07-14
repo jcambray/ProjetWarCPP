@@ -17,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->actionR_gions,SIGNAL(triggered()),this,SLOT(printArea()));
     QObject::connect(ui->actionPeuples,SIGNAL(triggered()),this,SLOT(printNation()));
     QObject::connect(ui->actionPouvoirs,SIGNAL(triggered()),this,SLOT(printPower()));
+    QObject::connect(ui->actionNouvelle_Partie,SIGNAL(triggered()),this,SLOT(btnNouvellePartieClicked()));
+
 
 }
 
