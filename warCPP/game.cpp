@@ -318,8 +318,8 @@ void game::endGame(){
 void game::renderMap()
 {
     map = new gameMap(this);
-    map->initToken(p1,QPoint(-100,200),1);
-    map->initToken(p2,QPoint(-100,400),1);
+    map->initToken(p1,QPoint(-100,200),p1->getToken());
+    map->initToken(p2,QPoint(-100,400),p2->getToken());
 }
 
 player * game::getP1()
