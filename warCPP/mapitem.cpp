@@ -112,6 +112,9 @@ bool mapItem::validateMove(Area * a)
     if(!a->isEdgeArea() && (gameM->partie->nbTour == 2 || gameM->partie->nbTour == 3))
         return false;
 
+    if(a->enDeclin)
+        return false;
+
     return true;
 }
 
