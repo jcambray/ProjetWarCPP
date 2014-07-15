@@ -36,6 +36,7 @@ public:
     void tryConquere(Area *);
     int getAreaScore(Area *);
     int getTourScore();
+    int getPowerScore();
 
     TmxViewer *viewer;
     game * partie;

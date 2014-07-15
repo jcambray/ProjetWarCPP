@@ -262,7 +262,7 @@ void TmxViewer::fillAreaWithColor(QPen p,QBrush b,Area* a)
 
 void TmxViewer::setEnDeclin(Area *a)
 {
-  fillAreaWithColor(QPen(Qt::gray,3),QBrush(Qt::gray),a);
+    fillAreaWithColor(QPen(),QBrush(Qt::gray),a);
 }
 
 void TmxViewer::activateModeDeclin(player *p)

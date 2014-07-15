@@ -247,9 +247,6 @@ void game::pushQuitter()
 
 void game::currentGame(player *currentPlayer, player *secondPlayer)
 {
-    qDebug()<<"Tour : "<<nbTour;
-    qDebug()<<p1->getName()<<" "<<p1->getScore();
-    qDebug()<<p2->getName()<<" "<<p2->getScore();
     p1 = currentPlayer;
     p2 = secondPlayer;
 
