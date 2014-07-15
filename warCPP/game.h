@@ -6,6 +6,7 @@
 #include "selectplayerwindows.h"
 #include "selectnationpowerwindows.h"
 #include "mapwindow.h"
+#include "displayendgame.h"
 #include "gamemap.h"
 #include "player.h"
 #include "nation.h"
@@ -25,7 +26,6 @@ public:
     //Demarre une nouvelle partie
     void start();
     void selectionPlayer(bool IA);
-    void randomlySetPower(player ps[]);
     void conquere();
     void endRound();
     void endGame();
@@ -58,6 +58,7 @@ private:
     MainWindow *mainW;
     SelectPlayerWindows * selectPlayer;
     SelectNationPowerWindows * selectNationPower;
+    DisplayEndGame * displayEndGame;
     gameMap * map;
     QString savJoueur2;
 

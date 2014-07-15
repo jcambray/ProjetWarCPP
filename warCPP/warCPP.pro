@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     selectnationpowerwindows.cpp \
     selectplayerwindows.cpp \
     area.cpp \
-    mapwindow.cpp
+    mapwindow.cpp \
+    displayendgame.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -45,14 +46,16 @@ HEADERS  += mainwindow.h \
     selectnationpowerwindows.h \
     selectplayerwindows.h \
     area.h \
-    mapwindow.h
+    mapwindow.h \
+    displayendgame.h
 
 FORMS    += mainwindow.ui \
     selectnationpowerwindows.ui \
     selectplayerwindows.ui \
 	lexique.ui \
     mapwindow.ui \
-    Lexique.ui
+    Lexique.ui \
+    displayendgame.ui
 
 OTHER_FILES += \
         images/fondAcceuil.jpg \

@@ -15,6 +15,7 @@ game::game()
     savJoueur2 = tr("");
     selectPlayer = new SelectPlayerWindows();
     selectNationPower = new SelectNationPowerWindows();
+    displayEndGame = new DisplayEndGame();
     p1 = new player();
     p2 = new player();
     nation = new Nation();
@@ -223,14 +224,21 @@ void game::pushRetour()
 
 void game::pushQuitter()
 {
+    map->mapView->close();
     selectNationPower->close();
+    mainW = NULL;
+    map = NULL;
+    vsIA = NULL;
     savJoueur2 = tr("");
     selectPlayer = new SelectPlayerWindows();
     selectNationPower = new SelectNationPowerWindows();
+    displayEndGame = new DisplayEndGame();
     p1 = new player();
     p2 = new player();
     nation = new Nation();
     power = new Power();
+    nbTour = 1;
+    deployStep = false;
 }
 
 void game::currentGame(player *currentPlayer, player *secondPlayer)
@@ -270,13 +278,6 @@ void game::currentGame(player *currentPlayer, player *secondPlayer)
      }
 }
 
-
-void game::randomlySetPower(player ps[]){
-
-
-
-}
-
 void game::conquere(){
 
 }
@@ -302,21 +303,23 @@ void game::endRound(player* p){
 
 void game::endGame(){
 
-
+    QObject::connect(displayEndGame,SIGNAL(quitterEndGame()),this,SLOT(pushQuitter()));
     if(p1->getScore()>p2->getScore())
     {
-        QString score = QString::number(p1->getScore());
-        QMessageBox::information(this, tr("Fin de la partie"),p1->getName()+tr(", Vous remportez la partie avec un score de ")+score+tr(" pièce(s) d'or"));
+        displayEndGame->SetDisplayEndGame(p1,p2);
+        displayEndGame->show();
     }
    else if (p1->getScore()<p2->getScore())
     {
-        QString score = QString::number(p2->getScore());
-        QMessageBox::information(this, tr("Fin de la partie"),p2->getName()+tr(", Vous remportez la partie avec un score de ")+score+tr(" pièce(s) d'or"));
+        displayEndGame->SetDisplayEndGame(p2,p1);
+        displayEndGame->show();
     }
     else
     {
         QMessageBox::information(this, tr("Fin de la partie"),p2->getName()+tr(" et ")+p1->getName()+tr(", Vous êtes en égalité."));
+        pushQuitter();
     }
+
 }
 
 

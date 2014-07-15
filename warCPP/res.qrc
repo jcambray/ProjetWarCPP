@@ -31,6 +31,11 @@
         <file>images/power/1.jpg</file>
         <file>images/power/2.jpg</file>
         <file>images/power/3.jpg</file>
+        <file>images/token/tokenAmazones.png</file>
+        <file>images/token/tokenHommesRats.png</file>
+        <file>images/token/tokenHumains.png</file>
+        <file>images/token/tokenSquelette.png</file>
+        <file>images/imageEndGame.png</file>
     </qresource>
     <qresource prefix="/">
         <file>images/Or.png</file>

@@ -59,7 +59,6 @@ void MapWindow::displayNewPlayer(player * p1, player * p2)
 void MapWindow::quitter()
 {
     emit quitterGame();
-    this->close();
 }
 
 void MapWindow::printArea(){
