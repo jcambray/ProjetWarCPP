@@ -207,7 +207,10 @@ void game::upDateJoueur(QString qsnamePlayer,QString qsnation, QString qspower)
         power = new Power(qspower,4,2);
     }
 
+    player * savP1 = p1;
     p1 = new player(2,qsnamePlayer,nation,power);
+    p1->setScore(savP1->getScore());
+    delete savP1;
     p1->setToken(p1->nat->getToken()+p1->pow->getToken());
 
     selectNationPower->close();
@@ -244,6 +247,9 @@ void game::pushQuitter()
 
 void game::currentGame(player *currentPlayer, player *secondPlayer)
 {
+    qDebug()<<"Tour : "<<nbTour;
+    qDebug()<<p1->getName()<<" "<<p1->getScore();
+    qDebug()<<p2->getName()<<" "<<p2->getScore();
     p1 = currentPlayer;
     p2 = secondPlayer;
 

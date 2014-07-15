@@ -36,7 +36,7 @@ public:
     QPoint getSpawnPos();
     int nbTour;
     bool deployStep;
-    gameMap * map;
+
 
 
 public slots:
@@ -61,12 +61,10 @@ private:
     MainWindow *mainW;
     SelectPlayerWindows * selectPlayer;
     SelectNationPowerWindows * selectNationPower;
-<<<<<<< HEAD
 
-=======
     DisplayEndGame * displayEndGame;
     gameMap * map;
->>>>>>> origin/master
+
     QString savJoueur2;
 
 };
