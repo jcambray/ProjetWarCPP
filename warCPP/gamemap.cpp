@@ -71,13 +71,13 @@ void gameMap::initToken(player *p,const QPoint spawnPos, int nbToken)
     for(int i = 0;i < nbToken;i++)
     {
     if(p->nat->getName() == tr("Amazones"))
-        addItem(new mapItem(QPixmap(tr("images\\token\\tokenAmazones.png")),p,this),spawnPos.x(),spawnPos.y());
+        addItem(new mapItem(QPixmap(tr(":/fond/images/token/tokenAmazones.png")),p,this),spawnPos.x(),spawnPos.y());
     if(p->nat->getName() == tr("Humains"))
-          addItem(new mapItem(QPixmap(tr("images\\token\\tokenHumains.png")),p,this),spawnPos.x(),spawnPos.y());
+          addItem(new mapItem(QPixmap(tr(":/fond/images/token/tokenHumains.png")),p,this),spawnPos.x(),spawnPos.y());
     if(p->nat->getName() == tr("Squelettes"))
-        addItem(new mapItem(QPixmap(tr("images\\token\\tokenSquelette.png")),p,this),spawnPos.x(),spawnPos.y());
+        addItem(new mapItem(QPixmap(tr(":/fond/images/token/tokenSquelette.png")),p,this),spawnPos.x(),spawnPos.y());
      if(p->nat->getName() == tr("Hommes-Rats"))
-        addItem(new mapItem(QPixmap(tr("images\\token\\tokenHommesRats.png")),p,this),spawnPos.x(),spawnPos.y());
+        addItem(new mapItem(QPixmap(tr(":/fond/images/token/tokenHommesRats.png")),p,this),spawnPos.x(),spawnPos.y());
     }
 }
 
