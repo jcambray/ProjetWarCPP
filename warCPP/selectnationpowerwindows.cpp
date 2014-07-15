@@ -1,5 +1,6 @@
 #include "selectnationpowerwindows.h"
 #include "ui_selectnationpowerwindows.h"
+#include "game.h"
 
 SelectNationPowerWindows::SelectNationPowerWindows(QWidget *parent) :
     QDialog(parent),
@@ -179,3 +180,4 @@ void SelectNationPowerWindows::setDebutGame(bool val)
 {
     debutGame = val;
 }
+

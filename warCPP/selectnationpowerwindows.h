@@ -9,6 +9,7 @@
 #include "glossary.h"
 
 
+
 namespace Ui {
 class SelectNationPowerWindows;
 }

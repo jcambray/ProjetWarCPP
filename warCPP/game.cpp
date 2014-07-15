@@ -211,6 +211,7 @@ void game::upDateJoueur(QString qsnamePlayer,QString qsnation, QString qspower)
 
     selectNationPower->close();
     map->mapView->displayNewPlayer(p1,p2);
+    map->initToken(p1,getSpawnPos(),p1->getToken());
     currentGame(p1,p2);
 
 }
@@ -337,3 +338,10 @@ player * game::getP2()
     return p2;
 }
 
+QPoint game::getSpawnPos()
+{
+    if(nbTour % 2 == 0)
+       return QPoint(-100,400);
+    else
+       return QPoint(-100,200);
+}

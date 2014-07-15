@@ -33,8 +33,10 @@ public:
     void currentGame(player *currentPlayer, player *secondPlayer);
     player * getP1();
     player * getP2();
+    QPoint getSpawnPos();
     int nbTour;
     bool deployStep;
+    gameMap * map;
 
 
 public slots:
@@ -50,6 +52,7 @@ public slots:
     void decline(player *p);
 
 
+
 private:
     player *p1,*p2;
     Nation *nation;
@@ -58,7 +61,7 @@ private:
     MainWindow *mainW;
     SelectPlayerWindows * selectPlayer;
     SelectNationPowerWindows * selectNationPower;
-    gameMap * map;
+
     QString savJoueur2;
 
 };
