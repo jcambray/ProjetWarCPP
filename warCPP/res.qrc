@@ -36,6 +36,7 @@
         <file>images/token/tokenHumains.png</file>
         <file>images/token/tokenSquelette.png</file>
         <file>images/imageEndGame.png</file>
+        <file>images/WarCpp.ico</file>
     </qresource>
     <qresource prefix="/">
         <file>images/Or.png</file>
