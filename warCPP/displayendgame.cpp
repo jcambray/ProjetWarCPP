@@ -25,5 +25,5 @@ void DisplayEndGame::SetDisplayEndGame(player *winner,player *loser)
     ui->LabelPlayerWin->setText(winner->getName());
     ui->LabelScoreWin->setText(QString::number(winner->getScore()));
     ui->LabelPlayerLose->setText(loser->getName());
-    ui->LabelScoreWin->setText(QString::number(loser->getScore()));
+    ui->LabelScoreLose->setText(QString::number(loser->getScore()));
 }
