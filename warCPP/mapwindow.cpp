@@ -18,7 +18,7 @@ MapWindow::MapWindow(gameMap *m, QWidget *parent) :
     ui->combiJ1->setText(gameM->partie->getP1()->nat->getName()+tr(" ")+gameM->partie->getP1()->pow->getName());
     ui->combiJ2->setText(gameM->partie->getP2()->nat->getName()+tr(" ")+gameM->partie->getP2()->pow->getName());
     setCentralWidget(gameM->viewer);
-    gameM->viewer->viewMap(tr("map//map.tmx"));
+    gameM->viewer->viewMap(tr("map.tmx"));
     gameM->viewer->populateAreas();
     QObject::connect(ui->actionQuitter,SIGNAL(triggered()),this,SLOT(quitter()));
     QObject::connect(ui->actionR_gles,SIGNAL(triggered()),this,SLOT(printRules()));
